@@ -16,6 +16,7 @@ $routes->get('/trainer', 'Trainer::index');
 $routes->get('/trainer/detail', 'Trainer::detail');
 
 $routes->get('/blog', 'Blog::index');
-$routes->get('/faq', 'Faq::index');
+
+$routes->get('/faq', 'FAQ::index');
 
 $routes->get('/home', 'Customer\Home::index');

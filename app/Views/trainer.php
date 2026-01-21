@@ -47,13 +47,13 @@
                             tabindex="-1"
                             class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
                             <li>
-                                <a href="#" class="text-xs font-semibold hover:underline text-primary">HOME</a>
+                                <a href="#" class="text-xs font-semibold hover:underline">HOME</a>
                             </li>
                             <li>
                                 <a href="#" class="text-xs font-semibold">PRODUK</a>
                             </li>
                             <li>
-                                <a href="#" class="text-xs font-semibold">TRAINER</a>
+                                <a href="#" class="text-xs font-semibold text-primary">TRAINER</a>
                             </li>
                             <li>
                                 <a href="#" class="text-xs font-semibold">BLOG</a>
@@ -69,13 +69,13 @@
                     <p class="text-3xl me-3 md:flex hidden">|</p>
                     <ul class="menu menu-horizontal px-1 md:flex hidden">
                         <li>
-                            <a href="#" class="text-xs font-semibold hover:underline text-primary">HOME</a>
+                            <a href="#" class="text-xs font-semibold hover:underline">HOME</a>
                         </li>
                         <li>
                             <a href="#" class="text-xs font-semibold">PRODUK</a>
                         </li>
                         <li>
-                            <a href="#" class="text-xs font-semibold">TRAINER</a>
+                            <a href="#" class="text-xs font-semibold text-primary">TRAINER</a>
                         </li>
                         <li>
                             <a href="#" class="text-xs font-semibold">BLOG</a>

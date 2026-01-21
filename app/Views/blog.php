@@ -47,7 +47,7 @@
                             tabindex="-1"
                             class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
                             <li>
-                                <a href="#" class="text-xs font-semibold hover:underline text-primary">HOME</a>
+                                <a href="#" class="text-xs font-semibold hover:underline">HOME</a>
                             </li>
                             <li>
                                 <a href="#" class="text-xs font-semibold">PRODUK</a>
@@ -56,7 +56,7 @@
                                 <a href="#" class="text-xs font-semibold">TRAINER</a>
                             </li>
                             <li>
-                                <a href="#" class="text-xs font-semibold">BLOG</a>
+                                <a href="#" class="text-xs font-semibold text-primary">BLOG</a>
                             </li>
                             <li>
                                 <a href="#" class="text-xs font-semibold">FAQ</a>
@@ -69,7 +69,7 @@
                     <p class="text-3xl me-3 md:flex hidden">|</p>
                     <ul class="menu menu-horizontal px-1 md:flex hidden">
                         <li>
-                            <a href="#" class="text-xs font-semibold hover:underline text-primary">HOME</a>
+                            <a href="#" class="text-xs font-semibold hover:underline">HOME</a>
                         </li>
                         <li>
                             <a href="#" class="text-xs font-semibold">PRODUK</a>
@@ -78,7 +78,7 @@
                             <a href="#" class="text-xs font-semibold">TRAINER</a>
                         </li>
                         <li>
-                            <a href="#" class="text-xs font-semibold">BLOG</a>
+                            <a href="#" class="text-xs font-semibold text-primary">BLOG</a>
                         </li>
                         <li>
                             <a href="#" class="text-xs font-semibold">FAQ</a>
@@ -180,12 +180,12 @@
                 <div class="col-span-12">
                     <h1 class="text-2xl font-semibold mb-3">Artikel Lainnya</h1>
                 </div>
-                <div class="md:col-span-3 col-span-6">
+                <div class="md:col-span-3 col-span-12">
                     <a href="#" class="card bg-base-100 w-full shadow-sm">
                         <figure>
                             <img
                                 src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
-                                alt="Shoes" class="h-48" />
+                                alt="Shoes" class="h-auto md:h-48 md:w-auto w-full" />
                         </figure>
                         <div class="card-body">
                             <p class="text-xs font-semibold text-primary">Author</p>
@@ -194,12 +194,12 @@
                         </div>
                     </a>
                 </div>
-                <div class="md:col-span-3 col-span-6">
+                <div class="md:col-span-3 col-span-12">
                     <a href="#" class="card bg-base-100 w-full shadow-sm">
                         <figure>
                             <img
                                 src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
-                                alt="Shoes" class="h-48" />
+                                alt="Shoes" class="h-auto md:h-48 md:w-auto w-full" />
                         </figure>
                         <div class="card-body">
                             <p class="text-xs font-semibold text-primary">Author</p>
@@ -208,12 +208,12 @@
                         </div>
                     </a>
                 </div>
-                <div class="md:col-span-3 col-span-6">
+                <div class="md:col-span-3 col-span-12">
                     <a href="#" class="card bg-base-100 w-full shadow-sm">
                         <figure>
                             <img
                                 src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
-                                alt="Shoes" class="h-48" />
+                                alt="Shoes" class="h-auto md:h-48 md:w-auto w-full" />
                         </figure>
                         <div class="card-body">
                             <p class="text-xs font-semibold text-primary">Author</p>
@@ -222,12 +222,12 @@
                         </div>
                     </a>
                 </div>
-                <div class="md:col-span-3 col-span-6">
+                <div class="md:col-span-3 col-span-12">
                     <a href="#" class="card bg-base-100 w-full shadow-sm">
                         <figure>
                             <img
                                 src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
-                                alt="Shoes" class="h-48" />
+                                alt="Shoes" class="h-auto md:h-48 md:w-auto w-full" />
                         </figure>
                         <div class="card-body">
                             <p class="text-xs font-semibold text-primary">Author</p>
@@ -236,12 +236,12 @@
                         </div>
                     </a>
                 </div>
-                <div class="md:col-span-3 col-span-6">
+                <div class="md:col-span-3 col-span-12">
                     <a href="#" class="card bg-base-100 w-full shadow-sm">
                         <figure>
                             <img
                                 src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
-                                alt="Shoes" class="h-48" />
+                                alt="Shoes" class="h-auto md:h-48 md:w-auto w-full" />
                         </figure>
                         <div class="card-body">
                             <p class="text-xs font-semibold text-primary">Author</p>
@@ -250,12 +250,12 @@
                         </div>
                     </a>
                 </div>
-                <div class="md:col-span-3 col-span-6">
+                <div class="md:col-span-3 col-span-12">
                     <a href="#" class="card bg-base-100 w-full shadow-sm">
                         <figure>
                             <img
                                 src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
-                                alt="Shoes" class="h-48" />
+                                alt="Shoes" class="h-auto md:h-48 md:w-auto w-full" />
                         </figure>
                         <div class="card-body">
                             <p class="text-xs font-semibold text-primary">Author</p>
@@ -264,12 +264,12 @@
                         </div>
                     </a>
                 </div>
-                <div class="md:col-span-3 col-span-6">
+                <div class="md:col-span-3 col-span-12">
                     <a href="#" class="card bg-base-100 w-full shadow-sm">
                         <figure>
                             <img
                                 src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
-                                alt="Shoes" class="h-48" />
+                                alt="Shoes" class="h-auto md:h-48 md:w-auto w-full" />
                         </figure>
                         <div class="card-body">
                             <p class="text-xs font-semibold text-primary">Author</p>
@@ -278,12 +278,12 @@
                         </div>
                     </a>
                 </div>
-                <div class="md:col-span-3 col-span-6">
+                <div class="md:col-span-3 col-span-12">
                     <a href="#" class="card bg-base-100 w-full shadow-sm">
                         <figure>
                             <img
                                 src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
-                                alt="Shoes" class="h-48" />
+                                alt="Shoes" class="h-auto md:h-48 md:w-auto w-full" />
                         </figure>
                         <div class="card-body">
                             <p class="text-xs font-semibold text-primary">Author</p>

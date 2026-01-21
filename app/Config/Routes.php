@@ -8,9 +8,13 @@ use CodeIgniter\Router\RouteCollection;
 
 // ALL ROLE
 $routes->get('/', 'Home::index');
+
 $routes->get('/produk', 'Produk::index');
 $routes->get('/produk/detail', 'Produk::detail');
+
 $routes->get('/trainer', 'Trainer::index');
+$routes->get('/trainer/detail', 'Trainer::detail');
+
 $routes->get('/blog', 'Blog::index');
 $routes->get('/faq', 'Faq::index');
 

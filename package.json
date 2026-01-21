@@ -1,0 +1,18 @@
+{
+  "scripts": {
+    "dev": "npm run tailwind:watch",
+    "prod": "npm run tailwind:build",
+    "tailwind:watch": "tailwindcss -i resources/css/input.css -o public/assets/css/output.css --watch",
+    "tailwind:build": "tailwindcss -i resources/css/input.css -o public/assets/css/output.css --minify",
+    "serve": "php spark serve",
+    "start": "concurrently --kill-others \"npm run dev\" \"npm run serve\""
+  },
+  "dependencies": {
+    "@tailwindcss/cli": "^4.1.18",
+    "tailwindcss": "^4.1.18"
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.1",
+    "daisyui": "^5.5.14"
+  }
+}

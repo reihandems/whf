@@ -1,0 +1,49 @@
+@import "tailwindcss";
+
+@plugin "daisyui" {
+    themes: light, dark --default;
+}
+
+/* KONDISI LIGHT MODE */
+:root,
+[data-theme='light'] {
+    --logo-url: url('/assets/img/logo.svg');
+    --qris-url: url('/assets/img/qris.svg');
+    --gopay-url: url('/assets/img/gopay.svg');
+}
+
+/* KONDISI DARK MODE */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --logo-url: url('/assets/img/logo-light.png');
+        --qris-url: url('/assets/img/qris-light.png');
+        --gopay-url: url('/assets/img/gopay-light.png');
+    }
+}
+
+[data-theme='dark'] {
+    --logo-url: url('/assets/img/logo-light.png');
+    --qris-url: url('/assets/img/qris-light.png');
+    --gopay-url: url('/assets/img/gopay-light.png');
+}
+
+/* TERAPKAN KE CLASS - PERBAIKAN DI SINI */
+.dynamic-logo {
+    background-image: var(--logo-url);
+    background-size: cover;
+    background-position: center;
+}
+
+.dynamic-qris {
+    background-image: var(--qris-url);
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.dynamic-gopay {
+    background-image: var(--gopay-url);
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+@import "./custom.css";

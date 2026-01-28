@@ -47,3 +47,7 @@
 }
 
 @import "./custom.css";
+
+@theme {
+    --color-primary-500: #3152F9;
+}

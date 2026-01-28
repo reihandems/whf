@@ -117,7 +117,7 @@
         <div class="col-span-12 text-center">
             <div class="px-8 md:px-12 py-8">
                 <h1 class="text-4xl font-semibold">Frequently Asked <span class="text-primary">Questions</span></h1>
-                <div class="w-140 mx-auto mt-5">
+                <div class="w-140 mx-auto mt-8">
                     <div class="collapse bg-base-300 border-base-300 border rounded-t-xl rounded-b-none text-start">
                         <input type="checkbox" class="pe-2" />
                         <div class="collapse-title font-semibold">

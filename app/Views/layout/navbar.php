@@ -10,19 +10,19 @@
                 tabindex="-1"
                 class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
                 <li>
-                    <a href="#" class="text-xs font-semibold hover:underline text-primary">HOME</a>
+                    <a href="<?= base_url('/user/home') ?>" class="text-xs <?= ($menu == 'home') ? 'hover:underline text-primary font-bold' : 'text-xs font-semibold' ?>">HOME</a>
                 </li>
                 <li>
-                    <a href="#" class="text-xs font-semibold">PRODUK</a>
+                    <a href="<?= base_url('/user/produk') ?>" class="text-xs <?= ($menu == 'produk') ? 'hover:underline text-primary font-bold' : 'text-xs font-semibold' ?>">PRODUK</a>
                 </li>
                 <li>
-                    <a href="#" class="text-xs font-semibold">TRAINER</a>
+                    <a href="<?= base_url('/user/trainer') ?>" class="text-xs <?= ($menu == 'trainer') ? 'hover:underline text-primary font-bold' : 'text-xs font-semibold' ?>">TRAINER</a>
                 </li>
                 <li>
-                    <a href="#" class="text-xs font-semibold">BLOG</a>
+                    <a href="<?= base_url('/user/blog') ?>" class="text-xs <?= ($menu == 'blog') ? 'hover:underline text-primary font-bold' : 'text-xs font-semibold' ?>">BLOG</a>
                 </li>
                 <li>
-                    <a href="#" class="text-xs font-semibold">FAQ</a>
+                    <a href="<?= base_url('/user/faq') ?>" class="text-xs <?= ($menu == 'faq') ? 'hover:underline text-primary font-bold' : 'text-xs font-semibold' ?>">FAQ</a>
                 </li>
             </ul>
         </div>
@@ -32,19 +32,19 @@
         <p class="text-3xl me-3 md:flex hidden">|</p>
         <ul class="menu menu-horizontal px-1 md:flex hidden">
             <li>
-                <a href="#" class="text-xs font-semibold hover:underline text-primary">HOME</a>
+                <a href="<?= base_url('/user/home') ?>" class="text-xs <?= ($menu == 'home') ? 'hover:underline text-primary font-bold' : 'text-xs font-semibold' ?>">HOME</a>
             </li>
             <li>
-                <a href="#" class="text-xs font-semibold">PRODUK</a>
+                <a href="<?= base_url('/user/produk') ?>" class="text-xs <?= ($menu == 'produk') ? 'hover:underline text-primary font-bold' : 'text-xs font-semibold' ?>">PRODUK</a>
             </li>
             <li>
-                <a href="#" class="text-xs font-semibold">TRAINER</a>
+                <a href="<?= base_url('/user/trainer') ?>" class="text-xs <?= ($menu == 'trainer') ? 'hover:underline text-primary font-bold' : 'text-xs font-semibold' ?>" class="text-xs font-semibold">TRAINER</a>
             </li>
             <li>
-                <a href="#" class="text-xs font-semibold">BLOG</a>
+                <a href="<?= base_url('/user/blog') ?>" class="text-xs <?= ($menu == 'blog') ? 'hover:underline text-primary font-bold' : 'text-xs font-semibold' ?>" class="text-xs font-semibold">BLOG</a>
             </li>
             <li>
-                <a href="#" class="text-xs font-semibold">FAQ</a>
+                <a href="<?= base_url('/user/faq') ?>" class="text-xs <?= ($menu == 'faq') ? 'hover:underline text-primary font-bold' : 'text-xs font-semibold' ?>" class="text-xs font-semibold">FAQ</a>
             </li>
         </ul>
     </div>
@@ -63,15 +63,15 @@
             </svg>
             <input type="search" required placeholder="Search" />
         </label>
-        <a href="#" class="mx-3">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
-                <path d="M2.25 2.25a.75.75 0 0 0 0 1.5h1.386c.17 0 .318.114.362.278l2.558 9.592a3.752 3.752 0 0 0-2.806 3.63c0 .414.336.75.75.75h15.75a.75.75 0 0 0 0-1.5H5.378A2.25 2.25 0 0 1 7.5 15h11.218a.75.75 0 0 0 .674-.421 60.358 60.358 0 0 0 2.96-7.228.75.75 0 0 0-.525-.965A60.864 60.864 0 0 0 5.68 4.509l-.232-.867A1.875 1.875 0 0 0 3.636 2.25H2.25ZM3.75 20.25a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0ZM16.5 20.25a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0Z" />
+        <a href="<?= base_url(relativePath: '/user/cart') ?>" class="mx-3 <?= ($menu == 'cart') ? 'text-primary' : '' ?>">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                <path fill="currentColor" d="M17 18c-1.11 0-2 .89-2 2a2 2 0 0 0 2 2a2 2 0 0 0 2-2a2 2 0 0 0-2-2M1 2v2h2l3.6 7.59l-1.36 2.45c-.15.28-.24.61-.24.96a2 2 0 0 0 2 2h12v-2H7.42a.25.25 0 0 1-.25-.25q0-.075.03-.12L8.1 13h7.45c.75 0 1.41-.42 1.75-1.03l3.58-6.47c.07-.16.12-.33.12-.5a1 1 0 0 0-1-1H5.21l-.94-2M7 18c-1.11 0-2 .89-2 2a2 2 0 0 0 2 2a2 2 0 0 0 2-2a2 2 0 0 0-2-2" />
             </svg>
         </a>
-        <a href="#">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
-                <path fill-rule="evenodd" d="M7.5 6a4.5 4.5 0 1 1 9 0 4.5 4.5 0 0 1-9 0ZM3.751 20.105a8.25 8.25 0 0 1 16.498 0 .75.75 0 0 1-.437.695A18.683 18.683 0 0 1 12 22.5c-2.786 0-5.433-.608-7.812-1.7a.75.75 0 0 1-.437-.695Z" clip-rule="evenodd" />
-            </svg>
+        <a href="#" class="avatar">
+            <div class="w-10 rounded-full">
+                <img src="https://img.daisyui.com/images/profile/demo/yellingcat@192.webp" />
+            </div>
         </a>
     </div>
 </div>

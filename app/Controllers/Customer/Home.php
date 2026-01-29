@@ -11,6 +11,6 @@ class Home extends BaseController
             'menu' => 'home',
         ];
 
-        return view('pages/customer/view_home', $data);
+        return view('pages/customer/index', $data);
     }
 }

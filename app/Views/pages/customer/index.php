@@ -27,7 +27,7 @@
     </div>
     <div class="grid grid-cols-12 md:gap-8 gap-6 px-8 md:px-12 mt-12">
         <div class="md:col-span-3 col-span-6">
-            <a href="#" class="card bg-base-100 w-full shadow-sm">
+            <a href="#" class="card bg-base-100 w-full shadow-sm hover:shadow-lg hover:shadow-blue-500/50">
                 <figure>
                     <img
                         src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"

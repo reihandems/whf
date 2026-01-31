@@ -45,3 +45,22 @@ $routes->get('user/pesanan/detail', 'Customer\DetailPesanan::index');
 $routes->get('user/booking', 'Customer\Booking::index');
 $routes->get('user/booking/detail', 'Customer\DetailBooking::index');
 $routes->get('user/profil', 'Customer\Profil::index');
+
+
+// ADMIN
+$routes->get('admin/dashboard', 'Admin\Dashboard::index');
+$routes->get('admin/data-produk', 'Admin\Produk::index');
+$routes->get('admin/data-customer', 'Admin\Customer::index');
+$routes->get('admin/data-trainer', 'Admin\Trainer::index');
+$routes->get('admin/data-supplier', 'Admin\Supplier::index');
+
+// SUPPLIER
+$routes->get('supplier/dashboard', 'Supplier\Dashboard::index');
+$routes->get('supplier/pesanan', 'Supplier\Pesanan::index');
+$routes->get('supplier/pesanan/detail', 'Supplier\DetailPesanan::index');
+$routes->get('supplier/profil', 'Supplier\Profil::index');
+
+// TRAINER
+$routes->get('trainer/dashboard', 'Trainer\Dashboard::index');
+$routes->get('trainer/booking', 'Trainer\Booking::index');
+$routes->get('trainer/profil', 'Trainer\Profil::index');

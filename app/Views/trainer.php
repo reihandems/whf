@@ -118,7 +118,7 @@
         <div class="col-span-12 text-center mt-10">
             <h1 class="text-2xl md:text-4xl font-bold">Temukan Personal Trainer Terbaikmu</h1>
             <p class="text-gray-500 font-semibold mt-2">Pilih trainer sesuai kebutuhan dan jadwalmu</p>
-            <img src="<?= base_url('assets/img/trainer-hero.png') ?>" alt="hero" class="h-96 mx-0 md:mx-auto">
+            <img src="<?= base_url('assets/img/trainer-hero.png') ?>" alt="hero" class="h-auto md:h-96 mx-0 md:mx-auto">
         </div>
         <div class="col-span-12">
             <div class="grid grid-cols-12">

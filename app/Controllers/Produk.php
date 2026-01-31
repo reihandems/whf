@@ -5,10 +5,18 @@ namespace App\Controllers;
 class Produk extends BaseController
 {
     public function index() {
-        return view('produk');
+        $data = [
+            'menu' => 'produk'
+        ];
+
+        return view('produk', $data);
     }
 
     public function detail() {
-        return view('detail');
+        $data = [
+            'menu' => 'produk'
+        ];
+
+        return view('detail', $data);
     }
 }

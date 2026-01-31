@@ -8,6 +8,7 @@ use CodeIgniter\Router\RouteCollection;
 
 // -- ALL ROLE - LANDING PAGE --
 $routes->get('/', 'Home::index');
+$routes->get('/home', 'Home::index');
 
 // ALL ROLE - PRODUK
 $routes->get('/produk', 'Produk::index');
@@ -37,3 +38,10 @@ $routes->get('user/trainer/detail', 'Customer\DetailTrainer::index');
 $routes->get('user/blog', 'Customer\Blog::index');
 $routes->get('user/faq', 'Customer\FAQ::index');
 $routes->get('user/cart', 'Customer\Cart::index');
+$routes->get('user/checkout', 'Customer\Checkout::index');
+$routes->get('user/checkout-trainer', 'Customer\CheckoutTrainer::index');
+$routes->get('user/pesanan', 'Customer\Pesanan::index');
+$routes->get('user/pesanan/detail', 'Customer\DetailPesanan::index');
+$routes->get('user/booking', 'Customer\Booking::index');
+$routes->get('user/booking/detail', 'Customer\DetailBooking::index');
+$routes->get('user/profil', 'Customer\Profil::index');

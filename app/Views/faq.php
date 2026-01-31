@@ -47,19 +47,19 @@
                             tabindex="-1"
                             class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
                             <li>
-                                <a href="#" class="text-xs font-semibold hover:underline">HOME</a>
+                                <a href="<?= base_url('/home') ?>" class="text-xs <?= ($menu == 'home') ? 'hover:underline text-primary font-bold' : 'text-xs font-semibold' ?>">HOME</a>
                             </li>
                             <li>
-                                <a href="#" class="text-xs font-semibold">PRODUK</a>
+                                <a href="<?= base_url('/produk') ?>" class="text-xs <?= ($menu == 'produk') ? 'hover:underline text-primary font-bold' : 'text-xs font-semibold' ?>">PRODUK</a>
                             </li>
                             <li>
-                                <a href="#" class="text-xs font-semibold">TRAINER</a>
+                                <a href="<?= base_url('/trainer') ?>" class="text-xs <?= ($menu == 'trainer') ? 'hover:underline text-primary font-bold' : 'text-xs font-semibold' ?>">TRAINER</a>
                             </li>
                             <li>
-                                <a href="#" class="text-xs font-semibold">BLOG</a>
+                                <a href="<?= base_url('/blog') ?>" class="text-xs <?= ($menu == 'blog') ? 'hover:underline text-primary font-bold' : 'text-xs font-semibold' ?>">BLOG</a>
                             </li>
                             <li>
-                                <a href="#" class="text-xs font-semibold text-primary">FAQ</a>
+                                <a href="<?= base_url('/faq') ?>" class="text-xs <?= ($menu == 'faq') ? 'hover:underline text-primary font-bold' : 'text-xs font-semibold' ?>">FAQ</a>
                             </li>
                         </ul>
                     </div>
@@ -69,19 +69,19 @@
                     <p class="text-3xl me-3 md:flex hidden">|</p>
                     <ul class="menu menu-horizontal px-1 md:flex hidden">
                         <li>
-                            <a href="#" class="text-xs font-semibold hover:underline">HOME</a>
+                            <a href="<?= base_url('/home') ?>" class="text-xs <?= ($menu == 'home') ? 'hover:underline text-primary font-bold' : 'text-xs font-semibold' ?>">HOME</a>
                         </li>
                         <li>
-                            <a href="#" class="text-xs font-semibold">PRODUK</a>
+                            <a href="<?= base_url('/produk') ?>" class="text-xs <?= ($menu == 'produk') ? 'hover:underline text-primary font-bold' : 'text-xs font-semibold' ?>">PRODUK</a>
                         </li>
                         <li>
-                            <a href="#" class="text-xs font-semibold">TRAINER</a>
+                            <a href="<?= base_url('/trainer') ?>" class="text-xs <?= ($menu == 'trainer') ? 'hover:underline text-primary font-bold' : 'text-xs font-semibold' ?>" class="text-xs font-semibold">TRAINER</a>
                         </li>
                         <li>
-                            <a href="#" class="text-xs font-semibold">BLOG</a>
+                            <a href="<?= base_url('/blog') ?>" class="text-xs <?= ($menu == 'blog') ? 'hover:underline text-primary font-bold' : 'text-xs font-semibold' ?>" class="text-xs font-semibold">BLOG</a>
                         </li>
                         <li>
-                            <a href="#" class="text-xs font-semibold text-primary">FAQ</a>
+                            <a href="<?= base_url('/faq') ?>" class="text-xs <?= ($menu == 'faq') ? 'hover:underline text-primary font-bold' : 'text-xs font-semibold' ?>" class="text-xs font-semibold">FAQ</a>
                         </li>
                     </ul>
                 </div>
@@ -113,112 +113,113 @@
                 </div>
             </div>
         </div>
+
         <!-- Content -->
         <div class="col-span-12 text-center">
             <div class="px-8 md:px-12 py-8">
                 <h1 class="text-4xl font-semibold">Frequently Asked <span class="text-primary">Questions</span></h1>
-                <div class="w-140 mx-auto mt-8">
-                    <div class="collapse bg-base-300 border-base-300 border rounded-t-xl rounded-b-none text-start">
-                        <input type="checkbox" class="pe-2" />
-                        <div class="collapse-title font-semibold">
-                            <div class="flex flex-row items-center justify-between">
-                                <p>Apa itu WHF?</p>
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                <div class="md:w-140 w-auto mx-auto mt-8">
+                    <div class="collapse bg-base-300 border-base-300 border rounded-t-xl rounded-b-none">
+                        <input type="checkbox" class="w-full px-0" />
+                        <div class="collapse-title font-semibold flex flex-row items-center justify-between w-full px-8">
+                            <p>Apa itu WHF?</p>
+                            <div class="w-6 h-6">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                    <path fill="currentColor" d="M11 13H6q-.425 0-.712-.288T5 12t.288-.712T6 11h5V6q0-.425.288-.712T12 5t.713.288T13 6v5h5q.425 0 .713.288T19 12t-.288.713T18 13h-5v5q0 .425-.288.713T12 19t-.712-.288T11 18z" />
                                 </svg>
                             </div>
                         </div>
-                        <div class="collapse-content text-sm">
+                        <div class="collapse-content px-8 text-sm text-start">
                             Click the "Sign Up" button in the top right corner and follow the registration process.
                         </div>
                     </div>
 
-                    <div class="collapse bg-base-300 border-base-300 border rounded-none text-start">
-                        <input type="checkbox" class="pe-2" />
-                        <div class="collapse-title font-semibold">
-                            <div class="flex flex-row items-center justify-between">
-                                <p>Apakah saya harus membuat akun untuk berbelanja?</p>
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                    <div class="collapse bg-base-300 rounded-none">
+                        <input type="checkbox" class="w-full px-0" />
+                        <div class="collapse-title font-semibold flex flex-row items-center justify-between w-full px-8">
+                            <p class="text-start">Apakah saya harus membuat akun untuk berbelanja?</p>
+                            <div class="w-6 h-6">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                    <path fill="currentColor" d="M11 13H6q-.425 0-.712-.288T5 12t.288-.712T6 11h5V6q0-.425.288-.712T12 5t.713.288T13 6v5h5q.425 0 .713.288T19 12t-.288.713T18 13h-5v5q0 .425-.288.713T12 19t-.712-.288T11 18z" />
                                 </svg>
                             </div>
                         </div>
-                        <div class="collapse-content text-sm">
+                        <div class="collapse-content px-8 text-sm text-start">
                             Click the "Sign Up" button in the top right corner and follow the registration process.
                         </div>
                     </div>
 
-                    <div class="collapse bg-base-300 border-base-300 border rounded-none text-start">
-                        <input type="checkbox" class="pe-2" />
-                        <div class="collapse-title font-semibold">
-                            <div class="flex flex-row items-center justify-between">
-                                <p>Metode pembayaran apa saja yang tersedia?</p>
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                    <div class="collapse bg-base-300 rounded-none">
+                        <input type="checkbox" class="w-full px-0" />
+                        <div class="collapse-title font-semibold flex flex-row items-center justify-between w-full px-8">
+                            <p class="text-start">Metode pembayaran apa saja yang tersedia?</p>
+                            <div class="w-6 h-6">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                    <path fill="currentColor" d="M11 13H6q-.425 0-.712-.288T5 12t.288-.712T6 11h5V6q0-.425.288-.712T12 5t.713.288T13 6v5h5q.425 0 .713.288T19 12t-.288.713T18 13h-5v5q0 .425-.288.713T12 19t-.712-.288T11 18z" />
                                 </svg>
                             </div>
                         </div>
-                        <div class="collapse-content text-sm">
+                        <div class="collapse-content px-8 text-sm text-start">
                             Click the "Sign Up" button in the top right corner and follow the registration process.
                         </div>
                     </div>
 
-                    <div class="collapse bg-base-300 border-base-300 border rounded-none text-start">
-                        <input type="checkbox" class="pe-2" />
-                        <div class="collapse-title font-semibold">
-                            <div class="flex flex-row items-center justify-between">
-                                <p>Berapa lama waktu pengiriman pesanan saya?</p>
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                    <div class="collapse bg-base-300 rounded-none">
+                        <input type="checkbox" class="w-full px-0" />
+                        <div class="collapse-title font-semibold flex flex-row items-center justify-between w-full px-8">
+                            <p class="text-start">Berapa lama waktu pengiriman pesanan saya?</p>
+                            <div class="w-6 h-6">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                    <path fill="currentColor" d="M11 13H6q-.425 0-.712-.288T5 12t.288-.712T6 11h5V6q0-.425.288-.712T12 5t.713.288T13 6v5h5q.425 0 .713.288T19 12t-.288.713T18 13h-5v5q0 .425-.288.713T12 19t-.712-.288T11 18z" />
                                 </svg>
                             </div>
                         </div>
-                        <div class="collapse-content text-sm">
+                        <div class="collapse-content px-8 text-sm text-start">
                             Click the "Sign Up" button in the top right corner and follow the registration process.
                         </div>
                     </div>
 
-                    <div class="collapse bg-base-300 border-base-300 border rounded-none text-start">
-                        <input type="checkbox" class="pe-2" />
-                        <div class="collapse-title font-semibold">
-                            <div class="flex flex-row items-center justify-between">
-                                <p>Bagaimana cara melacak pesanan saya?</p>
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                    <div class="collapse bg-base-300 rounded-none">
+                        <input type="checkbox" class="w-full px-0" />
+                        <div class="collapse-title font-semibold flex flex-row items-center justify-between w-full px-8">
+                            <p class="text-start">Bagaimana cara melacak pesanan saya?</p>
+                            <div class="w-6 h-6">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                    <path fill="currentColor" d="M11 13H6q-.425 0-.712-.288T5 12t.288-.712T6 11h5V6q0-.425.288-.712T12 5t.713.288T13 6v5h5q.425 0 .713.288T19 12t-.288.713T18 13h-5v5q0 .425-.288.713T12 19t-.712-.288T11 18z" />
                                 </svg>
                             </div>
                         </div>
-                        <div class="collapse-content text-sm">
+                        <div class="collapse-content px-8 text-sm text-start">
                             Click the "Sign Up" button in the top right corner and follow the registration process.
                         </div>
                     </div>
 
-                    <div class="collapse bg-base-300 border-base-300 border rounded-none text-start">
-                        <input type="checkbox" class="pe-2" />
-                        <div class="collapse-title font-semibold">
-                            <div class="flex flex-row items-center justify-between">
-                                <p>Apakah produk yang dijual 100% original?</p>
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                    <div class="collapse bg-base-300 rounded-none">
+                        <input type="checkbox" class="w-full px-0" />
+                        <div class="collapse-title font-semibold flex flex-row items-center justify-between w-full px-8">
+                            <p class="text-start">Apakah produk yang dijual 100% original?</p>
+                            <div class="w-6 h-6">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                    <path fill="currentColor" d="M11 13H6q-.425 0-.712-.288T5 12t.288-.712T6 11h5V6q0-.425.288-.712T12 5t.713.288T13 6v5h5q.425 0 .713.288T19 12t-.288.713T18 13h-5v5q0 .425-.288.713T12 19t-.712-.288T11 18z" />
                                 </svg>
                             </div>
                         </div>
-                        <div class="collapse-content text-sm">
+                        <div class="collapse-content px-8 text-sm text-start">
                             Click the "Sign Up" button in the top right corner and follow the registration process.
                         </div>
                     </div>
 
-                    <div class="collapse bg-base-300 border-base-300 border rounded-t-none rounded-b-xl text-start">
-                        <input type="checkbox" class="pe-2" />
-                        <div class="collapse-title font-semibold">
-                            <div class="flex flex-row items-center justify-between">
-                                <p>Bagaimana cara menghubungi customer service jika saya butuh bantuan?</p>
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                    <div class="collapse bg-base-300 rounded-b-xl rounded-t-none">
+                        <input type="checkbox" class="w-full px-0" />
+                        <div class="collapse-title font-semibold flex flex-row items-start gap-8 justify-between w-full px-8">
+                            <p class="text-start">Bagaimana cara menghubungi customer service jika saya butuh bantuan?</p>
+                            <div class="w-6 h-6 self-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                    <path fill="currentColor" d="M11 13H6q-.425 0-.712-.288T5 12t.288-.712T6 11h5V6q0-.425.288-.712T12 5t.713.288T13 6v5h5q.425 0 .713.288T19 12t-.288.713T18 13h-5v5q0 .425-.288.713T12 19t-.712-.288T11 18z" />
                                 </svg>
                             </div>
                         </div>
-                        <div class="collapse-content text-sm">
+                        <div class="collapse-content px-8 text-sm text-start">
                             Click the "Sign Up" button in the top right corner and follow the registration process.
                         </div>
                     </div>
@@ -226,6 +227,7 @@
             </div>
         </div>
         <!-- Content -->
+
         <div class="col-span-12">
             <footer class="footer sm:footer-horizontal bg-base-200 text-base-content py-10 px-12">
                 <aside>

@@ -33,6 +33,7 @@
                 </div>
             </div>
         </div>
+
         <!-- Navbar -->
         <div class="col-span-12">
             <div class="navbar bg-base-100 shadow-sm px-6 md:px-12">
@@ -47,19 +48,19 @@
                             tabindex="-1"
                             class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
                             <li>
-                                <a href="#" class="text-xs font-semibold hover:underline">HOME</a>
+                                <a href="<?= base_url('/home') ?>" class="text-xs <?= ($menu == 'home') ? 'hover:underline text-primary font-bold' : 'text-xs font-semibold' ?>">HOME</a>
                             </li>
                             <li>
-                                <a href="#" class="text-xs font-semibold">PRODUK</a>
+                                <a href="<?= base_url('/produk') ?>" class="text-xs <?= ($menu == 'produk') ? 'hover:underline text-primary font-bold' : 'text-xs font-semibold' ?>">PRODUK</a>
                             </li>
                             <li>
-                                <a href="#" class="text-xs font-semibold">TRAINER</a>
+                                <a href="<?= base_url('/trainer') ?>" class="text-xs <?= ($menu == 'trainer') ? 'hover:underline text-primary font-bold' : 'text-xs font-semibold' ?>">TRAINER</a>
                             </li>
                             <li>
-                                <a href="#" class="text-xs font-semibold text-primary">BLOG</a>
+                                <a href="<?= base_url('/blog') ?>" class="text-xs <?= ($menu == 'blog') ? 'hover:underline text-primary font-bold' : 'text-xs font-semibold' ?>">BLOG</a>
                             </li>
                             <li>
-                                <a href="#" class="text-xs font-semibold">FAQ</a>
+                                <a href="<?= base_url('/faq') ?>" class="text-xs <?= ($menu == 'faq') ? 'hover:underline text-primary font-bold' : 'text-xs font-semibold' ?>">FAQ</a>
                             </li>
                         </ul>
                     </div>
@@ -69,19 +70,19 @@
                     <p class="text-3xl me-3 md:flex hidden">|</p>
                     <ul class="menu menu-horizontal px-1 md:flex hidden">
                         <li>
-                            <a href="#" class="text-xs font-semibold hover:underline">HOME</a>
+                            <a href="<?= base_url('/home') ?>" class="text-xs <?= ($menu == 'home') ? 'hover:underline text-primary font-bold' : 'text-xs font-semibold' ?>">HOME</a>
                         </li>
                         <li>
-                            <a href="#" class="text-xs font-semibold">PRODUK</a>
+                            <a href="<?= base_url('/produk') ?>" class="text-xs <?= ($menu == 'produk') ? 'hover:underline text-primary font-bold' : 'text-xs font-semibold' ?>">PRODUK</a>
                         </li>
                         <li>
-                            <a href="#" class="text-xs font-semibold">TRAINER</a>
+                            <a href="<?= base_url('/trainer') ?>" class="text-xs <?= ($menu == 'trainer') ? 'hover:underline text-primary font-bold' : 'text-xs font-semibold' ?>" class="text-xs font-semibold">TRAINER</a>
                         </li>
                         <li>
-                            <a href="#" class="text-xs font-semibold text-primary">BLOG</a>
+                            <a href="<?= base_url('/blog') ?>" class="text-xs <?= ($menu == 'blog') ? 'hover:underline text-primary font-bold' : 'text-xs font-semibold' ?>" class="text-xs font-semibold">BLOG</a>
                         </li>
                         <li>
-                            <a href="#" class="text-xs font-semibold">FAQ</a>
+                            <a href="<?= base_url('/faq') ?>" class="text-xs <?= ($menu == 'faq') ? 'hover:underline text-primary font-bold' : 'text-xs font-semibold' ?>" class="text-xs font-semibold">FAQ</a>
                         </li>
                     </ul>
                 </div>
@@ -113,6 +114,7 @@
                 </div>
             </div>
         </div>
+
         <!-- Content -->
         <div class="col-span-12">
             <div class="grid grid-cols-6 md:grid-cols-12 md:px-12 px-8 py-8 gap-12">
@@ -295,6 +297,7 @@
             </div>
         </div>
         <!-- Content -->
+
         <div class="col-span-12">
             <footer class="footer sm:footer-horizontal bg-base-200 text-base-content py-10 px-12">
                 <aside>

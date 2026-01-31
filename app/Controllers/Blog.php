@@ -6,6 +6,10 @@ use App\Controllers\BaseController;
 
 class Blog extends BaseController {
     public function index() {
-        return view('blog');
+        $data = [
+            'menu' => 'blog'
+        ];
+
+        return view('blog', $data);
     }
 }

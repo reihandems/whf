@@ -6,6 +6,10 @@ use App\Controllers\BaseController;
 
 class FAQ extends BaseController {
     public function index() {
-        return view('faq');
+        $data = [
+            'menu' => 'faq'
+        ];
+
+        return view('faq', $data);
     }
 }

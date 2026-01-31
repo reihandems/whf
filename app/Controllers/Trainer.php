@@ -6,10 +6,18 @@ use App\Controllers\BaseController;
 
 class Trainer extends BaseController {
     public function index() {
-        return view('trainer');
+        $data = [
+            'menu' => 'trainer'
+        ];
+
+        return view('trainer', $data);
     }
 
     public function detail() {
-        return view('detail_trainer');
+        $data = [
+            'menu' => 'trainer'
+        ];
+
+        return view('detail_trainer', $data);
     }
 }

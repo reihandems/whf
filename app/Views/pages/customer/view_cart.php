@@ -1,7 +1,7 @@
 <?= $this->extend('main/customer/view_main') ?>
 <?= $this->section('content') ?>
 <div class="col-span-12">
-    <div class="grid grid-cols-12 px-12 py-6 gap-x-8">
+    <div class="grid grid-cols-12 px-8 md:px-12 py-6 gap-x-8">
         <div class="col-span-12">
             <div class="breadcrumbs text-sm">
                 <ul>

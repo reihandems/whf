@@ -56,9 +56,36 @@ $routes->group('user', ['filter' => 'auth'], function ($routes) {
 $routes->group('admin', ['filter' => 'is_admin'], function ($routes) {
     $routes->get('dashboard', 'Admin\Dashboard::index');
     $routes->get('data-produk', 'Admin\Produk::index');
+    $routes->post('data-produk/store', 'Admin\Produk::store');
+    $routes->post('data-produk/update', 'Admin\Produk::update');
+    $routes->get('data-produk/delete/(:num)', 'Admin\Produk::delete/$1');
+
+    $routes->get('data-kategori', 'Admin\Kategori::index');
+    $routes->post('data-kategori/store', 'Admin\Kategori::store');
+    $routes->post('data-kategori/update', 'Admin\Kategori::update');
+    $routes->get('data-kategori/delete/(:num)', 'Admin\Kategori::delete/$1');
+
+    $routes->get('data-brand', 'Admin\Brand::index');
+    $routes->post('data-brand/store', 'Admin\Brand::store');
+    $routes->post('data-brand/update', 'Admin\Brand::update');
+    $routes->get('data-brand/delete/(:num)', 'Admin\Brand::delete/$1');
+
     $routes->get('data-customer', 'Admin\Customer::index');
+    $routes->get('data-customer/delete/(:num)', 'Admin\Customer::delete/$1');
     $routes->get('data-trainer', 'Admin\Trainer::index');
+    $routes->post('data-trainer/store', 'Admin\Trainer::store');
+    $routes->post('data-trainer/update', 'Admin\Trainer::update');
+    $routes->get('data-trainer/delete/(:num)', 'Admin\Trainer::delete/$1');
+
     $routes->get('data-supplier', 'Admin\Supplier::index');
+    $routes->post('data-supplier/store', 'Admin\Supplier::store');
+    $routes->post('data-supplier/update', 'Admin\Supplier::update');
+    $routes->get('data-supplier/delete/(:num)', 'Admin\Supplier::delete/$1');
+
+    $routes->get('data-blog', 'Admin\Blog::index');
+    $routes->post('data-blog/store', 'Admin\Blog::store');
+    $routes->post('data-blog/update', 'Admin\Blog::update');
+    $routes->get('data-blog/delete/(:num)', 'Admin\Blog::delete/$1');
 });
 
 // SUPPLIER (Requires Supplier Role)

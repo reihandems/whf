@@ -20,21 +20,31 @@
                 </div>
             </div>
             <h1 class="text-2xl md:text-4xl font-semibold mt-4">Halo,<br>Selamat Datang di <span class="text-primary">WHF</span></h1>
-            <div class="grid grid-cols-1 mt-3">
-                <fieldset class="fieldset">
-                    <legend class="fieldset-legend">Username</legend>
-                    <input type="text" class="input w-96" placeholder="Masukkan Username" />
-                </fieldset>
-                <fieldset class="fieldset">
-                    <legend class="fieldset-legend">Password</legend>
-                    <input type="password" class="input w-96" placeholder="Masukkan Password" />
-                </fieldset>
-                <label class="flex mt-3 gap-2 items-center">
-                    <input type="checkbox" checked="checked" class="checkbox checkbox-sm checkbox-primary" />
-                    <span class="text-sm">Ingat Saya</span>
-                </label>
-            </div>
-            <button class="btn btn-primary mt-5 w-40">Login</button>
+
+            <?php if (session()->getFlashdata('error')): ?>
+                <div class="alert alert-error mt-4">
+                    <span><?= session()->getFlashdata('error') ?></span>
+                </div>
+            <?php endif; ?>
+
+            <form action="<?= base_url('/login-process') ?>" method="POST">
+                <?= csrf_field() ?>
+                <div class="grid grid-cols-1 mt-3">
+                    <fieldset class="fieldset">
+                        <legend class="fieldset-legend">Username</legend>
+                        <input type="text" name="username" class="input w-96" placeholder="Masukkan Username" required />
+                    </fieldset>
+                    <fieldset class="fieldset">
+                        <legend class="fieldset-legend">Password</legend>
+                        <input type="password" name="password" class="input w-96" placeholder="Masukkan Password" required />
+                    </fieldset>
+                    <label class="flex mt-3 gap-2 items-center">
+                        <input type="checkbox" name="remember" class="checkbox checkbox-sm checkbox-primary" />
+                        <span class="text-sm">Ingat Saya</span>
+                    </label>
+                </div>
+                <button type="submit" class="btn btn-primary mt-5 w-40">Login</button>
+            </form>
             <p class="text-sm mt-5">Belum punya akun? <a href="<?= base_url('/register') ?>" class="text-primary font-semibold"> Daftar Sekarang</a></p>
         </div>
         <div class="col-span-12 hidden md:col-span-6 md:block">

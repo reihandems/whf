@@ -28,43 +28,63 @@
                 </a>
             </div>
             <h1 class="text-2xl md:text-4xl font-semibold mt-4">Halo,<br>Silakan Daftar Akun <span class="text-primary">WHF</span></h1>
-            <div class="grid grid-cols-2 gap-x-4 mt-3">
-                <div class="col-span-1">
-                    <fieldset class="fieldset">
-                        <legend class="fieldset-legend">Nama Lengkap</legend>
-                        <input type="text" class="input w-full" placeholder="Masukkan Nama Lengkap" required />
-                    </fieldset>
+
+            <?php if (session()->getFlashdata('error')): ?>
+                <div class="alert alert-error mt-4">
+                    <span><?= session()->getFlashdata('error') ?></span>
                 </div>
-                <div class="col-span-1">
-                    <fieldset class="fieldset">
-                        <legend class="fieldset-legend">Username</legend>
-                        <input type="text" class="input w-full" placeholder="Masukkan Username" required />
-                    </fieldset>
+            <?php endif; ?>
+
+            <?php if (session()->getFlashdata('validation')): ?>
+                <div class="alert alert-warning mt-4">
+                    <ul>
+                        <?php foreach (session()->getFlashdata('validation') as $error): ?>
+                            <li><?= $error ?></li>
+                        <?php endforeach; ?>
+                    </ul>
                 </div>
-                <div class="col-span-1">
-                    <fieldset class="fieldset">
-                        <legend class="fieldset-legend">Email</legend>
-                        <input type="email" class="input w-full" placeholder="Masukkan Email" required />
-                    </fieldset>
+            <?php endif; ?>
+
+            <form action="<?= base_url('/register-process') ?>" method="POST">
+                <?= csrf_field() ?>
+                <div class="grid grid-cols-2 gap-x-4 mt-3">
+                    <div class="col-span-1">
+                        <fieldset class="fieldset">
+                            <legend class="fieldset-legend">Nama Lengkap</legend>
+                            <input type="text" name="nama_lengkap" class="input w-full" placeholder="Masukkan Nama Lengkap" value="<?= old('nama_lengkap') ?>" required />
+                        </fieldset>
+                    </div>
+                    <div class="col-span-1">
+                        <fieldset class="fieldset">
+                            <legend class="fieldset-legend">Username</legend>
+                            <input type="text" name="username" class="input w-full" placeholder="Masukkan Username" value="<?= old('username') ?>" required />
+                        </fieldset>
+                    </div>
+                    <div class="col-span-1">
+                        <fieldset class="fieldset">
+                            <legend class="fieldset-legend">Email</legend>
+                            <input type="email" name="email" class="input w-full" placeholder="Masukkan Email" value="<?= old('email') ?>" required />
+                        </fieldset>
+                    </div>
+                    <div class="col-span-1">
+                        <fieldset class="fieldset">
+                            <legend class="fieldset-legend">Password</legend>
+                            <input type="password" name="password" class="input w-full" placeholder="Masukkan Password" required />
+                        </fieldset>
+                    </div>
+                    <div class="col-span-2">
+                        <fieldset class="fieldset">
+                            <legend class="fieldset-legend">Konfirmasi Password</legend>
+                            <input type="password" name="konfirmasi_password" class="input w-full" placeholder="Masukkan Ulang Password" required />
+                        </fieldset>
+                    </div>
+                    <label class="flex mt-3 gap-2 items-center">
+                        <input type="checkbox" name="terms" class="checkbox checkbox-sm checkbox-primary" required />
+                        <span class="text-sm">Saya setuju dengan S&K</span>
+                    </label>
                 </div>
-                <div class="col-span-1">
-                    <fieldset class="fieldset">
-                        <legend class="fieldset-legend">Password</legend>
-                        <input type="password" class="input w-full" placeholder="Masukkan Password" required />
-                    </fieldset>
-                </div>
-                <div class="col-span-2">
-                    <fieldset class="fieldset">
-                        <legend class="fieldset-legend">Konfirmasi Password</legend>
-                        <input type="password" class="input w-full" placeholder="Masukkan Ulang Password" required />
-                    </fieldset>
-                </div>
-                <label class="flex mt-3 gap-2 items-center">
-                    <input type="checkbox" checked="checked" class="checkbox checkbox-sm checkbox-primary" />
-                    <span class="text-sm">Ingat Saya</span>
-                </label>
-            </div>
-            <button class="btn btn-primary mt-5 w-40">Daftar</button>
+                <button type="submit" class="btn btn-primary mt-5 w-40">Daftar</button>
+            </form>
         </div>
         <div class="col-span-12 hidden md:col-span-6 md:block">
             <div class="bg-login h-full w-full flex items-center justify-center"

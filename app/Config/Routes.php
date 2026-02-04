@@ -12,14 +12,15 @@ $routes->get('/home', 'Home::index');
 
 // ALL ROLE - PRODUK
 $routes->get('/produk', 'Produk::index');
-$routes->get('/produk/detail', 'Produk::detail');
+$routes->get('/produk/detail/(:num)', 'Produk::detail/$1');
 
 // ALL ROLE - TRAINER
 $routes->get('/trainer', 'Trainer::index');
-$routes->get('/trainer/detail', 'Trainer::detail');
+$routes->get('/trainer/detail/(:num)', 'Trainer::detail/$1');
 
 // ALL ROLE - BLOG
 $routes->get('/blog', 'Blog::index');
+$routes->get('/blog/detail/(:any)', 'Blog::detail/$1');
 
 // ALL ROLE - FAQ
 $routes->get('/faq', 'FAQ::index');
@@ -36,12 +37,16 @@ $routes->get('/logout', 'Auth\Auth::logout');
 $routes->group('user', ['filter' => 'auth'], function ($routes) {
     $routes->get('home', 'Customer\Home::index');
     $routes->get('produk', 'Customer\Produk::index');
-    $routes->get('produk/detail', 'Customer\DetailProduk::index');
+    $routes->get('produk/detail/(:num)', 'Customer\DetailProduk::index/$1');
     $routes->get('trainer', 'Customer\Trainer::index');
-    $routes->get('trainer/detail', 'Customer\DetailTrainer::index');
+    $routes->get('trainer/detail/(:num)', 'Customer\DetailTrainer::index/$1');
     $routes->get('blog', 'Customer\Blog::index');
+    $routes->get('blog/detail/(:any)', 'Customer\Blog::detail/$1');
     $routes->get('faq', 'Customer\FAQ::index');
     $routes->get('cart', 'Customer\Cart::index');
+    $routes->post('cart/add', 'Customer\Cart::add');
+    $routes->post('cart/update', 'Customer\Cart::update');
+    $routes->get('cart/delete/(:num)', 'Customer\Cart::delete/$1');
     $routes->get('checkout', 'Customer\Checkout::index');
     $routes->get('checkout-trainer', 'Customer\CheckoutTrainer::index');
     $routes->get('pesanan', 'Customer\Pesanan::index');

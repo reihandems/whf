@@ -58,4 +58,42 @@ class TrainerModel extends Model
     protected $afterFind      = [];
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
+    public function filterTrainers($filters = [])
+    {
+        $builder = $this->builder();
+
+        if (!empty($filters['gender'])) {
+            $builder->where('jenis_kelamin', $filters['gender']);
+        }
+
+        if (!empty($filters['category'])) {
+            $builder->where('kategori', $filters['category']);
+        }
+
+        if (!empty($filters['price_range'])) {
+            if ($filters['price_range'] === '<500') {
+                $builder->where('harga_per_sesi <', 500000);
+            } elseif ($filters['price_range'] === '500-1000') {
+                $builder->where('harga_per_sesi >=', 500000)->where('harga_per_sesi <=', 1000000);
+            } elseif ($filters['price_range'] === '>1000') {
+                $builder->where('harga_per_sesi >', 1000000);
+            }
+        }
+
+        if (!empty($filters['location'])) {
+            $builder->where('lokasi', $filters['location']);
+        }
+
+        return $builder->get()->getResultArray();
+    }
+
+    public function getDistinctCategories()
+    {
+        return $this->select('kategori')->distinct()->findAll();
+    }
+
+    public function getDistinctLocations()
+    {
+        return $this->select('lokasi')->distinct()->findAll();
+    }
 }

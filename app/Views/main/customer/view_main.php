@@ -41,6 +41,33 @@
         <?= $this->renderSection('content') ?>
         <!-- Footer -->
         <?= $this->include('layout/footer') ?>
+
+        <?php if (session()->getFlashdata('success')) : ?>
+            <div class="toast toast-top toast-end mt-20">
+                <div class="alert alert-success">
+                    <span class="text-white font-semibold"><?= session()->getFlashdata('success') ?></span>
+                </div>
+            </div>
+            <script>
+                setTimeout(() => {
+                    document.querySelector('.toast').remove();
+                }, 3000);
+            </script>
+        <?php endif; ?>
+
+        <?php if (session()->getFlashdata('error')) : ?>
+            <div class="toast toast-top toast-end mt-20">
+                <div class="alert alert-error">
+                    <span class="text-white font-semibold"><?= session()->getFlashdata('error') ?></span>
+                </div>
+            </div>
+            <script>
+                setTimeout(() => {
+                    document.querySelector('.toast').remove();
+                }, 3000);
+            </script>
+        <?php endif; ?>
+    </div>
 </body>
 
 </html>

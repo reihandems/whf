@@ -16,45 +16,25 @@
                         Kategori
                     </label>
                 </div>
-                <div class="drawer-side">
+                <div class="drawer-side z-50">
                     <label for="my-drawer-3" aria-label="close sidebar" class="drawer-overlay"></label>
                     <ul class="menu bg-base-200 min-h-full w-80 p-4">
-                        <!-- Creatine -->
                         <li>
-                            <h3 class="text-lg font-semibold">Protein</h3>
+                            <a href="<?= base_url('/user/produk') ?>" class="text-lg font-bold <?= (!$currentSubcategory) ? 'text-primary' : '' ?>">SEMUA PRODUK</a>
                         </li>
-                        <li>
-                            <a href="#" class="pl-8 text-primary font-semibold">Whey Protein</a>
-                            <a href="#" class="pl-8 text-gray-500 font-semibold">Isolate Protein</a>
-                            <a href="#" class="pl-8 text-gray-500 font-semibold">Protein Bars</a>
-                            <a href="#" class="pl-8 text-gray-500 font-semibold">Real Food</a>
-                        </li>
-                        <li>
-                            <h3 class="text-lg font-semibold">Creatine</h3>
-                        </li>
-                        <li>
-                            <a href="#" class="pl-8 text-gray-500 font-semibold">Monohydrate</a>
-                            <a href="#" class="pl-8 text-gray-500 font-semibold">Tri-Creatine</a>
-                            <a href="#" class="pl-8 text-gray-500 font-semibold">Advanced Stacks</a>
-                        </li>
-                        <li>
-                            <h3 class="text-lg font-semibold">Pre-Workout</h3>
-                        </li>
-                        <li>
-                            <a href="#" class="pl-8 text-gray-500 font-semibold">Shots</a>
-                            <a href="#" class="pl-8 text-gray-500 font-semibold">Strength</a>
-                            <a href="#" class="pl-8 text-gray-500 font-semibold">Pump</a>
-                            <a href="#" class="pl-8 text-gray-500 font-semibold">Focus</a>
-                        </li>
-                        <li>
-                            <h3 class="text-lg font-semibold">Fat Burner</h3>
-                        </li>
-                        <li>
-                            <a href="#" class="pl-8 text-gray-500 font-semibold">Thermogenic</a>
-                            <a href="#" class="pl-8 text-gray-500 font-semibold">Appetite</a>
-                            <a href="#" class="pl-8 text-gray-500 font-semibold">Carb Blockers</a>
-                            <a href="#" class="pl-8 text-gray-500 font-semibold">Fat Blockers</a>
-                        </li>
+                        <?php foreach ($categoriesGrouped as $catName => $subCats): ?>
+                            <li>
+                                <h3 class="text-lg font-semibold mt-4"><?= $catName ?></h3>
+                            </li>
+                            <?php foreach ($subCats as $sub): ?>
+                                <li>
+                                    <a href="<?= base_url('/user/produk?subcategory=' . urlencode($sub)) ?>" 
+                                       class="pl-8 font-semibold <?= ($currentSubcategory == $sub) ? 'text-primary' : 'text-gray-500' ?>">
+                                        <?= $sub ?>
+                                    </a>
+                                </li>
+                            <?php endforeach; ?>
+                        <?php endforeach; ?>
                     </ul>
                 </div>
             </div>
@@ -65,151 +45,37 @@
             <div class="breadcrumbs text-sm">
                 <ul>
                     <li class="text-gray-500 font-semibold">Produk</li>
-                    <li class="text-gray-500 font-semibold">Protein</li>
-                    <li class="font-semibold">Whey Protein</li>
+                    <?php if ($currentSubcategory): ?>
+                        <li class="font-semibold"><?= $currentSubcategory ?></li>
+                    <?php else: ?>
+                        <li class="font-semibold">Semua Produk</li>
+                    <?php endif; ?>
                 </ul>
             </div>
-            <h1 class="text-2xl font-bold">Whey Protein</h1>
-            <div class="flex flex-wrap mt-4 gap-4">
-                <select class="select rounded-2xl w-24">
-                    <option disabled selected>Brand</option>
-                    <option>Crimson</option>
-                    <option>Amber</option>
-                    <option>Velvet</option>
-                </select>
-                <select class="select rounded-2xl w-24">
-                    <option disabled selected>Price</option>
-                    <option>Crimson</option>
-                    <option>Amber</option>
-                    <option>Velvet</option>
-                </select>
-                <select class="select rounded-2xl w-24">
-                    <option disabled selected>Flavour</option>
-                    <option>Crimson</option>
-                    <option>Amber</option>
-                    <option>Velvet</option>
-                </select>
-                <select class="select rounded-2xl w-24">
-                    <option disabled selected>Size</option>
-                    <option>Crimson</option>
-                    <option>Amber</option>
-                    <option>Velvet</option>
-                </select>
-            </div>
-            <div class="grid grid-cols-12 gap-8 mt-8">
-                <div class="md:col-span-3 col-span-6">
-                    <a href="#" class="card bg-base-100 w-full shadow-sm">
-                        <figure>
-                            <img
-                                src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
-                                alt="Shoes" class="h-48" />
-                        </figure>
-                        <div class="card-body">
-                            <p class="text-xs text-gray-400 font-semibold">Evolene</p>
-                            <h2 class="card-title">Card Title</h2>
-                            <h1 class="text-xl font-semibold">Rp. 959.000</h1>
-                        </div>
-                    </a>
+            <h1 class="text-2xl font-bold"><?= $currentSubcategory ?: 'Semua Produk' ?></h1>
+            
+            <?php if (empty($products)): ?>
+                <div class="flex flex-col items-center justify-center py-20 opacity-50 italic">
+                    <p>Produk tidak ditemukan.</p>
                 </div>
-                <div class="md:col-span-3 col-span-6">
-                    <a href="#" class="card bg-base-100 w-full shadow-sm">
-                        <figure>
-                            <img
-                                src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
-                                alt="Shoes" class="h-48" />
-                        </figure>
-                        <div class="card-body">
-                            <p class="text-xs text-gray-400 font-semibold">Evolene</p>
-                            <h2 class="card-title">Card Title</h2>
-                            <h1 class="text-xl font-semibold">Rp. 959.000</h1>
+            <?php else: ?>
+                <div class="grid grid-cols-12 gap-8 mt-8">
+                    <?php foreach ($products as $p): ?>
+                        <div class="md:col-span-3 col-span-6">
+                            <a href="<?= base_url('/user/produk/detail/' . $p['id_produk']) ?>" class="card bg-base-300 w-full shadow-sm hover:shadow-lg hover:shadow-blue-500/50 transition-all duration-300 h-full">
+                                <figure>
+                                    <img src="<?= base_url('assets/img/produk/' . ($p['foto_produk'] ?: 'default.png')) ?>" alt="<?= $p['nama_produk'] ?>" class="h-48 w-full object-cover" />
+                                </figure>
+                                <div class="card-body p-4">
+                                    <p class="text-xs text-gray-400 font-semibold"><?= $p['nama_brand'] ?></p>
+                                    <h2 class="card-title text-sm h-10 overflow-hidden line-clamp-2"><?= $p['nama_produk'] ?></h2>
+                                    <h1 class="text-lg font-bold text-primary">Rp <?= number_format($p['harga'], 0, ',', '.') ?></h1>
+                                </div>
+                            </a>
                         </div>
-                    </a>
+                    <?php endforeach; ?>
                 </div>
-                <div class="md:col-span-3 col-span-6">
-                    <a href="#" class="card bg-base-100 w-full shadow-sm">
-                        <figure>
-                            <img
-                                src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
-                                alt="Shoes" class="h-48" />
-                        </figure>
-                        <div class="card-body">
-                            <p class="text-xs text-gray-400 font-semibold">Evolene</p>
-                            <h2 class="card-title">Card Title</h2>
-                            <h1 class="text-xl font-semibold">Rp. 959.000</h1>
-                        </div>
-                    </a>
-                </div>
-                <div class="md:col-span-3 col-span-6">
-                    <a href="#" class="card bg-base-100 w-full shadow-sm">
-                        <figure>
-                            <img
-                                src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
-                                alt="Shoes" class="h-48" />
-                        </figure>
-                        <div class="card-body">
-                            <p class="text-xs text-gray-400 font-semibold">Evolene</p>
-                            <h2 class="card-title">Card Title</h2>
-                            <h1 class="text-xl font-semibold">Rp. 959.000</h1>
-                        </div>
-                    </a>
-                </div>
-                <div class="md:col-span-3 col-span-6">
-                    <a href="#" class="card bg-base-100 w-full shadow-sm">
-                        <figure>
-                            <img
-                                src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
-                                alt="Shoes" class="h-48" />
-                        </figure>
-                        <div class="card-body">
-                            <p class="text-xs text-gray-400 font-semibold">Evolene</p>
-                            <h2 class="card-title">Card Title</h2>
-                            <h1 class="text-xl font-semibold">Rp. 959.000</h1>
-                        </div>
-                    </a>
-                </div>
-                <div class="md:col-span-3 col-span-6">
-                    <a href="#" class="card bg-base-100 w-full shadow-sm">
-                        <figure>
-                            <img
-                                src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
-                                alt="Shoes" class="h-48" />
-                        </figure>
-                        <div class="card-body">
-                            <p class="text-xs text-gray-400 font-semibold">Evolene</p>
-                            <h2 class="card-title">Card Title</h2>
-                            <h1 class="text-xl font-semibold">Rp. 959.000</h1>
-                        </div>
-                    </a>
-                </div>
-                <div class="md:col-span-3 col-span-6">
-                    <a href="#" class="card bg-base-100 w-full shadow-sm">
-                        <figure>
-                            <img
-                                src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
-                                alt="Shoes" class="h-48" />
-                        </figure>
-                        <div class="card-body">
-                            <p class="text-xs text-gray-400 font-semibold">Evolene</p>
-                            <h2 class="card-title">Card Title</h2>
-                            <h1 class="text-xl font-semibold">Rp. 959.000</h1>
-                        </div>
-                    </a>
-                </div>
-                <div class="md:col-span-3 col-span-6">
-                    <a href="#" class="card bg-base-100 w-full shadow-sm">
-                        <figure>
-                            <img
-                                src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
-                                alt="Shoes" class="h-48" />
-                        </figure>
-                        <div class="card-body">
-                            <p class="text-xs text-gray-400 font-semibold">Evolene</p>
-                            <h2 class="card-title">Card Title</h2>
-                            <h1 class="text-xl font-semibold">Rp. 959.000</h1>
-                        </div>
-                    </a>
-                </div>
-            </div>
+            <?php endif; ?>
         </div>
         <!-- Content -->
     </div>

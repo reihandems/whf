@@ -136,4 +136,21 @@ yarn-error.log
 !/public/assets/img/produk/.gitkeep
 /public/assets/img/trainer/*
 !/public/assets/img/trainer/.gitkeep
+/public/assets/img/customer/*
+!/public/assets/img/customer/.gitkeep
+/public/assets/img/blog/*
+!/public/assets/img/blog/.gitkeep
+/public/assets/img/brand/*
+!/public/assets/img/brand/.gitkeep
+
+# Development Utility Scripts
+check_cols.php
+check_db.php
+direct_fix.php
+fix_db.php
+list_cats.php
+random_views.php
+random_views_pdo.php
+test_env_cli.php
+db_whf.sql
 

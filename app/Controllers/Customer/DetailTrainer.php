@@ -15,9 +15,14 @@ class DetailTrainer extends BaseController
             return redirect()->to('/user/trainer');
         }
 
+        // Fetch reviews
+        $reviewModel = new \App\Models\ReviewTrainerModel();
+        $reviews = $reviewModel->getReviewsByTrainer($id);
+
         $data = [
             'menu' => 'detail-trainer',
-            't' => $trainer
+            't' => $trainer,
+            'reviews' => $reviews
         ];
 
         return view('pages/customer/view_detail_trainer.php', $data);

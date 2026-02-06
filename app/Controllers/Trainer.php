@@ -38,9 +38,14 @@ class Trainer extends BaseController
             return redirect()->to('/trainer');
         }
 
+        // Fetch reviews
+        $reviewModel = new \App\Models\ReviewTrainerModel();
+        $reviews = $reviewModel->getReviewsByTrainer($id);
+
         $data = [
             'menu' => 'trainer',
-            't' => $trainer
+            't' => $trainer,
+            'reviews' => $reviews
         ];
 
         return view('detail_trainer', $data);

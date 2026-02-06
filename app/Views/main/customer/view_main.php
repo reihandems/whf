@@ -13,6 +13,7 @@
 
 <body>
     <div class="grid grid-cols-12">
+        <?php if (!session()->get('logged_in')) : ?>
         <!-- Badge -->
         <div class="col-span-12">
             <div class="bg-primary text-white px-8 md:px-12 py-3 flex flex-wrap gap-2 md:gap-0 md:justify-between justify-center">
@@ -33,6 +34,7 @@
                 </div>
             </div>
         </div>
+        <?php endif; ?>
         <!-- Navbar -->
         <div class="col-span-12">
             <?= $this->include('layout/navbar', ['menu' => $menu]) ?>
@@ -68,6 +70,7 @@
             </script>
         <?php endif; ?>
     </div>
+    <?= $this->renderSection('script') ?>
 </body>
 
 </html>

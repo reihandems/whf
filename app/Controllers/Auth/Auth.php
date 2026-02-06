@@ -70,6 +70,7 @@ class Auth extends BaseController
             'nama'      => $user['nama_lengkap'] ?? $user['nama_supplier'] ?? $user['nama_trainer'],
             'role'      => $role,
             'logged_in' => true,
+            'foto'      => $user['foto_profil']
         ];
         session()->set($sessionData);
     }

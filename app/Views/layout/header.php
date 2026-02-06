@@ -6,15 +6,19 @@
         <div class="dropdown dropdown-end">
             <div tabindex="0" role="button" class="btn btn-ghost btn-circle avatar">
                 <div class="w-10 rounded-full">
-                    <img
-                        alt="Tailwind CSS Navbar component"
-                        src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
+                    <?php if (session()->get('role') == 'trainer') : ?>
+                        <img src="<?= base_url('assets/img/trainer/' . session()->get('foto')) ?>" alt="Profile">
+                    <?php elseif (session()->get('role') == 'customer' && session()->get('foto')) : ?>
+                        <img src="<?= base_url('assets/img/customer/' . session()->get('foto')) ?>" alt="Profile">
+                    <?php else : ?>
+                        <img src="https://ui-avatars.com/api/?name=<?= urlencode(session()->get('nama')) ?>&background=random" alt="Profile">
+                    <?php endif; ?>
                 </div>
             </div>
         </div>
         <div class="flex flex-col">
-            <span class="text-sm font-bold">Admin</span>
-            <span class="text-xs text-gray-400">Administrator</span>
+            <span class="text-sm font-bold"><?= session()->get('nama') ?></span>
+            <span class="text-xs text-gray-400"><?= session()->get('role') ?></span>
         </div>
     </div>
 </div>

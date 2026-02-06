@@ -19,9 +19,14 @@ class DetailProduk extends BaseController
         // Increment views
         $produkModel->update($id, ['views' => $produk['views'] + 1]);
 
+        // Fetch reviews
+        $reviewModel = new \App\Models\ReviewProdukModel();
+        $reviews = $reviewModel->getReviewsByProduct($id);
+
         $data = [
             'menu' => 'detail-produk',
-            'p' => $produk
+            'p' => $produk,
+            'reviews' => $reviews
         ];
 
         return view('pages/customer/view_detail_produk.php', $data);

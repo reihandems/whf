@@ -81,7 +81,11 @@
         <div class="dropdown dropdown-bottom md:dropdown-hover dropdown-end">
             <a href="#" class="avatar <?= ($menu == 'profil') ? 'text-primary' : '' ?>" tabindex="0" role="button">
                 <div class="w-12 rounded-full">
-                    <img src="https://img.daisyui.com/images/profile/demo/yellingcat@192.webp" />
+                    <?php if (session()->get('foto')) : ?>
+                        <img src="<?= base_url('assets/img/customer/' . session()->get('foto')) ?>" />
+                    <?php else : ?>
+                        <img src="https://ui-avatars.com/api/?background=random&name=<?= session()->get('nama') ?>" />
+                    <?php endif; ?>
                 </div>
             </a>
             <ul tabindex="-1" class="dropdown-content menu bg-base-200 rounded-box z-1 w-52 p-2 shadow-sm mt-1">

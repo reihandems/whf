@@ -140,7 +140,7 @@
                                         <div class="card-body p-4">
                                             <div class="badge badge-primary badge-sm mb-1"><?= $t['kategori'] ?></div>
                                             <h2 class="card-title text-base font-bold"><?= $t['nama_trainer'] ?></h2>
-                                            <p class="text-xs text-gray-500 font-semibold mb-2"><?= $t['pengalaman_tahun'] ?> Thn Pengalaman</p>
+                                            <p class="text-xs text-gray-500 font-semibold mb-2"><?= $t['pengalaman_tahun'] ?> Tahun Pengalaman</p>
                                             <p class="text-sm font-bold text-primary">Rp <?= number_format($t['harga_per_sesi'], 0, ',', '.') ?> <span class="text-xs text-gray-400 font-normal">/sesi</span></p>
                                             <div class="flex items-center gap-1 mt-2">
                                                 <div class="rating rating-xs">

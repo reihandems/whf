@@ -8,8 +8,8 @@
         <div class="stats shadow bg-base-300 w-full">
             <div class="stat text-center">
                 <div class="stat-title">Total Pendapatan Bulan Ini</div>
-                <div class="stat-value">Rp. 1.329.000</div>
-                <div class="stat-desc">21% more than last month</div>
+                <div class="stat-value">Rp. <?= number_format($total_pendapatan, 0, ',', '.') ?></div>
+                <div class="stat-desc">Semua waktu</div>
             </div>
         </div>
     </div>
@@ -17,8 +17,7 @@
         <div class="stats shadow bg-base-300 w-full">
             <div class="stat">
                 <div class="stat-title">Total Trainee</div>
-                <div class="stat-value">89,400</div>
-                <div class="stat-desc">21% more than last month</div>
+                <div class="stat-value"><?= number_format($total_trainee, 0, ',', '.') ?></div>
             </div>
         </div>
     </div>
@@ -26,8 +25,7 @@
         <div class="stats shadow bg-base-300 w-full">
             <div class="stat">
                 <div class="stat-title">Total Booking</div>
-                <div class="stat-value">89,400</div>
-                <div class="stat-desc">21% more than last month</div>
+                <div class="stat-value"><?= number_format($total_booking, 0, ',', '.') ?></div>
             </div>
         </div>
     </div>

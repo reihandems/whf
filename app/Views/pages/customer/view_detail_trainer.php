@@ -52,10 +52,16 @@
 
             <form action="<?= base_url('/user/checkout-trainer') ?>" method="GET" class="space-y-4">
                 <input type="hidden" name="id_trainer" value="<?= $t['id_trainer'] ?>">
-                <fieldset class="fieldset">
-                    <legend class="fieldset-legend font-bold">Pilih Tanggal Sesi:</legend>
-                    <input type="date" name="tanggal_sesi" class="input input-bordered w-full rounded-xl" required min="<?= date('Y-m-d') ?>" />
-                </fieldset>
+                <div class="grid grid-cols-2 gap-4">
+                    <fieldset class="fieldset">
+                        <legend class="fieldset-legend font-bold">Pilih Tanggal Sesi:</legend>
+                        <input type="date" name="tanggal_sesi" class="input input-bordered w-full rounded-xl" required min="<?= date('Y-m-d') ?>" />
+                    </fieldset>
+                    <fieldset class="fieldset">
+                        <legend class="fieldset-legend font-bold">Jumlah Sesi:</legend>
+                        <input type="number" name="jumlah_sesi" class="input input-bordered w-full rounded-xl" required min="1" value="1" />
+                    </fieldset>
+                </div>
 
                 <div class="flex flex-row gap-3 pt-4">
                     <button type="submit" class="btn btn-primary flex-1 text-white font-bold rounded-xl shadow-lg shadow-blue-500/30">BOOKING SESI SEKARANG</button>
@@ -92,6 +98,51 @@
                     </div>
                 </div>
             </div>
+        </div>
+
+        <div class="col-span-12 mt-16">
+            <div class="flex flex-row items-center gap-3 mb-8">
+                <h2 class="text-2xl font-black italic">ULASAN TRAINER</h2>
+                <div class="badge badge-primary font-black"><?= count($reviews) ?></div>
+            </div>
+
+            <?php if (empty($reviews)): ?>
+                <div class="bg-base-200/50 p-12 rounded-3xl text-center border-2 border-dashed border-base-content/10">
+                    <p class="text-gray-400 font-bold italic">Belum ada ulasan untuk trainer ini. Jadilah yang pertama memberikan ulasan!</p>
+                </div>
+            <?php else: ?>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <?php foreach ($reviews as $r): ?>
+                        <div class="bg-white p-8 rounded-3xl border border-base-content/5 shadow-xl shadow-gray-200/50 transition-all duration-300 hover:shadow-2xl hover:shadow-primary/5">
+                            <div class="flex flex-row justify-between items-start mb-6">
+                                <div class="flex flex-row gap-4 items-center">
+                                    <div class="avatar shadow-lg shadow-gray-200/50">
+                                        <div class="w-12 rounded-2xl">
+                                            <?php if ($r['foto_profil']): ?>
+                                                <img src="<?= base_url('assets/img/customer/' . $r['foto_profil']) ?>" />
+                                            <?php else: ?>
+                                                <img src="https://ui-avatars.com/api/?name=<?= urlencode($r['nama_lengkap']) ?>&background=random&bold=true" />
+                                            <?php endif; ?>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <p class="text-base font-black"><?= $r['nama_lengkap'] ?></p>
+                                        <p class="text-[10px] text-gray-400 font-bold uppercase tracking-widest"><?= date('d F Y', strtotime($r['created_at'])) ?></p>
+                                    </div>
+                                </div>
+                                <div class="rating rating-xs gap-1">
+                                    <?php for ($i = 1; $i <= 5; $i++): ?>
+                                        <input type="radio" class="mask mask-star-2 bg-orange-400" <?= ($i == $r['rating']) ? 'checked' : '' ?> disabled />
+                                    <?php endfor; ?>
+                                </div>
+                            </div>
+                            <p class="text-sm text-gray-500 font-medium leading-relaxed italic border-l-4 border-primary/20 pl-4 py-1">
+                                "<?= esc($r['komentar']) ?>"
+                            </p>
+                        </div>
+                    <?php endforeach; ?>
+                </div>
+            <?php endif; ?>
         </div>
     </div>
 </div>

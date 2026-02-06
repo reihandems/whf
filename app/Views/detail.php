@@ -216,6 +216,53 @@
                         </div>
                     </div>
                 </div>
+                
+                <div class="col-span-12">
+                    <div class="mt-16">
+                        <div class="flex flex-row items-center gap-3 mb-8">
+                            <h2 class="text-2xl font-bold">Ulasan Produk</h2>
+                            <span class="badge badge-primary font-bold"><?= count($reviews) ?></span>
+                        </div>
+    
+                        <?php if (empty($reviews)): ?>
+                            <div class="bg-base-200 p-10 rounded-xl text-center">
+                                <p class="text-gray-500 italic">Belum ada ulasan untuk produk ini.</p>
+                            </div>
+                        <?php else: ?>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <?php foreach ($reviews as $r): ?>
+                                    <div class="bg-base-200 p-6 rounded-xl border border-base-content/5">
+                                        <div class="flex flex-row justify-between items-start mb-4">
+                                            <div class="flex flex-row gap-3 items-center">
+                                                <div class="avatar">
+                                                    <div class="w-10 rounded-full">
+                                                        <?php if ($r['foto_profil']): ?>
+                                                            <img src="<?= base_url('assets/img/customer/' . $r['foto_profil']) ?>" />
+                                                        <?php else: ?>
+                                                            <img src="https://ui-avatars.com/api/?name=<?= urlencode($r['nama_lengkap']) ?>&background=random" />
+                                                        <?php endif; ?>
+                                                    </div>
+                                                </div>
+                                                <div>
+                                                    <p class="text-sm font-bold"><?= $r['nama_lengkap'] ?></p>
+                                                    <p class="text-[10px] text-gray-400 font-semibold"><?= date('d M Y', strtotime($r['created_at'])) ?></p>
+                                                </div>
+                                            </div>
+                                            <div class="rating rating-xs">
+                                                <?php for ($i = 1; $i <= 5; $i++): ?>
+                                                    <input type="radio" class="mask mask-star-2 bg-orange-400" <?= ($i == $r['rating']) ? 'checked' : '' ?> disabled />
+                                                <?php endfor; ?>
+                                            </div>
+                                        </div>
+                                        <p class="text-sm text-gray-500 font-medium leading-relaxed">
+                                            <?= esc($r['komentar']) ?>
+                                        </p>
+                                    </div>
+                                <?php endforeach; ?>
+                            </div>
+                        <?php endif; ?>
+                    </div>
+                </div>
             </div>
         </div>
         <!-- Footer -->

@@ -2,7 +2,7 @@
 <?= $this->section('content') ?>
 <!-- Content -->
 <div class="col-span-12 px-12 py-8">
-    <a href="#" class="btn mb-5">
+    <a href="javascript:history.back()" class="btn mb-5">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
             <path fill-rule="evenodd" d="M11.03 3.97a.75.75 0 0 1 0 1.06l-6.22 6.22H21a.75.75 0 0 1 0 1.5H4.81l6.22 6.22a.75.75 0 1 1-1.06 1.06l-7.5-7.5a.75.75 0 0 1 0-1.06l7.5-7.5a.75.75 0 0 1 1.06 0Z" clip-rule="evenodd" />
         </svg>
@@ -11,49 +11,76 @@
     <div class="grid grid-cols-12 gap-8">
         <div class="col-span-12 md:col-span-6">
             <img
-                src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
-                class="w-full h-full rounded-lg shadow-2xl" />
+                src="<?= base_url('assets/img/produk/' . ($p['foto_produk'] ?: 'default.png')) ?>"
+                class="w-full h-[500px] object-cover rounded-xl shadow-2xl" onerror="this.src='https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp'" />
         </div>
         <div class="col-span-12 md:col-span-6">
             <div class="breadcrumbs text-sm">
                 <ul>
-                    <li class="text-gray-500 font-semibold">Protein</li>
-                    <li class="font-semibold">Whey Protein</li>
+                    <li class="text-gray-500 font-semibold"><?= $p['nama_kategori'] ?></li>
+                    <li class="font-semibold"><?= $p['sub_kategori'] ?></li>
                 </ul>
             </div>
-            <p class="text-gray-400 font-semibold mb-2">Evolene</p>
-            <h1 class="text-4xl font-bold mb-2">Isolene</h1>
+            <p class="text-gray-400 font-semibold mb-2"><?= $p['nama_brand'] ?></p>
+            <h1 class="text-4xl font-bold mb-2"><?= $p['nama_produk'] ?></h1>
             <div class="flex flex-row items-center gap-2">
-                <div class="rating">
-                    <div class="mask mask-star" aria-label="1 star"></div>
-                    <div class="mask mask-star" aria-label="2 star"></div>
-                    <div class="mask mask-star" aria-label="3 star"></div>
-                    <div class="mask mask-star" aria-label="4 star"></div>
-                    <div class="mask mask-star" aria-label="5 star"></div>
+                <div class="rating rating-sm">
+                    <?php for ($i = 1; $i <= 5; $i++): ?>
+                        <input type="radio" name="rating-detail" class="mask mask-star-2 bg-orange-400" <?= ($i == round($p['rating'])) ? 'checked' : '' ?> disabled />
+                    <?php endfor; ?>
                 </div>
-                <p class="text-xs font-semibold">0 Reviews</p>
+                <p class="text-xs font-semibold"><?= $p['jumlah_review'] ?> Reviews</p>
             </div>
-            <p class="text-xl font-semibold mt-3">Rp. 959.000</p>
-            <p class="text-xs text-gray-500 font-semibold mt-3 text-justify">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus commodo ipsum non ante finibus, sit amet placerat libero malesuada. Cras viverra, elit vel vestibulum pharetra, dui magna imperdiet dolor, eget vestibulum urna leo at dui. Nunc nec tortor eget eros faucibus egestas ultricies vel nisl. Quisque a nunc mollis erat rhoncus lacinia.
-            </p>
-            <div class="flex flex-row gap-3 mt-5">
-                <div class="btn btn-soft flex justify-between w-28">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
-                        <path fill-rule="evenodd" d="M4.25 12a.75.75 0 0 1 .75-.75h14a.75.75 0 0 1 0 1.5H5a.75.75 0 0 1-.75-.75Z" clip-rule="evenodd" />
-                    </svg>
-                    <p>1</p>
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
-                        <path fill-rule="evenodd" d="M12 3.75a.75.75 0 0 1 .75.75v6.75h6.75a.75.75 0 0 1 0 1.5h-6.75v6.75a.75.75 0 0 1-1.5 0v-6.75H4.5a.75.75 0 0 1 0-1.5h6.75V4.5a.75.75 0 0 1 .75-.75Z" clip-rule="evenodd" />
-                    </svg>
+            <p class="text-3xl font-bold mt-3 text-primary">Rp <?= number_format($p['harga'], 0, ',', '.') ?></p>
+
+            <div class="mt-5">
+                <p class="text-sm font-bold mb-2">Deskripsi Produk :</p>
+                <p class="text-sm text-gray-500 font-medium text-justify leading-relaxed">
+                    <?= nl2br(esc($p['deskripsi'])) ?>
+                </p>
+            </div>
+
+            <div class="grid grid-cols-2 gap-4 mt-6">
+                <div class="bg-base-200 p-3 rounded-lg">
+                    <p class="text-xs text-gray-500 font-semibold">Tersedia Stok</p>
+                    <p class="text-sm font-bold"><?= $p['stok'] ?> Unit</p>
                 </div>
-                <div class="btn btn-neutral">Tambah ke Keranjang</div>
+                <div class="bg-base-200 p-3 rounded-lg">
+                    <p class="text-xs text-gray-500 font-semibold">Berat</p>
+                    <p class="text-sm font-bold"><?= $p['berat'] ?> Gram</p>
+                </div>
+                <?php if ($p['flavour']): ?>
+                    <div class="bg-base-200 p-3 rounded-lg">
+                        <p class="text-xs text-gray-500 font-semibold">Rasa</p>
+                        <p class="text-sm font-bold"><?= $p['flavour'] ?></p>
+                    </div>
+                <?php endif; ?>
+                <?php if ($p['ukuran']): ?>
+                    <div class="bg-base-200 p-3 rounded-lg">
+                        <p class="text-xs text-gray-500 font-semibold">Ukuran</p>
+                        <p class="text-sm font-bold"><?= $p['ukuran'] ?></p>
+                    </div>
+                <?php endif; ?>
             </div>
+
+            <form action="<?= base_url('/user/cart/add') ?>" method="POST" class="mt-8">
+                <?= csrf_field() ?>
+                <input type="hidden" name="id_produk" value="<?= $p['id_produk'] ?>">
+                <div class="flex flex-row gap-3">
+                    <div class="flex items-center gap-2 bg-base-200 rounded-lg px-2">
+                        <button type="button" onclick="updateQty(-1)" class="btn btn-ghost btn-sm btn-square">-</button>
+                        <input type="number" name="qty" id="qty-input" value="1" min="1" max="<?= $p['stok'] ?>" class="bg-transparent w-12 text-center font-bold focus:outline-none">
+                        <button type="button" onclick="updateQty(1)" class="btn btn-ghost btn-sm btn-square">+</button>
+                    </div>
+                    <button type="submit" class="btn btn-primary flex-1">Tambah ke Keranjang</button>
+                </div>
+            </form>
+
             <p class="text-xs mt-8 font-semibold">Pengiriman :</p>
             <div class="flex flex-wrap justify-start gap-6 mt-3">
                 <div class="flex flex-row gap-3 items-center">
                     <div class="avatar">
-                        <div class="w-12 rounded">
+                        <div class="w-12 rounded bg-base-200 p-2">
                             <img src="<?= base_url('assets/img/icon-kirim-1.svg') ?>" />
                         </div>
                     </div>
@@ -64,7 +91,7 @@
                 </div>
                 <div class="flex flex-row gap-3 items-center">
                     <div class="avatar">
-                        <div class="w-12 rounded">
+                        <div class="w-12 rounded bg-base-200 p-2">
                             <img src="<?= base_url('assets/img/icon-kirim-2.svg') ?>" />
                         </div>
                     </div>
@@ -75,18 +102,74 @@
                 </div>
                 <div class="flex flex-row gap-3 items-center">
                     <div class="avatar">
-                        <div class="w-12 rounded">
+                        <div class="w-12 rounded bg-base-200 p-2">
                             <img src="<?= base_url('assets/img/icon-kirim-3.svg') ?>" />
                         </div>
                     </div>
                     <div class="flex flex-col">
                         <p class="text-xs text-gray-500 font-semibold">Estimasi Sampai</p>
-                        <p class="text-sm font-semibold">22 - 24 Januari 2026</p>
+                        <p class="text-sm font-semibold">Tergantung Lokasi</p>
                     </div>
                 </div>
             </div>
         </div>
+
+        <div class="col-span-12 mb-8">
+            <div>
+                <div class="flex flex-row items-center gap-3 mb-8">
+                    <h2 class="text-2xl font-bold">Ulasan Produk</h2>
+                    <span class="badge badge-primary font-bold"><?= count($reviews) ?></span>
+            </div>
+
+            <?php if (empty($reviews)): ?>
+                <div class="bg-base-200 p-10 rounded-xl text-center">
+                    <p class="text-gray-500 italic">Belum ada ulasan untuk produk ini.</p>
+                </div>
+            <?php else: ?>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <?php foreach ($reviews as $r): ?>
+                        <div class="bg-base-200 p-6 rounded-xl border border-base-content/5">
+                            <div class="flex flex-row justify-between items-start mb-4">
+                                <div class="flex flex-row gap-3 items-center">
+                                    <div class="avatar">
+                                        <div class="w-10 rounded-full">
+                                            <?php if ($r['foto_profil']): ?>
+                                                <img src="<?= base_url('assets/img/customer/' . $r['foto_profil']) ?>" />
+                                            <?php else: ?>
+                                                <img src="https://ui-avatars.com/api/?name=<?= urlencode($r['nama_lengkap']) ?>&background=random" />
+                                            <?php endif; ?>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <p class="text-sm font-bold"><?= $r['nama_lengkap'] ?></p>
+                                        <p class="text-[10px] text-gray-400 font-semibold"><?= date('d M Y', strtotime($r['created_at'])) ?></p>
+                                    </div>
+                                </div>
+                                <div class="rating rating-xs">
+                                    <?php for ($i = 1; $i <= 5; $i++): ?>
+                                        <input type="radio" class="mask mask-star-2 bg-orange-400" <?= ($i == $r['rating']) ? 'checked' : '' ?> disabled />
+                                    <?php endfor; ?>
+                                </div>
+                            </div>
+                            <p class="text-sm text-gray-500 font-medium leading-relaxed">
+                                <?= esc($r['komentar']) ?>
+                            </p>
+                        </div>
+                    <?php endforeach; ?>
+                </div>
+            <?php endif; ?>
+        </div>
     </div>
 </div>
-<!-- Content -->
+
+<script>
+    function updateQty(val) {
+        const input = document.getElementById('qty-input');
+        let current = parseInt(input.value);
+        current += val;
+        if (current < 1) current = 1;
+        if (current > <?= $p['stok'] ?>) current = <?= $p['stok'] ?>;
+        input.value = current;
+    }
+</script>
 <?= $this->endSection() ?>

@@ -19,19 +19,21 @@
         <div class="flex flex-wrap justify-between gap-3">
             <div class="flex flex-col">
                 <p class="text-gray-400">No. Pesanan</p>
-                <p>023818123</p>
+                <p class="font-bold"><?= $order['kode_pesanan'] ?></p>
             </div>
             <div class="flex flex-col">
                 <p class="text-gray-400">Tanggal Pesanan</p>
-                <p>023818123</p>
+                <p><?= date('d F Y, H:i', strtotime($order['created_at'])) ?></p>
             </div>
             <div class="flex flex-col">
-                <p class="text-gray-400">Pembayaran</p>
-                <p>Gopay</p>
+                <p class="text-gray-400">Status</p>
+                <p>
+                    <span class="badge badge-outline badge-info"><?= ucfirst($order['status_pesanan']) ?></span>
+                </p>
             </div>
             <div class="flex flex-col">
                 <p class="text-gray-400">Pengiriman</p>
-                <p>JNE</p>
+                <p>Ekspedisi</p>
             </div>
         </div>
     </div>
@@ -39,40 +41,29 @@
         <div class="divider my-0"></div>
     </div>
     <div class="col-span-12">
-        <p class="text-gray-400">Informasi Produk</p>
+        <p class="text-gray-400">Informasi Produk (Milik Anda)</p>
         <div class="overflow-x-auto rounded-box border border-base-content/5 bg-base-300 mt-3">
             <table class="table">
                 <!-- head -->
                 <thead>
                     <tr>
                         <th>No</th>
-                        <th>Name</th>
-                        <th>Job</th>
-                        <th>Favorite Color</th>
+                        <th>Produk</th>
+                        <th class="text-right">Harga</th>
+                        <th class="text-center">Jumlah</th>
+                        <th class="text-right">Subtotal</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <!-- row 1 -->
-                    <tr>
-                        <th>1</th>
-                        <td>Cy Ganderton</td>
-                        <td>Quality Control Specialist</td>
-                        <td>Blue</td>
-                    </tr>
-                    <!-- row 2 -->
-                    <tr>
-                        <th>2</th>
-                        <td>Hart Hagerty</td>
-                        <td>Desktop Support Technician</td>
-                        <td>Purple</td>
-                    </tr>
-                    <!-- row 3 -->
-                    <tr>
-                        <th>3</th>
-                        <td>Brice Swyre</td>
-                        <td>Tax Accountant</td>
-                        <td>Red</td>
-                    </tr>
+                    <?php foreach ($details as $index => $item): ?>
+                        <tr>
+                            <th><?= $index + 1 ?></th>
+                            <td class="font-semibold"><?= $item['nama_produk'] ?></td>
+                            <td class="text-right">Rp. <?= number_format($item['harga'], 0, ',', '.') ?></td>
+                            <td class="text-center"><?= $item['jumlah'] ?></td>
+                            <td class="text-right font-bold text-primary">Rp. <?= number_format($item['subtotal'], 0, ',', '.') ?></td>
+                        </tr>
+                    <?php endforeach; ?>
                 </tbody>
             </table>
         </div>
@@ -82,60 +73,52 @@
     </div>
     <div class="col-span-12">
         <p>Informasi Customer</p>
-        <div class="grid grid-cols-12 mt-5 gap-5">
-            <div class="md:col-span-4 col-span-6 flex flex-col gap-2">
-                <p class="text-gray-400">Nama</p>
-                <p>Rayhan Dwi Putra</p>
+        <div class="grid grid-cols-12 mt-5 gap-5 text-sm">
+            <div class="md:col-span-4 col-span-6 flex flex-col gap-1">
+                <p class="text-gray-400 uppercase text-xs">Nama Penerima</p>
+                <p class="font-semibold"><?= $order['nama_penerima'] ?></p>
             </div>
-            <div class="md:col-span-4 col-span-6 flex flex-col gap-2">
-                <p class="text-gray-400">No. HP</p>
-                <p>08123456789</p>
+            <div class="md:col-span-4 col-span-6 flex flex-col gap-1">
+                <p class="text-gray-400 uppercase text-xs">No. HP</p>
+                <p><?= $order['no_hp_penerima'] ?></p>
             </div>
-            <div class="md:col-span-4 col-span-6 flex flex-col gap-2">
-                <p class="text-gray-400">RT / RW</p>
-                <p>01 / 11</p>
+            <div class="md:col-span-4 col-span-6 flex flex-col gap-1">
+                <p class="text-gray-400 uppercase text-xs">Status Pesanan</p>
+                <p><?= ucfirst($order['status_pesanan']) ?></p>
             </div>
-            <div class="md:col-span-4 col-span-6 flex flex-col gap-2">
-                <p class="text-gray-400">Kelurahan</p>
-                <p>Cempaka Putih Barat</p>
+            <div class="md:col-span-4 col-span-6 flex flex-col gap-1">
+                <p class="text-gray-400 uppercase text-xs">Kelurahan</p>
+                <p><?= $order['kelurahan'] ?></p>
             </div>
-            <div class="md:col-span-4 col-span-6 flex flex-col gap-2">
-                <p class="text-gray-400">Kecamatan</p>
-                <p>Cempaka Putih</p>
+            <div class="md:col-span-4 col-span-6 flex flex-col gap-1">
+                <p class="text-gray-400 uppercase text-xs">Kecamatan</p>
+                <p><?= $order['kecamatan'] ?></p>
             </div>
-            <div class="md:col-span-4 col-span-6 flex flex-col gap-2">
-                <p class="text-gray-400">Kota</p>
-                <p>Jakarta Pusat</p>
+            <div class="md:col-span-4 col-span-6 flex flex-col gap-1">
+                <p class="text-gray-400 uppercase text-xs">Kota / Kabupaten</p>
+                <p><?= $order['kota'] ?></p>
             </div>
-            <div class="md:col-span-4 col-span-6 flex flex-col gap-2">
-                <p class="text-gray-400">Provinsi</p>
-                <p>DKI Jakarta</p>
+            <div class="md:col-span-4 col-span-6 flex flex-col gap-1">
+                <p class="text-gray-400 uppercase text-xs">Provinsi</p>
+                <p><?= $order['provinsi'] ?></p>
             </div>
-            <div class="md:col-span-4 col-span-6 flex flex-col gap-2">
-                <p class="text-gray-400">Kode Pos</p>
-                <p>10520</p>
+            <div class="md:col-span-4 col-span-6 flex flex-col gap-1">
+                <p class="text-gray-400 uppercase text-xs">Kode Pos</p>
+                <p><?= $order['kode_pos'] ?></p>
             </div>
-            <div class="col-span-12 flex flex-col gap-2">
-                <p class="text-gray-400">Alamat Lengkap</p>
-                <p class="text-justify">Jl. Cempaka Putih Barat No. 123, RT/RW 01/11, Kelurahan Cempaka Putih Barat, Kecamatan Cempaka Putih, Kota Jakarta Pusat, Provinsi DKI Jakarta, Kode Pos 10520</p>
+            <div class="col-span-12 flex flex-col gap-1">
+                <p class="text-gray-400 uppercase text-xs">Alamat Lengkap</p>
+                <p class="text-sm"><?= $order['alamat_lengkap'] ?></p>
             </div>
         </div>
     </div>
     <div class="col-span-12">
         <div class="divider my-0"></div>
     </div>
-    <div class="col-span-12 flex flex-col gap-3">
-        <div class="flex flex-row-items-center justify-between">
-            <p class="text-gray-400">Subtotal</p>
-            <p>Rp. 1.339.000</p>
-        </div>
-        <div class="flex flex-row-items-center justify-between">
-            <p class="text-gray-400">Diskon</p>
-            <p>Rp. 0</p>
-        </div>
-        <div class="flex flex-row-items-center justify-between">
-            <p class="text-gray-400 text-lg font-bold">Total</p>
-            <p class="text-lg font-bold">Rp. 1.339.000</p>
+    <div class="col-span-12 flex flex-col gap-2">
+        <div class="flex flex-row items-center justify-between">
+            <p class="text-gray-400">Total Pembayaran (Seluruh Pesanan)</p>
+            <p class="text-xl font-bold text-right">Rp. <?= number_format($order['total'], 0, ',', '.') ?></p>
         </div>
     </div>
     <div class="col-span-12">
@@ -143,8 +126,12 @@
     </div>
     <div class="col-span-12 flex justify-end">
         <div class="flex flex-row gap-3">
-            <button class="btn btn-soft">Kembali</button>
-            <button class="btn btn-neutral">Proses Pesanan</button>
+            <a href="<?= base_url('/supplier/pesanan') ?>" class="btn btn-ghost">Kembali</a>
+            <?php if ($order['status_pesanan'] == 'menunggu_pembayaran' || $order['status_pesanan'] == 'pending'): ?>
+                <a href="<?= base_url('supplier/pesanan/process/' . $order['id_pesanan']) ?>" class="btn btn-primary text-white">Proses Pesanan</a>
+            <?php elseif ($order['status_pesanan'] == 'diproses'): ?>
+                <a href="<?= base_url('supplier/pesanan/ship/' . $order['id_pesanan']) ?>" class="btn btn-success text-white">Kirim Pesanan</a>
+            <?php endif; ?>
         </div>
     </div>
 </div>

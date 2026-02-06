@@ -10,7 +10,7 @@
                 tabindex="-1"
                 class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
                 <li>
-                    <a href="<?= base_url('/user/home') ?>" class="text-xs <?= ($menu == 'home') ? 'hover:underline text-primary font-bold' : 'text-xs font-semibold' ?>">HOME</a>
+                    <a href="<?= base_url('/home') ?>" class="text-xs <?= ($menu == 'home') ? 'hover:underline text-primary font-bold' : 'text-xs font-semibold' ?>">HOME</a>
                 </li>
                 <li>
                     <a href="<?= base_url('/user/produk') ?>" class="text-xs <?= ($menu == 'produk') ? 'hover:underline text-primary font-bold' : 'text-xs font-semibold' ?>">PRODUK</a>
@@ -32,7 +32,7 @@
         <p class="text-3xl me-3 md:flex hidden">|</p>
         <ul class="menu menu-horizontal px-1 md:flex hidden">
             <li>
-                <a href="<?= base_url('/user/home') ?>" class="text-xs <?= ($menu == 'home') ? 'hover:underline text-primary font-bold' : 'text-xs font-semibold' ?>">HOME</a>
+                <a href="<?= base_url('/home') ?>" class="text-xs <?= ($menu == 'home') ? 'hover:underline text-primary font-bold' : 'text-xs font-semibold' ?>">HOME</a>
             </li>
             <li>
                 <a href="<?= base_url('/user/produk') ?>" class="text-xs <?= ($menu == 'produk') ? 'hover:underline text-primary font-bold' : 'text-xs font-semibold' ?>">PRODUK</a>
@@ -81,7 +81,11 @@
         <div class="dropdown dropdown-bottom md:dropdown-hover dropdown-end">
             <a href="#" class="avatar <?= ($menu == 'profil') ? 'text-primary' : '' ?>" tabindex="0" role="button">
                 <div class="w-12 rounded-full">
-                    <img src="https://img.daisyui.com/images/profile/demo/yellingcat@192.webp" />
+                    <?php if (session()->get('foto')) : ?>
+                        <img src="<?= base_url('assets/img/customer/' . session()->get('foto')) ?>" />
+                    <?php else : ?>
+                        <img src="https://ui-avatars.com/api/?background=random&name=<?= session()->get('nama') ?>" />
+                    <?php endif; ?>
                 </div>
             </a>
             <ul tabindex="-1" class="dropdown-content menu bg-base-200 rounded-box z-1 w-52 p-2 shadow-sm mt-1">

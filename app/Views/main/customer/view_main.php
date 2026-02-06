@@ -13,6 +13,7 @@
 
 <body>
     <div class="grid grid-cols-12">
+        <?php if (!session()->get('logged_in')) : ?>
         <!-- Badge -->
         <div class="col-span-12">
             <div class="bg-primary text-white px-8 md:px-12 py-3 flex flex-wrap gap-2 md:gap-0 md:justify-between justify-center">
@@ -33,6 +34,7 @@
                 </div>
             </div>
         </div>
+        <?php endif; ?>
         <!-- Navbar -->
         <div class="col-span-12">
             <?= $this->include('layout/navbar', ['menu' => $menu]) ?>
@@ -41,6 +43,34 @@
         <?= $this->renderSection('content') ?>
         <!-- Footer -->
         <?= $this->include('layout/footer') ?>
+
+        <?php if (session()->getFlashdata('success')) : ?>
+            <div class="toast toast-top toast-end mt-20">
+                <div class="alert alert-success">
+                    <span class="text-white font-semibold"><?= session()->getFlashdata('success') ?></span>
+                </div>
+            </div>
+            <script>
+                setTimeout(() => {
+                    document.querySelector('.toast').remove();
+                }, 3000);
+            </script>
+        <?php endif; ?>
+
+        <?php if (session()->getFlashdata('error')) : ?>
+            <div class="toast toast-top toast-end mt-20">
+                <div class="alert alert-error">
+                    <span class="text-white font-semibold"><?= session()->getFlashdata('error') ?></span>
+                </div>
+            </div>
+            <script>
+                setTimeout(() => {
+                    document.querySelector('.toast').remove();
+                }, 3000);
+            </script>
+        <?php endif; ?>
+    </div>
+    <?= $this->renderSection('script') ?>
 </body>
 
 </html>

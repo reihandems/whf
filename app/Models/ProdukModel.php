@@ -26,6 +26,7 @@ class ProdukModel extends Model
         'foto_produk',
         'rating',
         'jumlah_review',
+        'views',
         'is_active'
     ];
 
@@ -49,5 +50,56 @@ class ProdukModel extends Model
         }
 
         return $builder->where(['id_produk' => $id])->get()->getRowArray();
+    }
+
+    public function getProductsByCategory($categoryName, $limit = 4)
+    {
+        return $this->select('produk.*, brands.nama_brand')
+            ->join('kategori_produk', 'kategori_produk.id_kategori = produk.id_kategori')
+            ->join('brands', 'brands.id_brand = produk.id_brand')
+            ->where('kategori_produk.nama_kategori', $categoryName)
+            ->where('produk.is_active', 1)
+            ->orderBy('produk.created_at', 'DESC')
+            ->limit($limit)
+            ->find();
+    }
+
+    public function getMostSearchedProducts($limit = 8)
+    {
+        return $this->select('produk.*, brands.nama_brand')
+            ->join('brands', 'brands.id_brand = produk.id_brand')
+            ->where('produk.is_active', 1)
+            ->orderBy('produk.views', 'DESC')
+            ->limit($limit)
+            ->find();
+    }
+
+    public function getProductsBySubCategory($subCategory, $limit = null)
+    {
+        $builder = $this->select('produk.*, kategori_produk.nama_kategori, kategori_produk.sub_kategori, brands.nama_brand')
+            ->join('kategori_produk', 'kategori_produk.id_kategori = produk.id_kategori')
+            ->join('brands', 'brands.id_brand = produk.id_brand')
+            ->where('kategori_produk.sub_kategori', $subCategory)
+            ->where('produk.is_active', 1);
+
+        if ($limit) {
+            $builder->limit($limit);
+        }
+
+        return $builder->find();
+    }
+
+    public function getAllProducts($limit = null)
+    {
+        $builder = $this->select('produk.*, kategori_produk.nama_kategori, kategori_produk.sub_kategori, brands.nama_brand')
+            ->join('kategori_produk', 'kategori_produk.id_kategori = produk.id_kategori')
+            ->join('brands', 'brands.id_brand = produk.id_brand')
+            ->where('produk.is_active', 1);
+
+        if ($limit) {
+            $builder->limit($limit);
+        }
+
+        return $builder->find();
     }
 }

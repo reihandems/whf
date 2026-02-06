@@ -12,4 +12,14 @@ class KategoriModel extends Model
     protected $returnType       = 'array';
     protected $allowedFields    = ['nama_kategori', 'sub_kategori', 'parent_id', 'deskripsi'];
     protected $useTimestamps    = false;
+
+    public function getAllCategoriesGrouped()
+    {
+        $categories = $this->findAll();
+        $grouped = [];
+        foreach ($categories as $cat) {
+            $grouped[$cat['nama_kategori']][] = $cat['sub_kategori'];
+        }
+        return $grouped;
+    }
 }

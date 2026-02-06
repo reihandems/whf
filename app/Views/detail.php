@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home - WHF Fitness</title>
+    <title><?= $p['nama_produk'] ?> - WHF Fitness</title>
     <link rel="stylesheet" href="<?= base_url('assets/css/output.css') ?>">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -25,7 +25,7 @@
                     </p>
                 </div>
                 <div class="tengah">
-                    <p class="text-xs font-medium">Buat Akun Untuk Mendapatkan Diskon 10% : <span class="font-black"><a href="#" class="hover:underline">Daftar</a></span> 👈</p>
+                    <p class="text-xs font-medium">Buat Akun Untuk Mendapatkan Diskon 10% : <span class="font-black"><a href="<?= base_url('/register') ?>" class="hover:underline">Daftar</a></span> 👈</p>
                 </div>
                 <div class="kanan md:flex flex-row gap-3 hidden">
                     <p class="text-xs font-semibold">Katalog Produk</p>
@@ -100,12 +100,12 @@
                         </svg>
                         <input type="search" required placeholder="Search" />
                     </label>
-                    <a href="#" class="mx-3">
+                    <a href="<?= base_url('/login') ?>" class="mx-3">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
                             <path d="M2.25 2.25a.75.75 0 0 0 0 1.5h1.386c.17 0 .318.114.362.278l2.558 9.592a3.752 3.752 0 0 0-2.806 3.63c0 .414.336.75.75.75h15.75a.75.75 0 0 0 0-1.5H5.378A2.25 2.25 0 0 1 7.5 15h11.218a.75.75 0 0 0 .674-.421 60.358 60.358 0 0 0 2.96-7.228.75.75 0 0 0-.525-.965A60.864 60.864 0 0 0 5.68 4.509l-.232-.867A1.875 1.875 0 0 0 3.636 2.25H2.25ZM3.75 20.25a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0ZM16.5 20.25a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0Z" />
                         </svg>
                     </a>
-                    <a href="#">
+                    <a href="<?= base_url('/login') ?>">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
                             <path fill-rule="evenodd" d="M7.5 6a4.5 4.5 0 1 1 9 0 4.5 4.5 0 0 1-9 0ZM3.751 20.105a8.25 8.25 0 0 1 16.498 0 .75.75 0 0 1-.437.695A18.683 18.683 0 0 1 12 22.5c-2.786 0-5.433-.608-7.812-1.7a.75.75 0 0 1-.437-.695Z" clip-rule="evenodd" />
                         </svg>
@@ -115,7 +115,7 @@
         </div>
         <!-- Content -->
         <div class="col-span-12 px-12 py-8">
-            <a href="#" class="btn mb-5">
+            <a href="<?= base_url('/home') ?>" class="btn mb-5">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
                     <path fill-rule="evenodd" d="M11.03 3.97a.75.75 0 0 1 0 1.06l-6.22 6.22H21a.75.75 0 0 1 0 1.5H4.81l6.22 6.22a.75.75 0 1 1-1.06 1.06l-7.5-7.5a.75.75 0 0 1 0-1.06l7.5-7.5a.75.75 0 0 1 1.06 0Z" clip-rule="evenodd" />
                 </svg>
@@ -124,49 +124,66 @@
             <div class="grid grid-cols-12 gap-8">
                 <div class="col-span-12 md:col-span-6">
                     <img
-                        src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
-                        class="w-full h-full rounded-lg shadow-2xl" />
+                        src="<?= base_url('assets/img/produk/' . ($p['foto_produk'] ?: 'default.png')) ?>"
+                        class="w-full h-[500px] object-cover rounded-xl shadow-2xl" onerror="this.src='https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp'" />
                 </div>
                 <div class="col-span-12 md:col-span-6">
                     <div class="breadcrumbs text-sm">
                         <ul>
-                            <li class="text-gray-500 font-semibold">Protein</li>
-                            <li class="font-semibold">Whey Protein</li>
+                            <li class="text-gray-500 font-semibold"><?= $p['nama_kategori'] ?></li>
+                            <li class="font-semibold"><?= $p['sub_kategori'] ?></li>
                         </ul>
                     </div>
-                    <p class="text-gray-400 font-semibold mb-2">Evolene</p>
-                    <h1 class="text-4xl font-bold mb-2">Isolene</h1>
+                    <p class="text-gray-400 font-semibold mb-2"><?= $p['nama_brand'] ?></p>
+                    <h1 class="text-4xl font-bold mb-2"><?= $p['nama_produk'] ?></h1>
                     <div class="flex flex-row items-center gap-2">
-                        <div class="rating">
-                            <div class="mask mask-star" aria-label="1 star"></div>
-                            <div class="mask mask-star" aria-label="2 star"></div>
-                            <div class="mask mask-star" aria-label="3 star"></div>
-                            <div class="mask mask-star" aria-label="4 star"></div>
-                            <div class="mask mask-star" aria-label="5 star"></div>
+                        <div class="rating rating-sm">
+                            <?php for ($i = 1; $i <= 5; $i++): ?>
+                                <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400" <?= ($i == round($p['rating'])) ? 'checked' : '' ?> disabled />
+                            <?php endfor; ?>
                         </div>
-                        <p class="text-xs font-semibold">0 Reviews</p>
+                        <p class="text-xs font-semibold"><?= $p['jumlah_review'] ?> Reviews</p>
                     </div>
-                    <p class="text-xl font-semibold mt-3">Rp. 959.000</p>
-                    <p class="text-xs text-gray-500 font-semibold mt-3 text-justify">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus commodo ipsum non ante finibus, sit amet placerat libero malesuada. Cras viverra, elit vel vestibulum pharetra, dui magna imperdiet dolor, eget vestibulum urna leo at dui. Nunc nec tortor eget eros faucibus egestas ultricies vel nisl. Quisque a nunc mollis erat rhoncus lacinia.
-                    </p>
-                    <div class="flex flex-row gap-3 mt-5">
-                        <div class="btn btn-soft flex justify-between w-28">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
-                                <path fill-rule="evenodd" d="M4.25 12a.75.75 0 0 1 .75-.75h14a.75.75 0 0 1 0 1.5H5a.75.75 0 0 1-.75-.75Z" clip-rule="evenodd" />
-                            </svg>
-                            <p>1</p>
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
-                                <path fill-rule="evenodd" d="M12 3.75a.75.75 0 0 1 .75.75v6.75h6.75a.75.75 0 0 1 0 1.5h-6.75v6.75a.75.75 0 0 1-1.5 0v-6.75H4.5a.75.75 0 0 1 0-1.5h6.75V4.5a.75.75 0 0 1 .75-.75Z" clip-rule="evenodd" />
-                            </svg>
+                    <p class="text-3xl font-bold mt-3 text-primary">Rp <?= number_format($p['harga'], 0, ',', '.') ?></p>
+                    <div class="mt-5">
+                        <p class="text-sm font-bold mb-2">Deskripsi Produk :</p>
+                        <p class="text-sm text-gray-500 font-medium text-justify leading-relaxed">
+                            <?= nl2br(esc($p['deskripsi'])) ?>
+                        </p>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-4 mt-6">
+                        <div class="bg-base-200 p-3 rounded-lg">
+                            <p class="text-xs text-gray-500 font-semibold">Tersedia Stok</p>
+                            <p class="text-sm font-bold"><?= $p['stok'] ?> Unit</p>
                         </div>
-                        <div class="btn btn-neutral">Tambah ke Keranjang</div>
+                        <div class="bg-base-200 p-3 rounded-lg">
+                            <p class="text-xs text-gray-500 font-semibold">Berat</p>
+                            <p class="text-sm font-bold"><?= $p['berat'] ?> Gram</p>
+                        </div>
+                        <?php if ($p['flavour']): ?>
+                            <div class="bg-base-200 p-3 rounded-lg">
+                                <p class="text-xs text-gray-500 font-semibold">Rasa</p>
+                                <p class="text-sm font-bold"><?= $p['flavour'] ?></p>
+                            </div>
+                        <?php endif; ?>
+                        <?php if ($p['ukuran']): ?>
+                            <div class="bg-base-200 p-3 rounded-lg">
+                                <p class="text-xs text-gray-500 font-semibold">Ukuran</p>
+                                <p class="text-sm font-bold"><?= $p['ukuran'] ?></p>
+                            </div>
+                        <?php endif; ?>
                     </div>
+
+                    <div class="flex flex-row gap-3 mt-8">
+                        <a href="<?= base_url('/login') ?>" class="btn btn-primary flex-1">Tambah ke Keranjang</a>
+                    </div>
+
                     <p class="text-xs mt-8 font-semibold">Pengiriman :</p>
                     <div class="flex flex-wrap justify-start gap-6 mt-3">
                         <div class="flex flex-row gap-3 items-center">
                             <div class="avatar">
-                                <div class="w-12 rounded">
+                                <div class="w-12 rounded bg-base-200 p-2">
                                     <img src="<?= base_url('assets/img/icon-kirim-1.svg') ?>" />
                                 </div>
                             </div>
@@ -177,7 +194,7 @@
                         </div>
                         <div class="flex flex-row gap-3 items-center">
                             <div class="avatar">
-                                <div class="w-12 rounded">
+                                <div class="w-12 rounded bg-base-200 p-2">
                                     <img src="<?= base_url('assets/img/icon-kirim-2.svg') ?>" />
                                 </div>
                             </div>
@@ -188,20 +205,67 @@
                         </div>
                         <div class="flex flex-row gap-3 items-center">
                             <div class="avatar">
-                                <div class="w-12 rounded">
+                                <div class="w-12 rounded bg-base-200 p-2">
                                     <img src="<?= base_url('assets/img/icon-kirim-3.svg') ?>" />
                                 </div>
                             </div>
                             <div class="flex flex-col">
                                 <p class="text-xs text-gray-500 font-semibold">Estimasi Sampai</p>
-                                <p class="text-sm font-semibold">22 - 24 Januari 2026</p>
+                                <p class="text-sm font-semibold">Tergantung Lokasi</p>
                             </div>
                         </div>
                     </div>
                 </div>
+                
+                <div class="col-span-12">
+                    <div class="mt-16">
+                        <div class="flex flex-row items-center gap-3 mb-8">
+                            <h2 class="text-2xl font-bold">Ulasan Produk</h2>
+                            <span class="badge badge-primary font-bold"><?= count($reviews) ?></span>
+                        </div>
+    
+                        <?php if (empty($reviews)): ?>
+                            <div class="bg-base-200 p-10 rounded-xl text-center">
+                                <p class="text-gray-500 italic">Belum ada ulasan untuk produk ini.</p>
+                            </div>
+                        <?php else: ?>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <?php foreach ($reviews as $r): ?>
+                                    <div class="bg-base-200 p-6 rounded-xl border border-base-content/5">
+                                        <div class="flex flex-row justify-between items-start mb-4">
+                                            <div class="flex flex-row gap-3 items-center">
+                                                <div class="avatar">
+                                                    <div class="w-10 rounded-full">
+                                                        <?php if ($r['foto_profil']): ?>
+                                                            <img src="<?= base_url('assets/img/customer/' . $r['foto_profil']) ?>" />
+                                                        <?php else: ?>
+                                                            <img src="https://ui-avatars.com/api/?name=<?= urlencode($r['nama_lengkap']) ?>&background=random" />
+                                                        <?php endif; ?>
+                                                    </div>
+                                                </div>
+                                                <div>
+                                                    <p class="text-sm font-bold"><?= $r['nama_lengkap'] ?></p>
+                                                    <p class="text-[10px] text-gray-400 font-semibold"><?= date('d M Y', strtotime($r['created_at'])) ?></p>
+                                                </div>
+                                            </div>
+                                            <div class="rating rating-xs">
+                                                <?php for ($i = 1; $i <= 5; $i++): ?>
+                                                    <input type="radio" class="mask mask-star-2 bg-orange-400" <?= ($i == $r['rating']) ? 'checked' : '' ?> disabled />
+                                                <?php endfor; ?>
+                                            </div>
+                                        </div>
+                                        <p class="text-sm text-gray-500 font-medium leading-relaxed">
+                                            <?= esc($r['komentar']) ?>
+                                        </p>
+                                    </div>
+                                <?php endforeach; ?>
+                            </div>
+                        <?php endif; ?>
+                    </div>
+                </div>
             </div>
         </div>
-        <!-- Content -->
+        <!-- Footer -->
         <div class="col-span-12">
             <footer class="footer sm:footer-horizontal bg-base-200 text-base-content py-10 px-12">
                 <aside>
@@ -258,6 +322,32 @@
                 </aside>
             </footer>
         </div>
+
+        <?php if (session()->getFlashdata('success')) : ?>
+            <div class="toast toast-top toast-end mt-20">
+                <div class="alert alert-success">
+                    <span class="text-white font-semibold"><?= session()->getFlashdata('success') ?></span>
+                </div>
+            </div>
+            <script>
+                setTimeout(() => {
+                    document.querySelector('.toast').remove();
+                }, 3000);
+            </script>
+        <?php endif; ?>
+
+        <?php if (session()->getFlashdata('error')) : ?>
+            <div class="toast toast-top toast-end mt-20">
+                <div class="alert alert-error">
+                    <span class="text-white font-semibold"><?= session()->getFlashdata('error') ?></span>
+                </div>
+            </div>
+            <script>
+                setTimeout(() => {
+                    document.querySelector('.toast').remove();
+                }, 3000);
+            </script>
+        <?php endif; ?>
 </body>
 
 </html>

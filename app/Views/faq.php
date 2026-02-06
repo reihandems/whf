@@ -130,7 +130,7 @@
                             </div>
                         </div>
                         <div class="collapse-content px-8 text-sm text-start">
-                            Click the "Sign Up" button in the top right corner and follow the registration process.
+                            Will Healthy Fitness (WHF) adalah platform terpercaya yang berdedikasi untuk mendukung perjalanan kebugaran Anda. Kami menyediakan berbagai pilihan suplemen gym berkualitas tinggi dan jasa Personal Trainer profesional untuk membantu Anda mencapai target tubuh impian dengan cara yang sehat dan efektif.
                         </div>
                     </div>
 
@@ -145,7 +145,7 @@
                             </div>
                         </div>
                         <div class="collapse-content px-8 text-sm text-start">
-                            Click the "Sign Up" button in the top right corner and follow the registration process.
+                            Ya, Anda perlu membuat akun. Dengan memiliki akun di WHF, Anda dapat memantau riwayat pesanan, menyimpan alamat pengiriman, dan mendapatkan akses eksklusif ke program latihan atau promo menarik lainnya.
                         </div>
                     </div>
 
@@ -160,7 +160,7 @@
                             </div>
                         </div>
                         <div class="collapse-content px-8 text-sm text-start">
-                            Click the "Sign Up" button in the top right corner and follow the registration process.
+                            Kami bekerja sama dengan payment gateway DOKU untuk menjamin keamanan dan kenyamanan transaksi Anda. Anda bisa membayar melalui berbagai metode seperti Transfer Bank (Virtual Account), Kartu Kredit, E-Wallet (OVO, DANA, dll), hingga pembayaran via minimarket.
                         </div>
                     </div>
 
@@ -175,7 +175,7 @@
                             </div>
                         </div>
                         <div class="collapse-content px-8 text-sm text-start">
-                            Click the "Sign Up" button in the top right corner and follow the registration process.
+                            Waktu pengiriman bergantung pada lokasi Anda dan jenis layanan kurir yang dipilih. Umumnya, pesanan akan diproses dalam 1-2 hari kerja. Estimasi sampai di tujuan adalah 2-5 hari kerja untuk wilayah Indonesia.
                         </div>
                     </div>
 
@@ -190,7 +190,7 @@
                             </div>
                         </div>
                         <div class="collapse-content px-8 text-sm text-start">
-                            Click the "Sign Up" button in the top right corner and follow the registration process.
+                            Setelah pesanan Anda berhasil dibuat, kami akan mengirimkan email konfirmasi ke alamat email yang Anda berikan. Email ini akan mengandung detail pesanan dan nomor resi jika pesanan Anda sedang dalam proses pengiriman.
                         </div>
                     </div>
 
@@ -205,7 +205,7 @@
                             </div>
                         </div>
                         <div class="collapse-content px-8 text-sm text-start">
-                            Click the "Sign Up" button in the top right corner and follow the registration process.
+                            Tentu saja! Keamanan konsumen adalah prioritas utama kami. Semua suplemen yang kami jual dijamin 100% original dan telah melalui proses seleksi ketat untuk memastikan Anda mendapatkan produk yang aman dan berkualitas.
                         </div>
                     </div>
 
@@ -220,7 +220,7 @@
                             </div>
                         </div>
                         <div class="collapse-content px-8 text-sm text-start">
-                            Click the "Sign Up" button in the top right corner and follow the registration process.
+                            Jika Anda butuh bantuan lebih lanjut, tim kami siap membantu! Anda dapat menghubungi kami melalui fitur Contact Us di website, mengirim email ke willhealthyfitness@gmail.com, atau melalui WhatsApp resmi kami yang tertera di bagian bawah halaman ini.
                         </div>
                     </div>
                 </div>

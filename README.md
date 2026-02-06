@@ -1,68 +1,98 @@
-# CodeIgniter 4 Application Starter
+# WHF Fitness - Supplement & Personal Trainer Marketplace
 
-## What is CodeIgniter?
+**Will Healthy Fitness (WHF)** adalah platform e-commerce modern yang berfokus pada penjualan suplemen gym berkualitas tinggi dan penyediaan jasa Personal Trainer profesional. Dibangun menggunakan framework **CodeIgniter 4** dan **DaisyUI (Tailwind CSS)** untuk memberikan pengalaman pengguna yang cepat, responsif, dan premium.
 
-CodeIgniter is a PHP full-stack web framework that is light, fast, flexible and secure.
-More information can be found at the [official site](https://codeigniter.com).
+## 🚀 Fitur Utama
 
-This repository holds a composer-installable app starter.
-It has been built from the
-[development repository](https://github.com/codeigniter4/CodeIgniter4).
+- **Marketplace Suplemen**: Pembelian produk berdasarkan kategori, sub-kategori, dan brand.
+- **Booking Personal Trainer**: Cari dan pesan trainer profesional berdasarkan lokasi, pengalaman, dan rating.
+- **Sistem Multi-Role**:
+  - **Admin**: Manajemen data master, kategori, brand, dan verifikasi.
+  - **Supplier**: Kelola stok produk dan pantau pesanan masuk.
+  - **Trainer**: Kelola profil, paket latihan, dan jadwal booking.
+  - **Customer**: Belanja, booking trainer, dan kelola profil pribadi.
+- **Integrasi Pembayaran DOKU**: Sistem pembayaran otomatis menggunakan Virtual Account, E-Wallet, dan Kartu Kredit.
+- **Sistem Ulasan (Reviews)**: Customer dapat memberikan ulasan dan rating untuk produk maupun trainer setelah transaksi selesai.
+- **Dashboard Statistik**: Statistik dinamis untuk tiap role guna memantau aktivitas bisnis.
+- **Blog & FAQ**: Informasi kebugaran dan bantuan bantuan layanan.
 
-More information about the plans for version 4 can be found in [CodeIgniter 4](https://forum.codeigniter.com/forumdisplay.php?fid=28) on the forums.
+## 🛠️ Tech Stack
 
-You can read the [user guide](https://codeigniter.com/user_guide/)
-corresponding to the latest version of the framework.
+- **Backend**: PHP 8.1+ (CodeIgniter 4)
+- **Database**: MySQL / MariaDB
+- **Frontend**: Tailwind CSS v4, DaisyUI v5 (Glassmorphism design)
+- **Payment Gateway**: DOKU API
+- **Tools**: Composer, NodeJS (Tailwind CLI)
 
-## Installation & updates
+## 📦 Instalasi
 
-`composer create-project codeigniter4/appstarter` then `composer update` whenever
-there is a new release of the framework.
+Ikuti langkah-langkah berikut untuk menjalankan project di lingkungan lokal:
 
-When updating, check the release notes to see if there are any changes you might need to apply
-to your `app` folder. The affected files can be copied or merged from
-`vendor/codeigniter4/framework/app`.
+### 1. Prasyarat
 
-## Setup
+- PHP >= 8.1
+- Composer
+- MySQL/MariaDB
+- NodeJS (Opsional, untuk kustomisasi CSS)
 
-Copy `env` to `.env` and tailor for your app, specifically the baseURL
-and any database settings.
+### 2. Clone Repository
 
-## Important Change with index.php
+```bash
+git clone https://github.com/username/whf-fitness.git
+cd whf
+```
 
-`index.php` is no longer in the root of the project! It has been moved inside the *public* folder,
-for better security and separation of components.
+### 3. Install Dependensi
 
-This means that you should configure your web server to "point" to your project's *public* folder, and
-not to the project root. A better practice would be to configure a virtual host to point there. A poor practice would be to point your web server to the project root and expect to enter *public/...*, as the rest of your logic and the
-framework are exposed.
+```bash
+composer install
+npm install
+```
 
-**Please** read the user guide for a better explanation of how CI4 works!
+### 4. Konfigurasi Environment
 
-## Repository Management
+Salin file `.env.example` (atau `env`) menjadi `.env` dan sesuaikan pengaturannya:
 
-We use GitHub issues, in our main repository, to track **BUGS** and to track approved **DEVELOPMENT** work packages.
-We use our [forum](http://forum.codeigniter.com) to provide SUPPORT and to discuss
-FEATURE REQUESTS.
+```ini
+database.default.hostname = localhost
+database.default.database = db_whf
+database.default.username = root
+database.default.password =
+database.default.DBDriver = MySQLi
 
-This repository is a "distribution" one, built by our release preparation script.
-Problems with it can be raised on our forum, or as issues in the main repository.
+app.baseURL = 'http://localhost:8080/'
+```
 
-## Server Requirements
+### 5. Setup Database
 
-PHP version 8.1 or higher is required, with the following extensions installed:
+1. Buat database baru bernama `db_whf`.
+2. Import file SQL `db_whf.sql` yang ada di root project ke database tersebut.
 
-- [intl](http://php.net/manual/en/intl.requirements.php)
-- [mbstring](http://php.net/manual/en/mbstring.installation.php)
+### 6. Menjalankan Aplikasi
 
-> [!WARNING]
-> - The end of life date for PHP 7.4 was November 28, 2022.
-> - The end of life date for PHP 8.0 was November 26, 2023.
-> - If you are still using PHP 7.4 or 8.0, you should upgrade immediately.
-> - The end of life date for PHP 8.1 will be December 31, 2025.
+Gunakan perintah berikut untuk menjalankan server development dan Tailwind watch secara bersamaan:
 
-Additionally, make sure that the following extensions are enabled in your PHP:
+```bash
+npm start
+```
 
-- json (enabled by default - don't turn it off)
-- [mysqlnd](http://php.net/manual/en/mysqlnd.install.php) if you plan to use MySQL
-- [libcurl](http://php.net/manual/en/curl.requirements.php) if you plan to use the HTTP\CURLRequest library
+Aplikasi dapat diakses di `http://localhost:8080`.
+
+## 👥 Akun Demo (Default)
+
+Tersedia beberapa akun untuk pengujian (password default biasanya disesuaikan di database):
+
+| Role         | Username / Email                |
+| :----------- | :------------------------------ |
+| **Admin**    | `admin`                         |
+| **Supplier** | `supplier` / `evolene`          |
+| **Trainer**  | `trainer` / `coach.adi`         |
+| **Customer** | `customer` / `user@example.com` |
+
+## 🛡️ Keamanan & Lisensi
+
+Pastikan file `.env` dan folder `writable/` memiliki izin yang sesuai. File sensitif seperti `db_whf.sql` sebaiknya dihapus atau dipindahkan dari folder public sebelum di-deploy ke production.
+
+---
+
+Dikembangkan dengan ❤️ oleh **Will Healthy Fitness Team**.

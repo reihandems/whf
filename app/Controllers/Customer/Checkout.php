@@ -92,73 +92,10 @@ class Checkout extends BaseController
             ]);
         }
 
-        // Prepare DOKU Request
-        $lineItems = [];
-        foreach ($cartItems as $item) {
-            $lineItems[] = [
-                'name' => $item['nama_produk'],
-                'price' => (int)$item['harga'],
-                'quantity' => (int)$item['jumlah']
-            ];
-        }
-
-        // Add Shipping as a line item if > 0
-        if ($shipping_cost > 0) {
-            $lineItems[] = [
-                'name' => 'Ongkos Kirim',
-                'price' => $shipping_cost,
-                'quantity' => 1
-            ];
-        }
-
-        $dokuRequest = [
-            'order' => [
-                'amount' => (int)$total,
-                'invoice_number' => $kode_pesanan,
-                'currency' => 'IDR',
-                'callback_url' => base_url('user/cart'),
-                'line_items' => $lineItems
-            ],
-            'customer' => [
-                'name' => $orderData['nama_penerima'],
-                'email' => session()->get('email'),
-                'phone' => $orderData['no_hp_penerima'],
-                'address' => $orderData['alamat_lengkap'],
-                'country' => 'ID'
-            ],
-            'shipping_address' => [
-                'first_name' => $orderData['nama_penerima'],
-                'address' => $orderData['alamat_lengkap'],
-                'city' => $orderData['kota'],
-                'postal_code' => $orderData['kode_pos'],
-                'phone' => $orderData['no_hp_penerima'],
-                'country' => 'ID'
-            ],
-            'payment' => [
-                'payment_due_date' => 60 // 60 minutes
-            ]
-        ];
-
-        $response = $dokuLibrary->initiatePayment($dokuRequest);
-
-        // Tambahkan log untuk debugging
-        log_message('debug', 'DOKU Response: ' . json_encode($response));
-
-        // ✅ Cek struktur yang benar
-        if (isset($response['response']['payment']['url'])) {
-            // Clear cart
-            $cartModel->where('id_customer', $id_customer)->delete();
-
-            return $this->response->setJSON([
-                'status' => 'success',
-                'payment_url' => $response['response']['payment']['url']
-            ]);
-        }
-
+        // Redirect to Simulator instead of DOKU
         return $this->response->setJSON([
-            'status' => 'error',
-            'message' => 'Gagal menginisialisasi pembayaran DOKU.',
-            'doku_response' => $response
+            'status' => 'success',
+            'payment_url' => base_url('user/payment/simulate/' . $kode_pesanan)
         ]);
     }
 }

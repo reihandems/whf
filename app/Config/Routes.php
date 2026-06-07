@@ -58,6 +58,11 @@ $routes->group('user', ['filter' => 'auth'], function ($routes) {
     $routes->get('pesanan/complete/(:num)', 'Customer\Pesanan::complete/$1');
     $routes->get('pesanan/get-items/(:num)', 'Customer\Pesanan::getItems/$1');
     $routes->post('pesanan/review/submit', 'Customer\Pesanan::submitReview');
+
+    // Payment Simulation
+    $routes->get('payment/simulate/(:segment)', 'Customer\PaymentSimulator::simulate/$1');
+    $routes->post('payment/confirm',             'Customer\PaymentSimulator::confirm');
+
     $routes->get('pesanan/reorder/(:num)', 'Customer\Pesanan::reorder/$1');
     $routes->get('booking', 'Customer\Booking::index');
     $routes->get('booking/detail/(:num)', 'Customer\Booking::detail/$1');

@@ -84,46 +84,10 @@ class CheckoutTrainer extends BaseController
         $bookingModel->insert($bookingData);
         $id_booking = $bookingModel->getInsertID();
 
-        // Prepare DOKU Request
-        $dokuRequest = [
-            'order' => [
-                'amount' => (int)$total,
-                'invoice_number' => $kode_booking,
-                'currency' => 'IDR',
-                'callback_url' => base_url('user/booking'),
-                'line_items' => [
-                    [
-                        'name' => 'Booking Trainer: ' . $trainer['nama_trainer'],
-                        'price' => (int)$trainer['harga_per_sesi'],
-                        'quantity' => $jumlah_sesi
-                    ]
-                ]
-            ],
-            'customer' => [
-                'name' => $bookingData['nama_trainee'],
-                'email' => $bookingData['email_trainee'],
-                'phone' => $bookingData['no_hp_trainee'],
-                'address' => $bookingData['alamat_trainee'],
-                'country' => 'ID'
-            ],
-            'payment' => [
-                'payment_due_date' => 60
-            ]
-        ];
-
-        $response = $dokuLibrary->initiatePayment($dokuRequest);
-
-        if (isset($response['response']['payment']['url'])) {
-            return $this->response->setJSON([
-                'status' => 'success',
-                'payment_url' => $response['response']['payment']['url']
-            ]);
-        }
-
+        // Redirect to Simulator instead of DOKU
         return $this->response->setJSON([
-            'status' => 'error',
-            'message' => 'Gagal menginisialisasi pembayaran DOKU.',
-            'doku_response' => $response
+            'status' => 'success',
+            'payment_url' => base_url('user/payment/simulate/' . $kode_booking)
         ]);
     }
 }

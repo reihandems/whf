@@ -1,4 +1,4 @@
-<div class="navbar bg-base-100 shadow-sm px-6 md:px-12">
+<div class="navbar bg-base-100 shadow-sm px-6 md:px-12 fixed top-0 right-0 left-0 z-[100]">
     <div class="navbar-start">
         <div class="dropdown">
             <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
@@ -46,5 +46,88 @@
                 <path fill-rule="evenodd" d="M7.5 6a4.5 4.5 0 1 1 9 0 4.5 4.5 0 0 1-9 0ZM3.751 20.105a8.25 8.25 0 0 1 16.498 0 .75.75 0 0 1-.437.695A18.683 18.683 0 0 1 12 22.5c-2.786 0-5.433-.608-7.812-1.7a.75.75 0 0 1-.437-.695Z" clip-rule="evenodd" />
             </svg>
         </a>
+</div>
+<style>
+    body {
+        padding-top: 80px !important;
+    }
+</style>
+
+<!-- Loading Skeleton Overlay -->
+<div id="loading-skeleton" class="fixed inset-0 bg-base-100 z-[9999] p-6 md:p-12 overflow-hidden transition-opacity duration-500 ease-in-out">
+    <div class="max-w-7xl mx-auto space-y-12">
+        <!-- Navbar Skeleton -->
+        <div class="flex justify-between items-center border-b border-base-content/5 pb-6">
+            <div class="flex items-center gap-4">
+                <div class="skeleton w-12 h-12 rounded-full shrink-0"></div>
+                <div class="skeleton h-6 w-32 rounded-lg"></div>
+            </div>
+            <div class="flex gap-4 md:flex hidden">
+                <div class="skeleton h-6 w-16 rounded-lg"></div>
+                <div class="skeleton h-6 w-16 rounded-lg"></div>
+                <div class="skeleton h-6 w-16 rounded-lg"></div>
+            </div>
+            <div class="flex gap-3">
+                <div class="skeleton w-10 h-10 rounded-full"></div>
+                <div class="skeleton w-10 h-10 rounded-full"></div>
+            </div>
+        </div>
+        
+        <!-- Grid Skeleton representing dashboard / list -->
+        <div class="grid grid-cols-12 gap-8">
+            <!-- Left Side / Main Content -->
+            <div class="col-span-12 lg:col-span-8 space-y-6">
+                <div class="skeleton h-10 w-2/3 rounded-xl"></div>
+                <div class="skeleton h-6 w-full rounded-lg"></div>
+                <div class="skeleton h-6 w-4/5 rounded-lg"></div>
+                
+                <!-- Card Grid Simulator -->
+                <div class="grid grid-cols-12 gap-6 pt-6">
+                    <div class="col-span-6 md:col-span-4 space-y-3">
+                        <div class="skeleton h-40 w-full rounded-2xl"></div>
+                        <div class="skeleton h-4 w-3/4 rounded-lg"></div>
+                        <div class="skeleton h-4 w-1/2 rounded-lg"></div>
+                    </div>
+                    <div class="col-span-6 md:col-span-4 space-y-3">
+                        <div class="skeleton h-40 w-full rounded-2xl"></div>
+                        <div class="skeleton h-4 w-3/4 rounded-lg"></div>
+                        <div class="skeleton h-4 w-1/2 rounded-lg"></div>
+                    </div>
+                    <div class="col-span-6 md:col-span-4 md:block hidden space-y-3">
+                        <div class="skeleton h-40 w-full rounded-2xl"></div>
+                        <div class="skeleton h-4 w-3/4 rounded-lg"></div>
+                        <div class="skeleton h-4 w-1/2 rounded-lg"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Right Side / Sidebar -->
+            <div class="col-span-12 lg:col-span-4 space-y-6 lg:block hidden">
+                <div class="skeleton h-8 w-1/2 rounded-xl"></div>
+                <div class="skeleton h-48 w-full rounded-2xl"></div>
+                <div class="skeleton h-12 w-full rounded-xl"></div>
+            </div>
+        </div>
     </div>
 </div>
+
+<script>
+    (function() {
+        function hideSkeleton() {
+            const skeleton = document.getElementById('loading-skeleton');
+            if (skeleton) {
+                skeleton.style.opacity = '0';
+                setTimeout(() => {
+                    skeleton.remove();
+                }, 500);
+            }
+        }
+        // Fallback timeout in case page load event takes too long
+        const fallback = setTimeout(hideSkeleton, 1500);
+        
+        window.addEventListener('load', function() {
+            clearTimeout(fallback);
+            hideSkeleton();
+        });
+    })();
+</script>

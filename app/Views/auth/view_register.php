@@ -83,7 +83,7 @@
                         <span class="text-sm">Saya setuju dengan S&K</span>
                     </label>
                 </div>
-                <button type="submit" class="btn btn-primary mt-5 w-40">Daftar</button>
+                <button type="submit" class="btn btn-primary mt-5 md:w-40 w-full">Daftar</button>
             </form>
         </div>
         <div class="col-span-12 hidden md:col-span-6 md:block">

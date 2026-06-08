@@ -35,7 +35,7 @@
         </div>
         <!-- Navbar -->
         <div class="col-span-12">
-            <div class="navbar bg-base-100 shadow-sm px-6 md:px-12">
+            <div class="navbar bg-base-100 shadow-sm px-2 md:px-12">
                 <div class="navbar-start">
                     <div class="dropdown">
                         <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
@@ -114,7 +114,7 @@
             </div>
         </div>
         <!-- Content -->
-        <div class="col-span-12 px-12 py-8">
+        <div class="col-span-12 px-4 md:px-12 py-8">
             <a href="<?= base_url('/home') ?>" class="btn mb-5">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
                     <path fill-rule="evenodd" d="M11.03 3.97a.75.75 0 0 1 0 1.06l-6.22 6.22H21a.75.75 0 0 1 0 1.5H4.81l6.22 6.22a.75.75 0 1 1-1.06 1.06l-7.5-7.5a.75.75 0 0 1 0-1.06l7.5-7.5a.75.75 0 0 1 1.06 0Z" clip-rule="evenodd" />
@@ -267,7 +267,7 @@
         </div>
         <!-- Footer -->
         <div class="col-span-12">
-            <footer class="footer sm:footer-horizontal bg-base-200 text-base-content py-10 px-12">
+            <footer class="footer sm:footer-horizontal bg-base-200 text-base-content py-10 px-4 md:px-12">
                 <aside>
                     <div class="avatar me-3">
                         <div class="w-14 h-14 rounded-full dynamic-logo"></div>

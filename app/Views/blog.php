@@ -37,7 +37,7 @@
 
         <!-- Content -->
         <div class="col-span-12">
-            <div class="grid grid-cols-6 md:grid-cols-12 md:px-12 px-8 py-8 gap-12">
+            <div class="grid grid-cols-6 md:grid-cols-12 md:px-12 px-4 py-8 gap-12">
                 <!-- Terbaru -->
                 <div class="col-span-6 md:col-span-6">
                     <h1 class="text-2xl font-bold mb-5 border-l-4 border-primary pl-4">Terbaru</h1>
@@ -93,7 +93,7 @@
             </div>
 
             <!-- Artikel Lainnya -->
-            <div class="grid grid-cols-12 gap-8 px-8 md:px-12 pb-12">
+            <div class="grid grid-cols-12 gap-8 px-4 md:px-12 pb-12">
                 <div class="col-span-12">
                     <h1 class="text-2xl font-bold mb-5 border-l-4 border-gray-400 pl-4">Artikel Lainnya</h1>
                 </div>
@@ -126,7 +126,7 @@
         <!-- Content -->
 
         <div class="col-span-12">
-            <footer class="footer sm:footer-horizontal bg-base-200 text-base-content py-10 px-12">
+            <footer class="footer sm:footer-horizontal bg-base-200 text-base-content py-10 px-4 md:px-12">
                 <aside>
                     <div class="avatar me-3">
                         <div class="w-14 h-14 rounded-full dynamic-logo"></div>

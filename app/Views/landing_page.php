@@ -39,7 +39,7 @@
         </div>
         <!-- Hero -->
         <div class="col-span-12 md:min-h-screen" style="background-image: url(<?= base_url('assets/img/bg-img.png') ?>); background-size: cover;">
-            <div class="flex md:flex-row flex-col gap-3 md:gap-18 justify-between align-middle items-center h-full md:px-12 px-8 md:mt-0 mt-20">
+            <div class="flex md:flex-row flex-col gap-3 md:gap-18 justify-between align-middle items-center h-full md:px-12 px-4 md:mt-0 mt-20">
                 <div class="kiri flex flex-col gap-4">
                     <h1 class="text-4xl font-bold">Tingkatkan Performa Latihanmu dengan Suplemen Terbaik!</h1>
                     <p class="text-gray-400 font-semibold">Kami menyediakan whey protein, mass gainer, dan suplemen fitness original dari berbagai brand populer dengan harga bersaing</p>
@@ -54,14 +54,14 @@
             </div>
         </div>
         <div class="col-span-12">
-            <h1 class="text-center text-2xl md:mt-12 mt-10 font-bold">KATEGORI UTAMA</h1>
+            <h1 class="text-center text-lg md:text-2xl md:mt-12 mt-10 font-bold">KATEGORI UTAMA</h1>
             <div class="flex flex-wrap justify-center items-center mt-8 gap-8">
                 <?php foreach ($categories as $cat): ?>
                     <button onclick="switchCategory('<?= url_title($cat, '-', true) ?>')" id="btn-<?= url_title($cat, '-', true) ?>" class="category-btn btn <?= ($cat == 'Protein') ? 'btn-primary' : 'btn-soft' ?> w-32"><?= $cat ?></button>
                 <?php endforeach; ?>
             </div>
 
-            <div id="category-products-container" class="grid grid-cols-12 md:gap-8 gap-6 px-8 md:px-12 mt-12">
+            <div id="category-products-container" class="grid grid-cols-12 md:gap-8 gap-6 px-4 md:px-12 mt-12">
                 <?php foreach ($productsByCategory as $catName => $products): ?>
                     <div id="wrapper-<?= url_title($catName, '-', true) ?>" class="category-wrapper col-span-12 grid grid-cols-12 md:gap-8 gap-6 <?= ($catName == 'Protein') ? '' : 'hidden' ?>">
                         <?php if (empty($products)): ?>
@@ -76,7 +76,7 @@
                                         <div class="card-body p-4">
                                             <p class="text-xs text-gray-400 font-semibold"><?= $p['nama_brand'] ?></p>
                                             <h2 class="card-title text-sm md:text-base h-12 overflow-hidden line-clamp-2"><?= $p['nama_produk'] ?></h2>
-                                            <h1 class="text-lg md:text-xl font-bold text-primary">Rp <?= number_format($p['harga'], 0, ',', '.') ?></h1>
+                                            <h1 class="text-sm md:text-xl font-bold text-primary">Rp <?= number_format($p['harga'], 0, ',', '.') ?></h1>
                                         </div>
                                     </a>
                                 </div>
@@ -93,8 +93,8 @@
         </div>
     </div>
     <div class="col-span-12">
-        <h1 class="text-center text-2xl font-bold uppercase">Paling Banyak Dicari</h1>
-        <div class="grid grid-cols-12 md:gap-8 gap-6 px-8 md:px-12 mt-12">
+        <h1 class="text-center text-lg md:text-2xl font-bold uppercase">Paling Banyak Dicari</h1>
+        <div class="grid grid-cols-12 md:gap-8 gap-6 px-4 md:px-12 mt-8">
             <?php if (empty($mostSearched)): ?>
                 <div class="col-span-12 text-center py-10 opacity-50 italic">Belum ada data popular.</div>
             <?php else: ?>
@@ -107,7 +107,7 @@
                             <div class="card-body p-4">
                                 <p class="text-xs text-gray-400 font-semibold"><?= $p['nama_brand'] ?></p>
                                 <h2 class="card-title text-sm md:text-base h-12 overflow-hidden line-clamp-2"><?= $p['nama_produk'] ?></h2>
-                                <h1 class="text-lg md:text-xl font-bold text-primary">Rp <?= number_format($p['harga'], 0, ',', '.') ?></h1>
+                                <h1 class="text-sm md:text-xl font-bold text-primary">Rp <?= number_format($p['harga'], 0, ',', '.') ?></h1>
                             </div>
                         </a>
                     </div>
@@ -121,7 +121,7 @@
         </div>
     </div>
     <div class="col-span-12">
-        <footer class="footer sm:footer-horizontal bg-base-200 text-base-content py-10 px-12">
+        <footer class="footer sm:footer-horizontal bg-base-200 text-base-content py-10 px-4 md:px-12">
             <aside>
                 <div class="avatar me-3">
                     <div class="w-14 h-14 rounded-full dynamic-logo"></div>

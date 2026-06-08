@@ -1,5 +1,5 @@
 <div class="col-span-12">
-    <footer class="footer sm:footer-horizontal bg-base-200 text-base-content py-10 px-12">
+    <footer class="footer sm:footer-horizontal bg-base-200 text-base-content py-10 px-0 md:px-12">
         <aside>
             <div class="avatar me-3">
                 <div class="w-14 h-14 rounded-full dynamic-logo"></div>

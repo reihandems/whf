@@ -73,7 +73,7 @@
                     </div>
                 </div>
                 <!-- Content -->
-                <div class="col-span-12 md:col-span-9 py-3 md:py-6 px-10">
+                <div class="col-span-12 md:col-span-9 py-3 md:py-6 px-4 md:px-10">
                     <div class="breadcrumbs text-sm">
                         <ul>
                             <li class="text-gray-500 font-semibold">Produk</li>
@@ -114,7 +114,7 @@
 
         <!-- Footer -->
         <div class="col-span-12">
-            <footer class="footer sm:footer-horizontal bg-base-200 text-base-content py-10 px-12">
+            <footer class="footer sm:footer-horizontal bg-base-200 text-base-content py-10 px-4 md:px-12">
                 <aside>
                     <div class="avatar me-3">
                         <div class="w-14 h-14 rounded-full dynamic-logo"></div>

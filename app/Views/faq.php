@@ -35,7 +35,7 @@
         </div>
         <!-- Navbar -->
         <div class="col-span-12">
-            <div class="navbar bg-base-100 shadow-sm px-6 md:px-12">
+            <div class="navbar bg-base-100 shadow-sm px-2 md:px-12">
                 <div class="navbar-start">
                     <div class="dropdown">
                         <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
@@ -116,7 +116,7 @@
 
         <!-- Content -->
         <div class="col-span-12 text-center">
-            <div class="px-8 md:px-12 py-8">
+            <div class="px-4 md:px-12 py-8">
                 <h1 class="text-4xl font-semibold">Frequently Asked <span class="text-primary">Questions</span></h1>
                 <div class="md:w-140 w-auto mx-auto mt-8">
                     <div class="collapse bg-base-300 border-base-300 border rounded-t-xl rounded-b-none">
@@ -229,7 +229,7 @@
         <!-- Content -->
 
         <div class="col-span-12">
-            <footer class="footer sm:footer-horizontal bg-base-200 text-base-content py-10 px-12">
+            <footer class="footer sm:footer-horizontal bg-base-200 text-base-content py-10 px-4 md:px-12">
                 <aside>
                     <div class="avatar me-3">
                         <div class="w-14 h-14 rounded-full dynamic-logo"></div>

@@ -121,7 +121,7 @@
                     </div>
                 </div>
                 <!-- Content -->
-                <div class="col-span-12 md:col-span-9 py-3 md:py-5 md:px-10 px-8">
+                <div class="col-span-12 md:col-span-9 py-3 md:py-5 md:px-10 px-4">
                     <?php if (empty($trainers)): ?>
                         <div class="flex flex-col items-center justify-center py-20 opacity-50 italic text-center w-full">
                             <p>Trainer tidak ditemukan dengan filter yang dipilih.</p>
@@ -161,7 +161,7 @@
         </div>
 
         <div class="col-span-12">
-            <footer class="footer sm:footer-horizontal bg-base-200 text-base-content py-10 px-12">
+            <footer class="footer sm:footer-horizontal bg-base-200 text-base-content py-10 px-4 md:px-12">
                 <aside>
                     <div class="avatar me-3">
                         <div class="w-14 h-14 rounded-full dynamic-logo"></div>

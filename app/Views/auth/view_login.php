@@ -13,7 +13,7 @@
 
 <body>
     <div class="grid grid-cols-12 min-h-screen">
-        <div class="col-span-12 md:col-span-6 p-12" style="background-image: url(<?= base_url('assets/img/bg-img.png') ?>); background-size: cover;">
+        <div class="col-span-12 md:col-span-6 md:px-12 py-12 px-4" style="background-image: url(<?= base_url('assets/img/bg-img.png') ?>); background-size: cover;">
             <div class="avatar">
                 <div class="w-20 rounded-full">
                     <img src="<?= base_url('assets/img/logo-light.png') ?>" />

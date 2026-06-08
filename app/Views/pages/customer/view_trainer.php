@@ -4,7 +4,7 @@
 <div class="col-span-12 text-center mt-10">
     <h1 class="text-2xl md:text-4xl font-bold">Temukan Personal Trainer Terbaikmu</h1>
     <p class="text-gray-500 font-semibold mt-2">Pilih trainer sesuai kebutuhan dan jadwalmu</p>
-    <img src="<?= base_url('assets/img/trainer-hero.png') ?>" alt="hero" class="md:h-96 h-auto mx-0 md:mx-auto">
+    <img src="<?= base_url('assets/img/trainer-hero.png') ?>" alt="hero" class="h-auto md:h-96 mx-0 md:mx-auto">
 </div>
 <div class="col-span-12">
     <div class="grid grid-cols-12">
@@ -22,7 +22,7 @@
                 </div>
                 <div class="drawer-side z-50">
                     <label for="my-drawer-3" aria-label="close sidebar" class="drawer-overlay"></label>
-                    <form action="<?= base_url('/user/trainer') ?>" method="GET" class="menu bg-base-200 min-h-full w-80 p-4">
+                    <form action="<?= base_url('/trainer') ?>" method="GET" class="menu bg-base-200 min-h-full w-80 p-4">
                         <li>
                             <h3 class="text-lg font-semibold">Filter</h3>
                         </li>
@@ -80,14 +80,14 @@
                         </li>
 
                         <li class="mt-4">
-                            <a href="<?= base_url('/user/trainer') ?>" class="btn btn-ghost btn-sm">Reset Filter</a>
+                            <a href="<?= base_url('/trainer') ?>" class="btn btn-ghost btn-sm">Reset Filter</a>
                         </li>
                     </form>
                 </div>
             </div>
         </div>
         <!-- Content -->
-        <div class="col-span-12 md:col-span-9 py-3 md:py-5 md:px-10 px-8">
+        <div class="col-span-12 md:col-span-9 py-3 md:py-5 md:px-10 px-4">
             <?php if (empty($trainers)): ?>
                 <div class="flex flex-col items-center justify-center py-20 opacity-50 italic text-center w-full">
                     <p>Trainer tidak ditemukan dengan filter yang dipilih.</p>
@@ -96,7 +96,7 @@
                 <div class="grid grid-cols-12 gap-8">
                     <?php foreach ($trainers as $t): ?>
                         <div class="md:col-span-4 col-span-6">
-                            <a href="<?= base_url('/user/trainer/detail/' . $t['id_trainer']) ?>" class="card bg-base-300 w-full shadow-sm hover:shadow-lg hover:shadow-blue-500/50 transition-all duration-300 h-full">
+                            <a href="<?= base_url('/trainer/detail/' . $t['id_trainer']) ?>" class="card bg-base-300 w-full shadow-sm hover:shadow-lg hover:shadow-blue-500/50 transition-all duration-300 h-full">
                                 <figure>
                                     <img src="<?= base_url('assets/img/trainer/' . ($t['foto_profil'] ?: 'default.png')) ?>"
                                         alt="<?= $t['nama_trainer'] ?>"
@@ -123,7 +123,6 @@
                 </div>
             <?php endif; ?>
         </div>
-        <!-- Content -->
     </div>
 </div>
 <?= $this->endSection() ?>

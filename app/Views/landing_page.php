@@ -88,7 +88,7 @@
         </div>
     </div>
     <div class="col-span-12">
-        <div class="banner-1 md:p-12 p-8">
+        <div class="banner-1 md:py-12 md:px-12 py-8 px-4">
             <img src="<?= base_url('assets/img/banner-1.png') ?>" alt="" class="rounded-2xl">
         </div>
     </div>
@@ -116,7 +116,7 @@
         </div>
     </div>
     <div class="col-span-12">
-        <div class="banner-1 md:p-12 p-8">
+        <div class="banner-1 md:py-12 md:px-12 py-8 px-4">
             <img src="<?= base_url('assets/img/banner-2.png') ?>" alt="" class="rounded-2xl">
         </div>
     </div>

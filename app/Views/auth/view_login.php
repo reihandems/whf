@@ -32,18 +32,18 @@
                 <div class="grid grid-cols-1 mt-3">
                     <fieldset class="fieldset">
                         <legend class="fieldset-legend">Username</legend>
-                        <input type="text" name="username" class="input w-96" placeholder="Masukkan Username" required />
+                        <input type="text" name="username" class="input md:w-96 w-full" placeholder="Masukkan Username" required />
                     </fieldset>
                     <fieldset class="fieldset">
                         <legend class="fieldset-legend">Password</legend>
-                        <input type="password" name="password" class="input w-96" placeholder="Masukkan Password" required />
+                        <input type="password" name="password" class="input md:w-96 w-full" placeholder="Masukkan Password" required />
                     </fieldset>
                     <label class="flex mt-3 gap-2 items-center">
                         <input type="checkbox" name="remember" class="checkbox checkbox-sm checkbox-primary" />
                         <span class="text-sm">Ingat Saya</span>
                     </label>
                 </div>
-                <button type="submit" class="btn btn-primary mt-5 w-40">Login</button>
+                <button type="submit" class="btn btn-primary mt-5 md:w-40 w-full">Login</button>
             </form>
             <p class="text-sm mt-5">Belum punya akun? <a href="<?= base_url('/register') ?>" class="text-primary font-semibold"> Daftar Sekarang</a></p>
         </div>

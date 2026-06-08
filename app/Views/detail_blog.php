@@ -41,16 +41,18 @@
                 Kembali ke Artikel
             </a>
 
-            <div class="grid grid-cols-12 gap-12">
+            <div class="grid grid-cols-12 gap-8 lg:gap-12 min-w-0 overflow-hidden">
                 <!-- Main Article -->
-                <article class="col-span-12 lg:col-span-8">
+                <article class="col-span-12 lg:col-span-8 min-w-0 overflow-hidden">
                     <div class="mb-8">
                         <div class="flex items-center gap-4 mb-4 text-[10px] font-black uppercase tracking-[0.3em] text-primary">
                             <p><?= date('d F Y', strtotime($b['tanggal_publish'])) ?></p>
                             <p class="opacity-20">|</p>
                             <p><?= $b['views'] ?> Views</p>
                         </div>
-                        <h1 class="text-4xl md:text-5xl font-black leading-tight mb-6"><?= $b['judul'] ?></h1>
+                        <h1 class="text-2xl md:text-5xl font-black leading-tight mb-6 break-words overflow-hidden">
+                            <?= $b['judul'] ?>
+                        </h1>
                         <div class="flex items-center gap-3">
                             <div class="w-10 h-10 rounded-full bg-base-300 dynamic-logo"></div>
                             <div>
@@ -60,13 +62,13 @@
                         </div>
                     </div>
 
-                    <div class="rounded-3xl overflow-hidden shadow-2xl mb-10 ring-1 ring-black/5">
+                    <div class="w-full max-w-full rounded-3xl overflow-hidden shadow-2xl mb-10 ring-1 ring-black/5">
                         <img src="<?= base_url('assets/img/blog/' . ($b['foto_cover'] ?: 'default.png')) ?>"
-                            class="w-full h-auto object-cover"
+                            class="block w-full max-w-full h-auto md:h-[420px] object-cover"
                             onerror="this.src='https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp'" />
                     </div>
 
-                    <div class="prose prose-lg max-w-none text-gray-600 leading-relaxed text-justify font-medium">
+                    <div class="prose prose-lg max-w-none text-gray-600 leading-relaxed text-justify font-medium break-words overflow-hidden">
                         <?= $b['konten'] ?>
                     </div>
                 </article>

@@ -2,7 +2,7 @@
 <?= $this->section('content') ?>
 <!-- Content -->
 <div class="col-span-12 text-center">
-    <div class="px-8 md:px-12 py-8">
+    <div class="px-4 md:px-12 py-8">
         <h1 class="text-4xl font-semibold">Frequently Asked <span class="text-primary">Questions</span></h1>
         <div class="md:w-140 w-auto mx-auto mt-8">
             <div class="collapse bg-base-300 border-base-300 border rounded-t-xl rounded-b-none">

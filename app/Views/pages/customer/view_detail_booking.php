@@ -1,7 +1,7 @@
 <?= $this->extend('main/customer/view_main') ?>
 <?= $this->section('content') ?>
 <div class="col-span-12">
-    <div class="grid grid-cols-12 px-12 py-6 gap-x-8 gap-y-6">
+    <div class="grid grid-cols-12 px-4 md:px-12 py-6 gap-x-8 gap-y-6">
         <div class="col-span-12">
             <a href="<?= base_url('/user/booking') ?>" class="btn btn-sm md:btn-md">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5">

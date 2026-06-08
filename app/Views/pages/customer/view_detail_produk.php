@@ -1,8 +1,8 @@
 <?= $this->extend('main/customer/view_main') ?>
 <?= $this->section('content') ?>
 <!-- Content -->
-<div class="col-span-12 px-12 py-8">
-    <a href="javascript:history.back()" class="btn mb-5">
+<div class="col-span-12 px-4 md:px-12 py-8">
+    <a href="<?= base_url('/home') ?>" class="btn mb-5">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
             <path fill-rule="evenodd" d="M11.03 3.97a.75.75 0 0 1 0 1.06l-6.22 6.22H21a.75.75 0 0 1 0 1.5H4.81l6.22 6.22a.75.75 0 1 1-1.06 1.06l-7.5-7.5a.75.75 0 0 1 0-1.06l7.5-7.5a.75.75 0 0 1 1.06 0Z" clip-rule="evenodd" />
         </svg>
@@ -26,13 +26,12 @@
             <div class="flex flex-row items-center gap-2">
                 <div class="rating rating-sm">
                     <?php for ($i = 1; $i <= 5; $i++): ?>
-                        <input type="radio" name="rating-detail" class="mask mask-star-2 bg-orange-400" <?= ($i == round($p['rating'])) ? 'checked' : '' ?> disabled />
+                        <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400" <?= ($i == round($p['rating'])) ? 'checked' : '' ?> disabled />
                     <?php endfor; ?>
                 </div>
                 <p class="text-xs font-semibold"><?= $p['jumlah_review'] ?> Reviews</p>
             </div>
             <p class="text-3xl font-bold mt-3 text-primary">Rp <?= number_format($p['harga'], 0, ',', '.') ?></p>
-
             <div class="mt-5">
                 <p class="text-sm font-bold mb-2">Deskripsi Produk :</p>
                 <p class="text-sm text-gray-500 font-medium text-justify leading-relaxed">
@@ -113,51 +112,52 @@
                 </div>
             </div>
         </div>
-
-        <div class="col-span-12 mb-8">
-            <div>
+        
+        <div class="col-span-12">
+            <div class="mt-16">
                 <div class="flex flex-row items-center gap-3 mb-8">
                     <h2 class="text-2xl font-bold">Ulasan Produk</h2>
                     <span class="badge badge-primary font-bold"><?= count($reviews) ?></span>
-            </div>
-
-            <?php if (empty($reviews)): ?>
-                <div class="bg-base-200 p-10 rounded-xl text-center">
-                    <p class="text-gray-500 italic">Belum ada ulasan untuk produk ini.</p>
                 </div>
-            <?php else: ?>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <?php foreach ($reviews as $r): ?>
-                        <div class="bg-base-200 p-6 rounded-xl border border-base-content/5">
-                            <div class="flex flex-row justify-between items-start mb-4">
-                                <div class="flex flex-row gap-3 items-center">
-                                    <div class="avatar">
-                                        <div class="w-10 rounded-full">
-                                            <?php if ($r['foto_profil']): ?>
-                                                <img src="<?= base_url('assets/img/customer/' . $r['foto_profil']) ?>" />
-                                            <?php else: ?>
-                                                <img src="https://ui-avatars.com/api/?name=<?= urlencode($r['nama_lengkap']) ?>&background=random" />
-                                            <?php endif; ?>
+
+                <?php if (empty($reviews)): ?>
+                    <div class="bg-base-200 p-10 rounded-xl text-center">
+                        <p class="text-gray-500 italic">Belum ada ulasan untuk produk ini.</p>
+                    </div>
+                <?php else: ?>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <?php foreach ($reviews as $r): ?>
+                            <div class="bg-base-200 p-6 rounded-xl border border-base-content/5">
+                                <div class="flex flex-row justify-between items-start mb-4">
+                                    <div class="flex flex-row gap-3 items-center">
+                                        <div class="avatar">
+                                            <div class="w-10 rounded-full">
+                                                <?php if ($r['foto_profil']): ?>
+                                                    <img src="<?= base_url('assets/img/customer/' . $r['foto_profil']) ?>" />
+                                                <?php else: ?>
+                                                    <img src="https://ui-avatars.com/api/?name=<?= urlencode($r['nama_lengkap']) ?>&background=random" />
+                                                <?php endif; ?>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <p class="text-sm font-bold"><?= $r['nama_lengkap'] ?></p>
+                                            <p class="text-[10px] text-gray-400 font-semibold"><?= date('d M Y', strtotime($r['created_at'])) ?></p>
                                         </div>
                                     </div>
-                                    <div>
-                                        <p class="text-sm font-bold"><?= $r['nama_lengkap'] ?></p>
-                                        <p class="text-[10px] text-gray-400 font-semibold"><?= date('d M Y', strtotime($r['created_at'])) ?></p>
+                                    <div class="rating rating-xs">
+                                        <?php for ($i = 1; $i <= 5; $i++): ?>
+                                            <input type="radio" class="mask mask-star-2 bg-orange-400" <?= ($i == $r['rating']) ? 'checked' : '' ?> disabled />
+                                        <?php endfor; ?>
                                     </div>
                                 </div>
-                                <div class="rating rating-xs">
-                                    <?php for ($i = 1; $i <= 5; $i++): ?>
-                                        <input type="radio" class="mask mask-star-2 bg-orange-400" <?= ($i == $r['rating']) ? 'checked' : '' ?> disabled />
-                                    <?php endfor; ?>
-                                </div>
+                                <p class="text-sm text-gray-500 font-medium leading-relaxed">
+                                    <?= esc($r['komentar']) ?>
+                                </p>
                             </div>
-                            <p class="text-sm text-gray-500 font-medium leading-relaxed">
-                                <?= esc($r['komentar']) ?>
-                            </p>
-                        </div>
-                    <?php endforeach; ?>
-                </div>
-            <?php endif; ?>
+                        <?php endforeach; ?>
+                    </div>
+                <?php endif; ?>
+            </div>
         </div>
     </div>
 </div>

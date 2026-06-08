@@ -96,7 +96,7 @@
                 <div class="grid grid-cols-12 gap-8">
                     <?php foreach ($trainers as $t): ?>
                         <div class="md:col-span-4 col-span-6">
-                            <a href="<?= base_url('/trainer/detail/' . $t['id_trainer']) ?>" class="card bg-base-300 w-full shadow-sm hover:shadow-lg hover:shadow-blue-500/50 transition-all duration-300 h-full">
+                            <a href="<?= base_url('/user/trainer/detail/' . $t['id_trainer']) ?>" class="card bg-base-300 w-full shadow-sm hover:shadow-lg hover:shadow-blue-500/50 transition-all duration-300 h-full">
                                 <figure>
                                     <img src="<?= base_url('assets/img/trainer/' . ($t['foto_profil'] ?: 'default.png')) ?>"
                                         alt="<?= $t['nama_trainer'] ?>"

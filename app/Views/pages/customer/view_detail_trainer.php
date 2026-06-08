@@ -1,7 +1,7 @@
 <?= $this->extend('main/customer/view_main') ?>
 <?= $this->section('content') ?>
 <!-- Content -->
-<div class="col-span-12 px-12 py-8">
+<div class="col-span-12 px-4 md:px-12 py-8">
     <a href="javascript:history.back()" class="btn mb-5 text-xs font-bold uppercase transition-all duration-300">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-4">
             <path fill-rule="evenodd"
@@ -68,9 +68,9 @@
                     </fieldset>
                 </div>
 
-                <div class="flex flex-row gap-3 pt-4">
+                <div class="flex flex-col md:flex-row gap-3 pt-4">
                     <button type="submit"
-                        class="btn btn-primary flex-1 text-white font-bold rounded-xl shadow-lg shadow-blue-500/30">BOOKING
+                        class="btn btn-primary md:flex-1 text-white font-bold rounded-xl shadow-lg shadow-blue-500/30">BOOKING
                         SESI SEKARANG</button>
                     <a href="https://wa.me/621234567890?text=Halo%20saya%20ingin%20tanya%20tentang%20trainer%20<?= urlencode($t['nama_trainer']) ?>"
                         target="_blank" class="btn btn-outline btn-success rounded-xl font-bold">

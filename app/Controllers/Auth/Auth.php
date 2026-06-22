@@ -105,12 +105,18 @@ class Auth extends BaseController
             'nama_lengkap'       => 'required|min_length[3]|max_length[100]',
             'username'           => 'required|alpha_numeric|min_length[3]|max_length[50]|is_unique[customers.username]|is_unique[admins.username]|is_unique[suppliers.username]|is_unique[trainers.username]',
             'email'              => 'required|valid_email|is_unique[customers.email]|is_unique[admins.email]|is_unique[suppliers.email]|is_unique[trainers.email]',
-            'password'           => 'required|min_length[6]',
+            'password'           => 'required|min_length[8]',
             'konfirmasi_password' => 'required|matches[password]',
             'terms'              => 'required'
         ];
 
-        if (!$this->validate($rules)) {
+        $errors = [
+            'password' => [
+                'min_length' => 'Password minimal harus 8 karakter.'
+            ]
+        ];
+
+        if (!$this->validate($rules, $errors)) {
             return redirect()->back()->withInput()->with('validation', $this->validator->getErrors());
         }
 

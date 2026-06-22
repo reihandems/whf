@@ -69,7 +69,8 @@
                     <div class="col-span-1">
                         <fieldset class="fieldset">
                             <legend class="fieldset-legend">Password</legend>
-                            <input type="password" name="password" class="input w-full" placeholder="Masukkan Password" required />
+                            <input type="password" id="password" name="password" class="input w-full" placeholder="Masukkan Password" required />
+                            <p class="text-xs text-error mt-1 hidden" id="password-warning">Password kurang dari 8 karakter</p>
                         </fieldset>
                     </div>
                     <div class="col-span-2">
@@ -95,6 +96,23 @@
             </div>
         </div>
     </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const passwordInput = document.getElementById('password');
+            const passwordWarning = document.getElementById('password-warning');
+
+            if (passwordInput && passwordWarning) {
+                passwordInput.addEventListener('input', function() {
+                    const val = this.value;
+                    if (val.length > 0 && val.length < 8) {
+                        passwordWarning.classList.remove('hidden');
+                    } else {
+                        passwordWarning.classList.add('hidden');
+                    }
+                });
+            }
+        });
+    </script>
 </body>
 
 </html>

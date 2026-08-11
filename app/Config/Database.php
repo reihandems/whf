@@ -41,7 +41,7 @@ class Database extends Config
         'compress'     => false,
         'strictOn'     => false,
         'failover'     => [],
-        'port'         => 3306,
+        'port'         => 4000,
         'numberNative' => false,
         'foundRows'    => false,
         'dateFormat'   => [
@@ -179,7 +179,7 @@ class Database extends Config
         'compress'    => false,
         'strictOn'    => false,
         'failover'    => [],
-        'port'        => 4000,
+        'port'        => 3306,
         'foreignKeys' => true,
         'busyTimeout' => 1000,
         'synchronous' => null,
@@ -203,5 +203,11 @@ class Database extends Config
 
         // ✅ Cast ke (int) wajib, MySQLi error jika port bertipe string
         $this->default['port'] = (int) env('DB_PORT', 4000);
+
+        // ✅ Konfigurasi SSL dengan CA cert TiDB
+        $this->default['encrypt'] = [
+            'ssl_ca' => ROOTPATH . 'certs/isrgrootx1.pem',
+            'ssl_verify' => true,
+        ];
     }
 }

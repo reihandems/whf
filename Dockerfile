@@ -21,11 +21,14 @@ RUN sed -i 's|/var/www/html|/var/www/html/public|g' /etc/apache2/sites-available
 
 # ✅ WAJIB: Teruskan env var dari sistem ke PHP via Apache
 # Tanpa ini, semua env var dari Render tidak akan terbaca oleh PHP
-RUN echo "PassEnv DB_HOSTNAME DB_USERNAME DB_PASSWORD DB_DATABASE DB_PORT CI_ENVIRONMENT APP_BASEURL" \
+RUN echo "PassEnv DB_HOSTNAME DB_USERNAME DB_PASSWORD DB_DATABASE DB_PORT CI_ENVIRONMENT" \
     >> /etc/apache2/apache2.conf
 
 # Salin semua file project ke dalam container
 COPY . /var/www/html/
+
+# ✅ Set permission CA cert agar bisa dibaca
+RUN chmod 644 /var/www/html/certs/isrgrootx1.pem
 
 # Atur permission folder writable
 RUN chown -R www-data:www-data /var/www/html/writable

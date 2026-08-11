@@ -105,6 +105,14 @@ class Produk extends BaseController
             }
         }
 
+        $page = $this->request->getPost('page_produk') ?? 1;
+        $keyword = $this->request->getPost('keyword') ?? '';
+
+        $redirectUrl = base_url('/admin/data-produk') . '?page_produk=' . $page;
+        if ($keyword) {
+            $redirectUrl .= '&keyword=' . urlencode($keyword);
+        }
+
         $this->produkModel->update($id, [
             'id_kategori'   => $this->request->getPost('id_kategori'),
             'id_brand'      => $this->request->getPost('id_brand'),
@@ -120,7 +128,7 @@ class Produk extends BaseController
             'is_active'     => $this->request->getPost('is_active') ?? 1
         ]);
 
-        return redirect()->to(base_url('/admin/data-produk'))->with('success', 'Produk berhasil diperbarui.');
+        return redirect()->to($redirectUrl)->with('success', 'Produk berhasil diperbarui.');
     }
 
     public function delete($id)
@@ -134,7 +142,15 @@ class Produk extends BaseController
             }
         }
 
+        $page = $this->request->getGet('page_produk') ?? 1;
+        $keyword = $this->request->getGet('keyword') ?? '';
+
+        $redirectUrl = base_url('/admin/data-produk') . '?page_produk=' . $page;
+        if ($keyword) {
+            $redirectUrl .= '&keyword=' . urlencode($keyword);
+        }
+
         $this->produkModel->delete($id);
-        return redirect()->to(base_url('/admin/data-produk'))->with('success', 'Produk berhasil dihapus.');
+        return redirect()->to($redirectUrl)->with('success', 'Produk berhasil dihapus.');
     }
 }

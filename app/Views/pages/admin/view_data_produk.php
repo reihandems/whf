@@ -83,7 +83,7 @@
                                             <path fill="currentColor" d="M3 21v-4.25L16.2 3.575q.3-.275.663-.425t.762-.15t.775.15t.65.45L20.425 5q.3.275.438.65t.137.75t-.137.763t-.438.662L7.25 21zM17.6 7.8L19 6.4L17.6 5L16.2 6.4z" />
                                         </svg>
                                     </button>
-                                    <a href="<?= base_url('/admin/data-produk/delete/' . $p['id_produk']) ?>" onclick="return confirm('Hapus produk ini?')" class="btn btn-square btn-ghost btn-xs text-error">
+                                    <a href="<?= base_url('/admin/data-produk/delete/' . $p['id_produk']) ?>?page_produk=<?= $pager->getCurrentPage('produk') ?>&keyword=<?= urlencode($keyword) ?>" onclick="return confirm('Hapus produk ini?')" class="btn btn-square btn-ghost btn-xs text-error">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24">
                                             <path fill="currentColor" d="M7 21q-.825 0-1.412-.587T5 19V6q-.425 0-.712-.288T4 5t.288-.712T5 4h4q0-.425.288-.712T10 3h4q.425 0 .713.288T15 4h4q.425 0 .713.288T20 5t-.288.713T19 6v13q0 .825-.587 1.413T17 21zM17 6H7v13h10zM9 17h2V8H9zm4 0h2V8h-2zM7 6v13z" />
                                         </svg>
@@ -174,6 +174,8 @@
         <form action="<?= base_url('/admin/data-produk/update') ?>" method="POST" enctype="multipart/form-data">
             <?= csrf_field() ?>
             <input type="hidden" name="id_produk" id="edit_id">
+            <input type="hidden" name="page_produk" value="<?= $pager->getCurrentPage('produk') ?>">
+            <input type="hidden" name="keyword" value="<?= esc($keyword) ?>">
             <h3 class="font-bold text-lg mb-4">Edit Produk</h3>
             <div class="grid grid-cols-2 gap-4">
                 <fieldset class="fieldset col-span-2 md:col-span-1">

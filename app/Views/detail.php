@@ -128,7 +128,7 @@
                         <img
                             src="<?= base_url('assets/img/produk/' . ($p['foto_produk'] ?: 'default.png')) ?>"
                             class="w-full h-[450px] lg:h-[520px] object-cover rounded-2xl shadow-xl border border-base-content/5" 
-                            onerror="this.src='https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp'" />
+                            onerror="this.src=<?= base_url('assets/img/produk/default.png') ?>" />
                     </div>
                 </div>
 

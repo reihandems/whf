@@ -71,7 +71,7 @@
                                 <div class="md:col-span-3 col-span-6">
                                     <a href="<?= base_url('/produk/detail/' . $p['id_produk']) ?>" class="card bg-base-300 w-full shadow-sm hover:shadow-lg hover:shadow-blue-500/50 transition-all duration-300">
                                         <figure>
-                                            <img src="<?= base_url('assets/img/produk/' . ($p['foto_produk'] ? : 'default.png')) ?>" alt="<?= $p['nama_produk'] ?>" class="md:h-64 h-48 w-full object-cover" />
+                                            <img src="<?= base_url('assets/img/produk/' . ($p['foto_produk'] ? : 'default.png')) ?>" alt="<?= $p['nama_produk'] ?>" class="md:h-64 h-48 w-full object-cover" onerror="this.src=<?= base_url('assets/img/produk/default.png') ?>" />
                                         </figure>
                                         <div class="card-body p-4">
                                             <p class="text-xs text-gray-400 font-semibold"><?= $p['nama_brand'] ?></p>

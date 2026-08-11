@@ -65,35 +65,61 @@
                         </div>
                         <p class="text-xs font-semibold"><?= $t['jumlah_review'] ?> Reviews</p>
                     </div>
-                    <p class="text-2xl font-bold mt-3 text-primary">Rp <?= number_format($t['harga_per_sesi'], 0, ',', '.') ?> <span class="text-sm font-normal text-gray-400">/ sesi</span></p>
+                    <div class="bg-base-200 p-6 rounded-2xl mb-6 border border-base-content/5">
+                        <div class="flex justify-between items-center">
+                            <div>
+                                <p class="text-xs font-bold text-gray-400 uppercase mb-1">Harga per Sesi</p>
+                                <p class="text-2xl font-bold text-primary">Rp <?= number_format($t['harga_per_sesi'], 0, ',', '.') ?> <span class="text-sm font-normal text-gray-400">/ sesi</span></p>
+                            </div>
+                            <div class="text-right">
+                                <p class="text-xs font-bold text-gray-400 uppercase mb-1">Durasi Sesi</p>
+                                <p class="text-sm font-black text-secondary">60 Menit / sesi</p>
+                            </div>
+                        </div>
+                    </div>
 
                     <div class="mt-5">
                         <p class="text-sm font-bold mb-2">Deskripsi Trainer :</p>
-                        <p class="text-sm text-gray-500 font-medium text-justify leading-relaxed">
+                        <p class="text-sm text-gray-500 font-medium text-justify leading-relaxed mb-6">
                             <?= nl2br(esc($t['deskripsi'])) ?>
                         </p>
                     </div>
 
+                    <!-- Booking steps guide -->
+                    <div class="bg-primary/5 p-6 rounded-2xl mb-6 border border-primary/10">
+                        <h3 class="text-sm font-extrabold text-primary uppercase tracking-wider mb-4 flex items-center gap-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-4 h-4">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M11.25 11.25l.041-.02a.75.75 0 111.083 1.083l-.02.041m-1.083-1.083A2.25 2.25 0 0013.5 13.5M12 21a9 9 0 110-18 9 9 0 010 18z" />
+                            </svg>
+                            Panduan Booking Sesi
+                        </h3>
+                        <ul class="steps steps-vertical md:steps-horizontal w-full text-xs font-semibold gap-y-2 md:gap-y-0">
+                            <li class="step step-primary text-[11px]">Pilih Jadwal & Sesi</li>
+                            <li class="step step-primary text-[11px]">Selesaikan Pembayaran</li>
+                            <li class="step text-[11px]">Mulai Latihan (60 Min)</li>
+                        </ul>
+                    </div>
+
                     <div class="flex flex-col md:flex-row gap-3 mt-8 w-full">
-    <a href="<?= base_url('/login') ?>" 
-       class="btn btn-primary w-full md:flex-1 text-white">
-        Login untuk Booking
-    </a>
+                        <a href="<?= base_url('/login') ?>" 
+                           class="btn btn-primary w-full md:flex-1 text-white font-bold rounded-xl shadow-lg shadow-blue-500/30">
+                            Login untuk Booking
+                        </a>
 
-    <a href="https://wa.me/621234567890?text=Halo%20saya%20ingin%20tanya%20tentang%20trainer%20<?= urlencode($t['nama_trainer']) ?>" 
-       target="_blank" 
-       class="btn btn-outline btn-success w-full md:flex-1 min-w-0 whitespace-normal h-auto py-3 text-center">
-        
-        <svg xmlns="http://www.w3.org/2000/svg" 
-             width="22" height="22" 
-             viewBox="0 0 24 24"
-             class="shrink-0">
-            <path fill="currentColor" d="M19.05 4.91A9.82 9.82 0 0 0 12.04 2c-5.46 0-9.91 4.45-9.91 9.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21c5.46 0 9.91-4.45 9.91-9.91c0-2.65-1.03-5.14-2.9-7.01m-7.01 15.24c-1.48 0-2.93-.4-4.2-1.15l-.3-.18l-3.12.82l.83-3.04l-.2-.31a8.26 8.26 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24c2.2 0 4.27.86 5.82 2.42a8.18 8.18 0 0 1 2.41 5.83c.02 4.54-3.68 8.23-8.22 8.23m4.52-6.16c-.25-.12-1.47-.72-1.69-.81c-.23-.08-.39-.12-.56.12c-.17.25-.64.81-.78.97c-.14.17-.29.19-.54.06c-.25-.12-1.05-.39-1.99-1.23c-.74-.66-1.23-1.47-1.38-1.72c-.14-.25-.02-.38.11-.51c.11-.11.25-.29.37-.43s.17-.25.25-.41c.08-.17.04-.31-.02-.43s-.56-1.34-.76-1.84c-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31c-.22.25-.86.85-.86 2.07s.89 2.4 1.01 2.56c.12.17 1.75 2.67 4.23 3.74c.59.26 1.05.41 1.41.52c.59.19 1.13.16 1.56.1c.48-.07 1.47-.6 1.67-1.18c.21-.58.21-1.07.14-1.18s-.22-.16-.47-.28" />
-        </svg>
+                        <a href="https://wa.me/621234567890?text=Halo%20saya%20ingin%20tanya%20tentang%20trainer%20<?= urlencode($t['nama_trainer']) ?>" 
+                           target="_blank" 
+                           class="btn btn-outline btn-success w-full md:flex-1 min-w-0 whitespace-normal h-auto py-3 text-center rounded-xl font-bold">
+                            
+                            <svg xmlns="http://www.w3.org/2000/svg" 
+                                 width="22" height="22" 
+                                 viewBox="0 0 24 24"
+                                 class="shrink-0 inline me-1">
+                                <path fill="currentColor" d="M19.05 4.91A9.82 9.82 0 0 0 12.04 2c-5.46 0-9.91 4.45-9.91 9.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21c5.46 0 9.91-4.45 9.91-9.91c0-2.65-1.03-5.14-2.9-7.01m-7.01 15.24c-1.48 0-2.93-.4-4.2-1.15l-.3-.18l-3.12.82l.83-3.04l-.2-.31a8.26 8.26 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24c2.2 0 4.27.86 5.82 2.42a8.18 8.18 0 0 1 2.41 5.83c.02 4.54-3.68 8.23-8.22 8.23m4.52-6.16c-.25-.12-1.47-.72-1.69-.81c-.23-.08-.39-.12-.56.12c-.17.25-.64.81-.78.97c-.14.17-.29.19-.54.06c-.25-.12-1.05-.39-1.99-1.23c-.74-.66-1.23-1.47-1.38-1.72c-.14-.25-.02-.38.11-.51c.11-.11.25-.29.37-.43s.17-.25.25-.41c.08-.17.04-.31-.02-.43s-.56-1.34-.76-1.84c-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31c-.22.25-.86.85-.86 2.07s.89 2.4 1.01 2.56c.12.17 1.75 2.67 4.23 3.74c.59.26 1.05.41 1.41.52c.59.19 1.13.16 1.56.1c.48-.07 1.47-.6 1.67-1.18c.21-.58.21-1.07.14-1.18s-.22-.16-.47-.28" />
+                            </svg>
 
-        <span class="break-words leading-tight">Tanya via WhatsApp</span>
-    </a>
-</div>
+                            <span class="break-words leading-tight">Tanya via WhatsApp</span>
+                        </a>
+                    </div>
 
                     <div class="grid grid-cols-2 gap-4 mt-8">
                         <div class="bg-base-200 p-4 rounded-xl">

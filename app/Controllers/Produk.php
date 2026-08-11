@@ -45,10 +45,20 @@ class Produk extends BaseController
         $reviewModel = new \App\Models\ReviewProdukModel();
         $reviews = $reviewModel->getReviewsByProduct($id);
 
+        // Fetch related products (same category, exclude current product)
+        $relatedProducts = $produkModel->select('produk.*, brands.nama_brand')
+            ->join('brands', 'brands.id_brand = produk.id_brand')
+            ->where('id_kategori', $produk['id_kategori'])
+            ->where('id_produk !=', $id)
+            ->where('is_active', 1)
+            ->limit(4)
+            ->find();
+
         $data = [
             'menu' => 'produk',
             'p' => $produk,
-            'reviews' => $reviews
+            'reviews' => $reviews,
+            'relatedProducts' => $relatedProducts
         ];
 
         return view('detail', $data);

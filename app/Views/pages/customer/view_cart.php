@@ -2,13 +2,16 @@
 <?= $this->section('content') ?>
 <div class="col-span-12">
     <div class="grid grid-cols-12 px-4 md:px-12 py-6 gap-x-8">
-        <div class="col-span-12">
-            <div class="breadcrumbs text-sm">
-                <ul>
-                    <li><a href="<?= base_url('user/home') ?>" class="text-gray-500">Home</a></li>
-                    <li><a class="font-bold border-b-2 border-primary">Keranjang</a></li>
-                </ul>
-            </div>
+        <!-- Progress steps -->
+        <div class="col-span-12 mb-8 flex justify-center">
+            <ul class="steps w-full max-w-lg font-semibold text-xs md:text-sm">
+                <li class="step step-primary">Keranjang Belanja</li>
+                <li class="step">Data Pengiriman</li>
+                <li class="step">Pembayaran Selesai</li>
+            </ul>
+        </div>
+
+        <div class="col-span-12 mb-6">
             <h1 class="text-3xl font-black mt-2 uppercase tracking-tighter">Keranjang Belanja</h1>
         </div>
 

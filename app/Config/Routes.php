@@ -16,6 +16,10 @@ $routes->post('/notification/doku', 'Notification\Payment::doku');
 $routes->get('/produk', 'Produk::index');
 $routes->get('/produk/detail/(:num)', 'Produk::detail/$1');
 
+// ALL ROLE - SEARCH
+$routes->get('/search', 'Search::index');
+$routes->get('/api/search', 'Api\Search::index');
+
 // ALL ROLE - TRAINER
 $routes->get('/trainer', 'Trainer::index');
 $routes->get('/trainer/detail/(:num)', 'Trainer::detail/$1');
@@ -38,6 +42,7 @@ $routes->get('/logout', 'Auth\Auth::logout');
 // -- CUSTOMER (Requires Login) --   
 $routes->group('user', ['filter' => 'auth'], function ($routes) {
     $routes->get('home', 'Customer\Home::index');
+    $routes->get('search', 'Customer\Search::index');
     $routes->get('produk', 'Customer\Produk::index');
     $routes->get('produk/detail/(:num)', 'Customer\DetailProduk::index/$1');
     $routes->get('trainer', 'Customer\Trainer::index');

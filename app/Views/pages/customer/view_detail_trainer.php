@@ -38,11 +38,18 @@
             </div>
 
             <div class="bg-base-200/50 p-6 rounded-2xl mb-6 border border-base-content/5">
-                <p class="text-xs font-bold text-gray-400 uppercase mb-1">Harga per Sesi</p>
-                <div class="flex items-end gap-2">
-                    <h2 class="text-3xl font-black text-primary">Rp
-                        <?= number_format($t['harga_per_sesi'], 0, ',', '.') ?></h2>
-                    <p class="text-sm font-semibold text-gray-500 mb-1">/ sesi</p>
+                <div class="flex justify-between items-center mb-4">
+                    <div>
+                        <p class="text-xs font-bold text-gray-400 uppercase mb-1">Harga per Sesi</p>
+                        <div class="flex items-end gap-2">
+                            <h2 class="text-3xl font-black text-primary">Rp <?= number_format($t['harga_per_sesi'], 0, ',', '.') ?></h2>
+                            <p class="text-sm font-semibold text-gray-500 mb-1">/ sesi</p>
+                        </div>
+                    </div>
+                    <div class="text-right">
+                        <p class="text-xs font-bold text-gray-400 uppercase mb-1">Durasi Sesi</p>
+                        <p class="text-sm font-black text-secondary">60 Menit / sesi</p>
+                    </div>
                 </div>
             </div>
 
@@ -53,7 +60,22 @@
                 </p>
             </div>
 
-            <form action="<?= base_url('/user/checkout-trainer') ?>" method="GET" class="space-y-4">
+            <!-- Booking steps guide -->
+            <div class="bg-primary/5 p-6 rounded-2xl mb-6 border border-primary/10">
+                <h3 class="text-sm font-extrabold text-primary uppercase tracking-wider mb-4 flex items-center gap-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-4 h-4">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M11.25 11.25l.041-.02a.75.75 0 111.083 1.083l-.02.041m-1.083-1.083A2.25 2.25 0 0013.5 13.5M12 21a9 9 0 110-18 9 9 0 010 18z" />
+                    </svg>
+                    Panduan Booking Sesi
+                </h3>
+                <ul class="steps steps-vertical md:steps-horizontal w-full text-xs font-semibold gap-y-2 md:gap-y-0">
+                    <li class="step step-primary text-[11px]">Pilih Jadwal & Sesi</li>
+                    <li class="step step-primary text-[11px]">Selesaikan Pembayaran</li>
+                    <li class="step text-[11px]">Mulai Latihan (60 Min)</li>
+                </ul>
+            </div>
+
+            <form action="<?= base_url('/user/checkout-trainer') ?>" method="GET" class="bg-base-100 p-6 rounded-2xl border border-base-content/5 shadow-sm space-y-4">
                 <input type="hidden" name="id_trainer" value="<?= $t['id_trainer'] ?>">
                 <div class="grid grid-cols-2 gap-4">
                     <fieldset class="fieldset">
@@ -63,8 +85,11 @@
                     </fieldset>
                     <fieldset class="fieldset">
                         <legend class="fieldset-legend font-bold">Jumlah Sesi:</legend>
-                        <input type="number" name="jumlah_sesi" class="input input-bordered w-full rounded-xl" required
-                            min="1" value="1" />
+                        <div class="relative">
+                            <input type="number" name="jumlah_sesi" class="input input-bordered w-full rounded-xl pr-12" required
+                                min="1" value="1" />
+                            <span class="absolute right-3 top-1/2 -translate-y-1/2 text-xs font-bold text-base-content/50">Sesi</span>
+                        </div>
                     </fieldset>
                 </div>
 

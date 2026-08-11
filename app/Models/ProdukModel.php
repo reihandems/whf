@@ -18,6 +18,8 @@ class ProdukModel extends Model
         'id_supplier',
         'nama_produk',
         'deskripsi',
+        'cara_pemakaian',
+        'kandungan_nutrisi',
         'harga',
         'stok',
         'berat',
@@ -95,6 +97,27 @@ class ProdukModel extends Model
             ->join('kategori_produk', 'kategori_produk.id_kategori = produk.id_kategori')
             ->join('brands', 'brands.id_brand = produk.id_brand')
             ->where('produk.is_active', 1);
+
+        if ($limit) {
+            $builder->limit($limit);
+        }
+
+        return $builder->find();
+    }
+
+    public function searchProducts($keyword, $limit = null)
+    {
+        $builder = $this->select('produk.*, kategori_produk.nama_kategori, kategori_produk.sub_kategori, brands.nama_brand')
+            ->join('kategori_produk', 'kategori_produk.id_kategori = produk.id_kategori')
+            ->join('brands', 'brands.id_brand = produk.id_brand')
+            ->where('produk.is_active', 1)
+            ->groupStart()
+                ->like('produk.nama_produk', $keyword)
+                ->orLike('produk.deskripsi', $keyword)
+                ->orLike('brands.nama_brand', $keyword)
+                ->orLike('kategori_produk.nama_kategori', $keyword)
+                ->orLike('kategori_produk.sub_kategori', $keyword)
+            ->groupEnd();
 
         if ($limit) {
             $builder->limit($limit);

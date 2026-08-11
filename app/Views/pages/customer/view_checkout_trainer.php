@@ -7,92 +7,115 @@
         <input type="hidden" name="tanggal_sesi" value="<?= $tanggal_sesi ?>">
         <input type="hidden" name="jumlah_sesi" value="<?= $jumlah_sesi ?>">
 
-        <div class="col-span-12">
-            <div class="breadcrumbs text-sm">
-                <ul>
-                    <li>
-                        <a href="<?= base_url('user/trainer') ?>" class="text-gray-500">Trainer</a>
-                    </li>
-                    <li>
-                        <a class="font-bold">Pembayaran Booking</a>
-                    </li>
-                </ul>
-            </div>
-            <h1 class="text-2xl font-semibold">Informasi Trainee</h1>
+        <!-- Progress steps -->
+        <div class="col-span-12 mb-8 flex justify-center">
+            <ul class="steps w-full max-w-lg font-semibold text-xs md:text-sm">
+                <li class="step step-primary">Pilih Trainer</li>
+                <li class="step step-primary">Detail Pemesanan</li>
+                <li class="step">Pembayaran Selesai</li>
+            </ul>
         </div>
-        <!-- Form Isi alamat trainee -->
-        <div class="produk col-span-12 md:col-span-6 p-8 bg-base-300 mt-5 rounded-xl flex flex-col gap-10 self-start">
-            <div class="grid grid-cols-6 gap-x-5">
-                <div class="col-span-6">
-                    <fieldset class="fieldset">
-                        <legend class="fieldset-legend">Nama Lengkap</legend>
-                        <input type="text" id="nama_lengkap" name="nama_lengkap" class="input w-full" placeholder="Masukkan nama lengkap" required value="<?= $customer['nama_lengkap'] ?? '' ?>" />
-                    </fieldset>
+
+        <div class="col-span-12 mb-6">
+            <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-base-content/5 pb-4">
+                <div>
+                    <h1 class="text-3xl font-black">Detail Pemesanan</h1>
+                    <p class="text-xs text-base-content/50 mt-1 font-semibold">Harap isi detail informasi Anda (trainee) yang akan mengikuti sesi.</p>
                 </div>
-                <div class="col-span-6 md:col-span-3">
-                    <fieldset class="fieldset">
-                        <legend class="fieldset-legend">Email</legend>
-                        <input type="email" id="email" name="email" class="input w-full" placeholder="Masukkan Email" required value="<?= session()->get('email') ?>" />
-                    </fieldset>
-                </div>
-                <div class="col-span-6 md:col-span-3">
-                    <fieldset class="fieldset">
-                        <legend class="fieldset-legend">No. HP</legend>
-                        <input type="text" id="no_hp" name="no_hp" class="input w-full" placeholder="Masukkan No. HP" required value="<?= $customer['no_hp'] ?? '' ?>" />
-                    </fieldset>
-                </div>
-                <div class="col-span-6">
-                    <fieldset class="fieldset">
-                        <legend class="fieldset-legend">Alamat Lengkap</legend>
-                        <textarea id="alamat_lengkap" name="alamat_lengkap" class="textarea h-24 w-full" placeholder="Masukkan Alamat Lengkap" required><?= $customer['alamat_lengkap'] ?? '' ?></textarea>
-                    </fieldset>
-                </div>
-                <div class="col-span-6 mt-3">
-                    <label class="flex gap-2 items-center cursor-pointer">
-                        <input type="checkbox" id="use_my_data" class="checkbox checkbox-sm checkbox-primary" />
-                        <span class="text-sm">Gunakan Data Saya</span>
-                    </label>
+                <div>
+                    <div class="alert bg-primary/5 border border-primary/20 p-3 rounded-xl flex items-center justify-between gap-4">
+                        <span class="text-xs font-bold text-primary">Isi form otomatis menggunakan data Anda?</span>
+                        <label class="btn btn-primary btn-xs font-black cursor-pointer">
+                            <input type="checkbox" id="use_my_data" class="hidden" />
+                            Gunakan Data Profil
+                        </label>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <div class="ringkasan-pesanan col-span-12 md:col-span-6 p-8 bg-base-300 mt-5 rounded-xl flex flex-col gap-5 self-start">
-            <h1 class="text-xl font-semibold">Review Booking</h1>
-            <div class="flex flex-col gap-8">
-                <div class="flex flex-row items-center justify-between gap-4 md:gap-0">
-                    <div class="kiri flex flex-row items-center gap-5">
-                        <div class="avatar">
-                            <div class="w-20 rounded-xl">
-                                <img src="<?= base_url('assets/img/trainer/' . ($trainer['foto_profil'] ?: 'default.png')) ?>" onerror="this.src='https://img.daisyui.com/images/profile/demo/batperson@192.webp'" />
+        <!-- Form Isi alamat trainee -->
+        <div class="col-span-12 md:col-span-7 flex flex-col gap-6">
+            <div class="bg-base-300 p-6 rounded-2xl border border-base-content/5 shadow-sm space-y-4">
+                <h3 class="text-sm font-extrabold text-primary uppercase tracking-wider mb-2">Informasi Trainee</h3>
+                <div class="grid grid-cols-2 gap-4">
+                    <fieldset class="fieldset col-span-2">
+                        <legend class="fieldset-legend font-bold">Nama Lengkap</legend>
+                        <input type="text" id="nama_lengkap" name="nama_lengkap" class="input input-bordered w-full rounded-xl" placeholder="Masukkan nama lengkap Anda" required value="<?= $customer['nama_lengkap'] ?? '' ?>" />
+                    </fieldset>
+                    <fieldset class="fieldset col-span-2 md:col-span-1">
+                        <legend class="fieldset-legend font-bold">Alamat Email</legend>
+                        <input type="email" id="email" name="email" class="input input-bordered w-full rounded-xl" placeholder="Masukkan alamat email aktif" required value="<?= session()->get('email') ?>" />
+                    </fieldset>
+                    <fieldset class="fieldset col-span-2 md:col-span-1">
+                        <legend class="fieldset-legend font-bold">No. HP / WhatsApp</legend>
+                        <input type="text" id="no_hp" name="no_hp" class="input input-bordered w-full rounded-xl" placeholder="Masukkan No. HP aktif" required value="<?= $customer['no_hp'] ?? '' ?>" />
+                    </fieldset>
+                    <fieldset class="fieldset col-span-2">
+                        <legend class="fieldset-legend font-bold">Alamat Lengkap</legend>
+                        <textarea id="alamat_lengkap" name="alamat_lengkap" class="textarea textarea-bordered h-24 w-full rounded-xl" placeholder="Masukkan alamat tempat tinggal Anda saat ini" required><?= $customer['alamat_lengkap'] ?? '' ?></textarea>
+                    </fieldset>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sticky Review Booking -->
+        <div class="col-span-12 md:col-span-5 md:sticky md:top-24 self-start mt-6 md:mt-0">
+            <div class="bg-base-300 p-6 rounded-2xl border border-base-content/5 shadow-sm flex flex-col gap-5">
+                <h2 class="text-lg font-extrabold text-base-content border-b border-base-content/5 pb-3">
+                    Review Booking
+                </h2>
+                <div class="flex flex-col gap-4">
+                    <div class="flex flex-row items-center gap-3 bg-base-200/40 p-3 rounded-xl">
+                        <div class="avatar shrink-0">
+                            <div class="w-14 h-14 rounded-xl">
+                                <img src="<?= base_url('assets/img/trainer/' . ($trainer['foto_profil'] ?: 'default.png')) ?>" onerror="this.src='https://img.daisyui.com/images/profile/demo/batperson@192.webp'" class="object-cover" />
                             </div>
                         </div>
-                        <div class="flex flex-col gap-1">
-                            <div class="badge badge-soft badge-primary badge-sm"><?= $trainer['kategori'] ?></div>
-                            <h1 class="text-xl font-bold"><?= $trainer['nama_trainer'] ?></h1>
-                            <p class="text-xs text-gray-400">Tanggal Sesi: <span class="font-semibold text-white"><?= date('d M Y', strtotime($tanggal_sesi)) ?></span></p>
-                            <p class="text-xs text-gray-400">Total Sesi: <span class="font-semibold text-white"><?= $jumlah_sesi ?> Sesi</span></p>
-                            <h1 class="font-bold text-lg text-primary">Rp. <?= number_format($trainer['harga_per_sesi'], 0, ',', '.') ?> / sesi</h1>
+                        <div class="overflow-hidden">
+                            <div class="badge badge-soft badge-primary badge-xs mb-0.5 font-bold"><?= $trainer['kategori'] ?></div>
+                            <h4 class="text-sm font-extrabold text-base-content truncate"><?= $trainer['nama_trainer'] ?></h4>
+                            <p class="text-xs text-base-content/60 mt-0.5 font-semibold">Harga: Rp. <?= number_format($trainer['harga_per_sesi'], 0, ',', '.') ?> / sesi</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-base-200/20 p-3 rounded-xl text-xs space-y-2 font-bold text-base-content/70">
+                        <div class="flex justify-between">
+                            <span>Mulai Latihan</span>
+                            <span class="text-base-content font-extrabold"><?= date('d M Y', strtotime($tanggal_sesi)) ?></span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span>Jumlah Sesi</span>
+                            <span class="text-base-content font-extrabold"><?= $jumlah_sesi ?> Sesi (<?= $jumlah_sesi * 60 ?> Menit)</span>
                         </div>
                     </div>
                 </div>
+
+                <div class="divider my-0"></div>
+
+                <div class="space-y-2 text-xs font-bold">
+                    <div class="flex flex-row justify-between text-base-content/60">
+                        <p>Subtotal</p>
+                        <p>Rp. <?= number_format($subtotal, 0, ',', '.') ?></p>
+                    </div>
+                </div>
+
+                <div class="divider my-0"></div>
+
+                <div class="flex flex-row justify-between items-center">
+                    <p class="text-sm font-extrabold text-base-content">Total Pembayaran</p>
+                    <p class="text-xl font-black text-primary">Rp. <?= number_format($total, 0, ',', '.') ?></p>
+                </div>
+
+                <div class="join w-full mt-2">
+                    <input type="text" class="input input-bordered join-item w-full input-sm rounded-l-xl focus:outline-none" placeholder="Kode Promo" />
+                    <button type="button" class="btn join-item btn-outline btn-sm rounded-r-xl font-bold">Apply</button>
+                </div>
+
+                <button type="submit" id="submit-btn" class="btn btn-primary w-full shadow-lg shadow-primary/20 hover:scale-[1.02] transition-all duration-300 h-12 mt-2 text-sm font-black uppercase tracking-wider rounded-xl">
+                    Proses Pembayaran
+                </button>
             </div>
-            <div class="divider my-0"></div>
-            <div class="flex flex-row justify-between">
-                <p class="text-gray-400 text-sm md:text-base">Subtotal</p>
-                <p class="text-sm md:text-base font-semibold">Rp. <?= number_format($subtotal, 0, ',', '.') ?></p>
-            </div>
-            <div class="divider my-1"></div>
-            <div class="flex flex-row justify-between items-center">
-                <p class="text-gray-400 text-lg md:text-xl font-bold">Total</p>
-                <p class="text-xl md:text-2xl font-black text-primary">Rp. <?= number_format($total, 0, ',', '.') ?></p>
-            </div>
-            <div class="join w-full mt-2">
-                <input type="text" class="input join-item w-full" placeholder="Tambah Kode Promo" />
-                <button type="button" class="btn join-item btn-outline">Apply</button>
-            </div>
-            <button type="submit" id="submit-btn" class="btn btn-primary w-full shadow-lg shadow-primary/20 hover:scale-[1.02] transition-all duration-300 h-14 mt-4 text-lg font-bold">
-                Bayar Sekarang
-            </button>
         </div>
     </form>
 </div>

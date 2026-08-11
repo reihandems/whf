@@ -44,12 +44,12 @@ class Profil extends BaseController
         if ($file && $file->isValid() && !$file->hasMoved()) {
             $userLama = $customerModel->find($id_customer);
             $newName = $file->getRandomName();
-            $file->move('assets/img/customer', $newName);
+            $file->move(FCPATH . 'assets/img/customer', $newName);
             $data['foto_profil'] = $newName;
 
             // Delete old photo
-            if ($userLama['foto_profil'] && file_exists('assets/img/customer/' . $userLama['foto_profil'])) {
-                unlink('assets/img/customer/' . $userLama['foto_profil']);
+            if ($userLama['foto_profil'] && file_exists(FCPATH . 'assets/img/customer/' . $userLama['foto_profil'])) {
+                unlink(FCPATH . 'assets/img/customer/' . $userLama['foto_profil']);
             }
 
             // Update session photo

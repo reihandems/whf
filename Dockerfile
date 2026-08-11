@@ -30,9 +30,9 @@ COPY . /var/www/html/
 # ✅ Set permission CA cert agar bisa dibaca
 RUN chmod 644 /var/www/html/certs/isrgrootx1.pem
 
-# Atur permission folder writable
-RUN chown -R www-data:www-data /var/www/html/writable
-RUN chmod -R 777 /var/www/html/writable
+# Atur permission folder writable dan public/assets untuk file upload
+RUN chown -R www-data:www-data /var/www/html/writable /var/www/html/public/assets
+RUN chmod -R 777 /var/www/html/writable /var/www/html/public/assets
 
 # Install Composer dan dependensi project
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer

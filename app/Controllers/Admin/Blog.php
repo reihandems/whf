@@ -42,7 +42,7 @@ class Blog extends BaseController
 
         if ($foto && $foto->isValid() && !$foto->hasMoved()) {
             $namaFoto = $foto->getRandomName();
-            $foto->move('assets/img/blog', $namaFoto);
+            $foto->move(FCPATH . 'assets/img/blog', $namaFoto);
         }
 
         $judul = $this->request->getPost('judul');
@@ -71,10 +71,10 @@ class Blog extends BaseController
 
         if ($foto && $foto->isValid() && !$foto->hasMoved()) {
             $namaFoto = $foto->getRandomName();
-            $foto->move('assets/img/blog', $namaFoto);
+            $foto->move(FCPATH . 'assets/img/blog', $namaFoto);
 
             if ($blogLama['foto_cover']) {
-                $oldPath = 'assets/img/blog/' . $blogLama['foto_cover'];
+                $oldPath = FCPATH . 'assets/img/blog/' . $blogLama['foto_cover'];
                 if (file_exists($oldPath)) {
                     unlink($oldPath);
                 }
@@ -99,7 +99,7 @@ class Blog extends BaseController
     {
         $blog = $this->blogModel->find($id);
         if ($blog['foto_cover']) {
-            $path = 'assets/img/blog/' . $blog['foto_cover'];
+            $path = FCPATH . 'assets/img/blog/' . $blog['foto_cover'];
             if (file_exists($path)) {
                 unlink($path);
             }

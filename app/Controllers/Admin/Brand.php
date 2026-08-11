@@ -54,7 +54,7 @@ class Brand extends BaseController
 
         if ($logo && $logo->isValid() && !$logo->hasMoved()) {
             $namaLogo = $logo->getRandomName();
-            $logo->move('assets/img/brand', $namaLogo);
+            $logo->move(FCPATH . 'assets/img/brand', $namaLogo);
         }
 
         $this->brandModel->save([
@@ -91,10 +91,10 @@ class Brand extends BaseController
 
         if ($logo && $logo->isValid() && !$logo->hasMoved()) {
             $namaLogo = $logo->getRandomName();
-            $logo->move('assets/img/brand', $namaLogo);
+            $logo->move(FCPATH . 'assets/img/brand', $namaLogo);
 
             if ($brandLama['logo']) {
-                $oldPath = 'assets/img/brand/' . $brandLama['logo'];
+                $oldPath = FCPATH . 'assets/img/brand/' . $brandLama['logo'];
                 if (file_exists($oldPath)) {
                     unlink($oldPath);
                 }
@@ -114,7 +114,7 @@ class Brand extends BaseController
     {
         $brand = $this->brandModel->find($id);
         if ($brand['logo']) {
-            $path = 'assets/img/brand/' . $brand['logo'];
+            $path = FCPATH . 'assets/img/brand/' . $brand['logo'];
             if (file_exists($path)) {
                 unlink($path);
             }

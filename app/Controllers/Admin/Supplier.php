@@ -52,7 +52,7 @@ class Supplier extends BaseController
 
         if ($foto && $foto->isValid() && !$foto->hasMoved()) {
             $namaFoto = $foto->getRandomName();
-            $foto->move('assets/img/supplier', $namaFoto);
+            $foto->move(FCPATH . 'assets/img/supplier', $namaFoto);
         }
 
         $this->supplierModel->save([
@@ -87,10 +87,10 @@ class Supplier extends BaseController
 
         if ($foto && $foto->isValid() && !$foto->hasMoved()) {
             $namaFoto = $foto->getRandomName();
-            $foto->move('assets/img/supplier', $namaFoto);
+            $foto->move(FCPATH . 'assets/img/supplier', $namaFoto);
 
             if ($supplierLama['foto_profil']) {
-                $oldPath = 'assets/img/supplier/' . $supplierLama['foto_profil'];
+                $oldPath = FCPATH . 'assets/img/supplier/' . $supplierLama['foto_profil'];
                 if (file_exists($oldPath)) {
                     unlink($oldPath);
                 }
@@ -119,7 +119,7 @@ class Supplier extends BaseController
     {
         $supplier = $this->supplierModel->find($id);
         if ($supplier['foto_profil']) {
-            $path = 'assets/img/supplier/' . $supplier['foto_profil'];
+            $path = FCPATH . 'assets/img/supplier/' . $supplier['foto_profil'];
             if (file_exists($path)) {
                 unlink($path);
             }

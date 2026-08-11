@@ -63,7 +63,7 @@ class Produk extends BaseController
 
         if ($foto && $foto->isValid() && !$foto->hasMoved()) {
             $namaFoto = $foto->getRandomName();
-            $foto->move('assets/img/produk', $namaFoto);
+            $foto->move(FCPATH . 'assets/img/produk', $namaFoto);
         }
 
         $this->produkModel->save([
@@ -94,11 +94,11 @@ class Produk extends BaseController
 
         if ($foto && $foto->isValid() && !$foto->hasMoved()) {
             $namaFoto = $foto->getRandomName();
-            $foto->move('assets/img/produk', $namaFoto);
+            $foto->move(FCPATH . 'assets/img/produk', $namaFoto);
 
             // Hapus foto lama jika ada
             if ($produkLama['foto_produk']) {
-                $oldPath = 'assets/img/produk/' . $produkLama['foto_produk'];
+                $oldPath = FCPATH . 'assets/img/produk/' . $produkLama['foto_produk'];
                 if (file_exists($oldPath)) {
                     unlink($oldPath);
                 }
@@ -128,7 +128,7 @@ class Produk extends BaseController
         $produk = $this->produkModel->find($id);
 
         if ($produk['foto_produk']) {
-            $path = 'assets/img/produk/' . $produk['foto_produk'];
+            $path = FCPATH . 'assets/img/produk/' . $produk['foto_produk'];
             if (file_exists($path)) {
                 unlink($path);
             }

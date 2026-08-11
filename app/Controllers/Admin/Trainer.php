@@ -53,7 +53,7 @@ class Trainer extends BaseController
 
         if ($foto && $foto->isValid() && !$foto->hasMoved()) {
             $namaFoto = $foto->getRandomName();
-            $foto->move('assets/img/trainer', $namaFoto);
+            $foto->move(FCPATH . 'assets/img/trainer', $namaFoto);
         }
 
         $this->trainerModel->save([
@@ -93,10 +93,10 @@ class Trainer extends BaseController
 
         if ($foto && $foto->isValid() && !$foto->hasMoved()) {
             $namaFoto = $foto->getRandomName();
-            $foto->move('assets/img/trainer', $namaFoto);
+            $foto->move(FCPATH . 'assets/img/trainer', $namaFoto);
 
             if ($trainerLama['foto_profil']) {
-                $oldPath = 'assets/img/trainer/' . $trainerLama['foto_profil'];
+                $oldPath = FCPATH . 'assets/img/trainer/' . $trainerLama['foto_profil'];
                 if (file_exists($oldPath)) {
                     unlink($oldPath);
                 }
@@ -130,7 +130,7 @@ class Trainer extends BaseController
     {
         $trainer = $this->trainerModel->find($id);
         if ($trainer['foto_profil']) {
-            $path = 'assets/img/trainer/' . $trainer['foto_profil'];
+            $path = FCPATH . 'assets/img/trainer/' . $trainer['foto_profil'];
             if (file_exists($path)) {
                 unlink($path);
             }
